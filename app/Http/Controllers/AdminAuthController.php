@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Hash;
 use App\Models\Article;
+use App\Models\User;
 use Session;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -36,6 +37,45 @@ class AdminAuthController extends Controller
         }
     }
 
+    public function statistic(){
+        if(!Auth::user()){
+            return redirect('/login');
+        } else {
+            return view('tools.stastic');
+        }
+
+    }
+
+
+    public function setting(){
+        if(!Auth::user()){
+            return redirect('/login');
+        } else {
+            $user = User::with('article')->get();
+            return view('tools.adminsetting', compact('user'));
+        }
+
+    }
+
+    public function createnewadmin(Request $request){
+
+    $request->validate([
+    "user" => "required",
+    "Email" => "required | unique:users,email,",
+    "password" => "required | min:8",
+    ]);
+
+     User::create([
+        "name" => $request->user,
+        "email" => $request->Email,
+        "password" => bcrypt($request->password),
+     ]);
+
+
+     return redirect('dashboard/admin')->withError('["email" => "Email Are Used"]');
+
+
+    }
 
 
     public function signOut(){

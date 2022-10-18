@@ -32,27 +32,31 @@ class ArticleController extends Controller
      */
     public function create(Request $request)
     {
-        $validatedData = $request->validate([
-            'imagesthumbnail' => 'image|file|max:5024',
-            'title' => 'required|min:5',
-            'editor' => 'required|min:20',
+
+
+          $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5024',
           ]);
 
+          if($request->hasFile('image')){
+              $images = $request->file('image');
+              $filename = $images->getClientOriginalName();
+              $request->image->storeAs('thumbnail',$filename);
 
-        $userid = Auth::user()->id;
-        $title = $validatedData->title;
-        $editorcontent = $validatedData->editor;
-        $filename = $validatedData->imagesthumbnail->getClientOriginalName();
-        $request->imagesthumbnail->storeAs('thumbnailpictures',$filename);
+
+          $title = $request->title;
+          $userid = Auth::user()->id;
 
         Article::create([
             "user_id" => $userid,
-            "title" => $title,
+            "title" =>  $title,
             "images" => $filename,
             "slug" => Str::slug($title,'-'),
-            "description" => $editorcontent,
+            "description" => $request->editor,
         ]);
 
+        Alert::success('Artikel Terbuat');
+    }
 
         return redirect('/dashboard');
 
@@ -137,4 +141,29 @@ class ArticleController extends Controller
         return redirect('/dashboard');
 
     }
+
+
+
+
+    public function search(Request $request){
+
+         if($request->ajax()){
+            $output = '';
+            $query = $request->get('search');
+            $articles = Article::where('title','LIKE','%'.$query.'%')->get();
+
+         if($articles){
+            foreach($articles as $article){
+
+                $output = $article->title;
+
+
+            }
+            return response()->json($output);
+        }
+
+        }
+        return view('tools.search');
+    }
+
 }
