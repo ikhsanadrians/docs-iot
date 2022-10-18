@@ -30,3 +30,4 @@ Route::post('/dashboard/tambahartikel',[ArticleController::class,'create'])->nam
 Route::get('/dashboard/statistik',[AdminAuthController::class,'statistic'])->name('statisticindex');
 Route::get('/dashboard/admin',[AdminAuthController::class,'setting'])->name('adminsetting');
 Route::post('/dashboard/admin',[AdminAuthController::class,'createnewadmin'])->name('createadmin');
+Route::get('/dashboard/admin/{user:slug}',[AdminAuthController::class,'admindetails'])->name('admindetails');

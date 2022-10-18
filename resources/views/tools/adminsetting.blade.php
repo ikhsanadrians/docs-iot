@@ -53,6 +53,14 @@
                                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                                 {{ $peruser->article->count() }}
                                             </td>
+                                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+
+                                                <span
+                                                    class="material-symbols-outlined text-slate-700 cursor-pointer hover:text-yellow-700 duration-400">
+                                                    settings
+                                                </span>
+
+                                            </td>
 
                                         </tr>
                                     @endforeach

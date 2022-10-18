@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use Illuminate\Support\Str;
 
 class FirstSeeder extends Seeder
 {
@@ -17,8 +18,10 @@ class FirstSeeder extends Seeder
     {
         User::create([
             "name" => "admin",
-           "email" => "admins@intek.com",
+            "Slug" => Str::slug('admin'),
+            "email" => "admins@intek.com",
            "password" => bcrypt("admin123")
-          ]);
+
+        ]);
     }
 }

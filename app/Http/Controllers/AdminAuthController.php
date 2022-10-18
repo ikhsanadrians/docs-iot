@@ -77,6 +77,16 @@ class AdminAuthController extends Controller
 
     }
 
+   public function admindetails(){
+
+
+
+      return view('tools.admindetail');
+   }
+
+
+
+
 
     public function signOut(){
         Session::flush();
