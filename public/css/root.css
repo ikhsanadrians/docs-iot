@@ -5,7 +5,9 @@
 }
 
 body {
-    background-color:#f7f7f7;
+    max-width: 100%;
+    overflow-x: hidden;
+    background-color: #f7f7f7;
     font-family: 'Plus Jakarta Sans', sans-serif;
     height: 100vh;
     min-height: 100vh;

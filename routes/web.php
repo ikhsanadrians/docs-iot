@@ -30,4 +30,6 @@ Route::post('/dashboard/tambahartikel',[ArticleController::class,'create'])->nam
 Route::get('/dashboard/statistik',[AdminAuthController::class,'statistic'])->name('statisticindex');
 Route::get('/dashboard/admin',[AdminAuthController::class,'setting'])->name('adminsetting');
 Route::post('/dashboard/admin',[AdminAuthController::class,'createnewadmin'])->name('createadmin');
-Route::get('/dashboard/admin/{user:slug}',[AdminAuthController::class,'admindetails'])->name('admindetails');
+Route::get('/dashboard/admin/{user:slug}/details',[AdminAuthController::class,'admindetails'])->name('admindetails');
+Route::get('/dashboard/admin/imageuploader',[AdminAuthController::class,'imageuploaderview'])->name('imageuploader');
+Route::post('/dashboard/admin/imageuploader',[AdminAuthController::class,'imageuploader'])->name('imageuploader');

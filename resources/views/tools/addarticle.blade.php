@@ -2,7 +2,7 @@
 @section('tool')
     <div class="container mt-4 w-full h-full">
         <h1 class="text-2xl opacity-80">Add New Article</h1>
-        <div class="form-group mt-4 w-full h-full">
+        <div class="form-group mt-4 w-full h-full shadow-2xl p-6 rounded-xl">
 
             <form action="{{ route('addarticlepost') }}" method="POST" enctype="multipart/form-data">
                 @csrf
@@ -19,7 +19,8 @@
                 </div>
                 <div class="inputtext-content mt-4">
                     <textarea class="form-control" id="editor" name="editor"></textarea>
-                    <button type="submit" class="p-2 bg-blue-600 mt-4 rounded-md text-white">Create</button>
+                    <button type="submit"
+                        class="p-2 bg-blue-600 mt-4 rounded-md text-white hover:opacity-80">Create</button>
 
             </form>
 
@@ -36,4 +37,5 @@
     <script>
         CKEDITOR.replace('editor');
     </script>
+    <div class="mb-96"></div>
 @endsection

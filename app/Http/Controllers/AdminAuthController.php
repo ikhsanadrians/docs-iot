@@ -5,6 +5,7 @@ use Hash;
 use App\Models\Article;
 use App\Models\User;
 use Session;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -62,11 +63,12 @@ class AdminAuthController extends Controller
     $request->validate([
     "user" => "required",
     "Email" => "required | unique:users,email,",
-    "password" => "required | min:8",
+    "password" => "required"
     ]);
 
      User::create([
         "name" => $request->user,
+        "slug" => Str::slug($request->user),
         "email" => $request->Email,
         "password" => bcrypt($request->password),
      ]);
@@ -77,12 +79,23 @@ class AdminAuthController extends Controller
 
     }
 
-   public function admindetails(){
+   public function admindetails($slug){
+    if(!Auth::user()){
+        return redirect('/login');
+    } else {
+        $user = User::where('slug',$slug)->firstOrFail();
+        return view('tools.admindetail',compact('user'));
+    }
 
-
-
-      return view('tools.admindetail');
    }
+
+
+   public function imageuploaderview(){
+      return view('tools.imageuploader');
+   }
+
+
+
 
 
 

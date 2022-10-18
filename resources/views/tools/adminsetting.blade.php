@@ -8,7 +8,7 @@
             <h1 class="text-2xl opacity-80">Admin Setting</h1>
 
         </div>
-        <div class="mt-4 p-4 table-container w-full h-full shadow-xl bg-white rounded-2xl border-2">
+        <div class="mt-4 p-4 table-container w-full h-full shadow-xl bg-white rounded-xl">
             <div class="flex flex-col">
                 <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
@@ -54,11 +54,12 @@
                                                 {{ $peruser->article->count() }}
                                             </td>
                                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-
-                                                <span
-                                                    class="material-symbols-outlined text-slate-700 cursor-pointer hover:text-yellow-700 duration-400">
-                                                    settings
-                                                </span>
+                                                <a href="{{ route('admindetails', $peruser->slug) }}">
+                                                    <span
+                                                        class="material-symbols-outlined text-slate-700 cursor-pointer hover:text-yellow-700 duration-400">
+                                                        settings
+                                                    </span>
+                                                </a>
 
                                             </td>
 
@@ -75,7 +76,7 @@
             </div>
         </div>
 
-        <div class="addnewadmin mt-8">
+        <div class="addnewadmin p-6 bg-white shadow-2xl rounded-xl mt-8">
             <div class="title">
                 <h1 class="text-2xl opacity-80">Add New Admin</h1>
             </div>

@@ -18,6 +18,29 @@
 
         }
 
+        .article-desc pre {
+            padding: 20px;
+            border: 0px solid black;
+            background: #e7e7e7;
+            border-radius: 10px;
+            width: 100%;
+            white-space: pre-wrap;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .article-desc pre {
+                padding: 20px;
+                border: 0px solid black;
+                background: #e7e7e7;
+                border-radius: 10px;
+                width: 100%;
+                font-size: 10px;
+                white-space: pre-wrap;
+            }
+
+
+        }
+
         .article-desc ul {
             margin-top: 5px;
             border-left: 10px solid rgb(50, 100, 193);
@@ -30,7 +53,7 @@
 
         }
     </style>
-    <main class="pl-0 pr-2 lg:pl-[1.5rem] lg:pt-[3.3rem] lg:pr-[10rem] w-full h-full pt-12">
+    <main class="pl-0 pr-2 lg:pl-[1.5rem] lg:pt-[3.3rem] lg:pr-[10rem] w-full h-full pt-12 mb-16">
         <div class="container w-full h-full">
 
             <div class="authoranddate flex gap-2 relative">
@@ -74,4 +97,8 @@
         </div>
 
     </main>
+    <div class="mb-96"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="{{ asset('js/sintaxhighlightning.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
 @endsection
