@@ -12,15 +12,6 @@ $(document).ready(function () {
     $("#submits").removeAttr("disabled");
     $("#message").text("")
     }
-
-  if(valuepassword.length < 8 && confirmvalue.length < 8){
-    $("#submits").attr("disabled",true);
-    $("#message2").text("Minimal Character 8");
-  } else {
-    $("#submits").removeAttr("disabled");
-    $("#message").text("")
-  }
-
    });
    });
 
