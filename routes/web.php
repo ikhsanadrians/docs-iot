@@ -17,10 +17,10 @@ use App\Http\Controllers\ArticleController;
 
 Route::get('/',[IndexController::class,'index']);
 Route::post('/',[IndexController::class,'index']);
-Route::get('login',[AdminAuthController::class,'index']);
+Route::get('2736fab291f04e69b62d490c3c09361f5b82461a',[AdminAuthController::class,'index']); //login
 Route::get('/article/{slug}',[IndexController::class,'show']);
 Route::get('dashboard',[AdminAuthController::class,'dashboard']);
-Route::post('login',[AdminAuthController::class,'auth'])->name('authpost');
+Route::post('2736fab291f04e69b62d490c3c09361f5b82461a',[AdminAuthController::class,'auth'])->name('authpost'); //login
 Route::get('/logout',[AdminAuthController::class,'signOut'])->name('signout');
 Route::get('/article/{id}/delete',[ArticleController::class,'destroy']);
 Route::get('/article/{id}/edit',[ArticleController::class,'edit']);
@@ -31,5 +31,5 @@ Route::get('/dashboard/statistik',[AdminAuthController::class,'statistic'])->nam
 Route::get('/dashboard/admin',[AdminAuthController::class,'setting'])->name('adminsetting');
 Route::post('/dashboard/admin',[AdminAuthController::class,'createnewadmin'])->name('createadmin');
 Route::get('/dashboard/admin/{user:slug}/details',[AdminAuthController::class,'admindetails'])->name('admindetails');
-Route::get('/dashboard/admin/imageuploader',[AdminAuthController::class,'imageuploaderview'])->name('imageuploader');
-Route::post('/dashboard/admin/imageuploader',[AdminAuthController::class,'imageuploader'])->name('imageuploader');
+Route::get('/dashboard/imageuploader',[AdminAuthController::class,'imageuploaderview'])->name('imageuploader');
+Route::post('/dashboard/imageuploader',[AdminAuthController::class,'imageuploader'])->name('imageuploader');

@@ -90,7 +90,7 @@
                 <img src="{{ asset('storage/thumbnail/' . $article->images) }}" alt="imagethumbnail"
                     class="w-full h-full object-cover rounded-lg">
             </div>
-            <div class="article-desc md:pr-8 pr-4 lg:pr-24">
+            <div class="article-desc md:pr-8 pr-8 lg:pr-24">
                 <p>{!! html_entity_decode($article->description) !!}</p>
             </div>
 
@@ -98,7 +98,7 @@
 
     </main>
     <div class="mb-96"></div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/sintaxhighlightning.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
 @endsection

@@ -2,17 +2,23 @@
 @section('tool')
     <div class="container mt-4 w-full h-full">
         <h1 class="text-2xl opacity-80">Add New Article</h1>
-        <div class="form-group mt-4 w-full h-full shadow-2xl p-6 rounded-xl">
+        <div class="form-group mt-4 w-full h-full shadow-2xl p-6 rounded-xl bg-white border-t-4 border-t-blue-500">
 
             <form action="{{ route('addarticlepost') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <input type="text" name="title"
-                    class="w-full h-12 border-[1.2px] border-zinc-300 rounded-lg pl-4 focus:shadow-md focus:outline-none focus:border-sky-600"
-                    placeholder="Masukan Title Article">
+                <div class="input-title w-full h-full relative flex items-center">
+                    <span class="material-symbols-outlined absolute z-10 pl-2 text-slate-500">
+                        subtitles
+                    </span>
+                    <input type="text" name="title"
+                        class="w-full h-12 border-[1.2px] border-zinc-300 rounded-lg pl-8 focus:shadow-md focus:outline-none focus:border-sky-600"
+                        placeholder="Masukan Title Article">
+
+                </div>
 
                 <div class="upload-images-thumbnail mt-4 mb-4">
                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="file_input">Upload
-                        file</label>
+                        Thumbnail </label>
                     <input type="file"
                         class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                         id="file_input" name="image">

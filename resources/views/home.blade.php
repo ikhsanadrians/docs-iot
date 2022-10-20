@@ -43,7 +43,7 @@
 
 
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/search.js') }}"></script>
     <script type="text/javascript">
         jQuery(document).ready(function($) {

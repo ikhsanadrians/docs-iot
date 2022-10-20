@@ -73,6 +73,8 @@ class AdminAuthController extends Controller
         "password" => bcrypt($request->password),
      ]);
 
+     Alert::success('Admin Baru Terbuat');
+
 
      return redirect('dashboard/admin')->withError('["email" => "Email Are Used"]');
 

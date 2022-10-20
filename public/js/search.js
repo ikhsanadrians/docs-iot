@@ -11,20 +11,22 @@ $(document).ready(function () {
 
                 },
                 success: (data) => {
-
-                    $.each(data,function(index,value){
-                        let article = $(".articlecard").find('h1').text();
-                        console.log(article);
-                        for(let i=0; i<data.length; i++){
-                        if(article[i] != data[i].title ){
-                            console.dir(article[i]);
-                            // $(".articlecard").show();
-                        } else {
-                            // $(".articlecard").hide();
-                            // console.log('data cocok');
-                        }
+                    for(let i=0; i<data.length; i++){
+                     console.log(data[i].title);
                     }
-                    })
+                    // $.each(data,function(index,value){
+                    //     let article = $(".articlecard").find('h1').text();
+                    //     console.log(article);
+                    //     for(let i=0; i<data.length; i++){
+                    //     if(article[i] != data[i].title ){
+                    //         console.dir(article[i]);
+                    //         $(".articlecard").show();
+                    //     } else {
+                    //         $(".articlecard").hide();
+                    //         console.log('data cocok');
+                    //     }
+                    // }
+                    // })
 
 
 

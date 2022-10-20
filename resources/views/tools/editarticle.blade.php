@@ -1,7 +1,8 @@
 @extends('Auth.dashboard')
 @section('tool')
-    <div class="container mt-4 w-full h-full">
-        <h1 class="text-2xl opacity-80">Add New Article</h1>
+    <div class="container mt-4 w-full h-full bg-white shadow-2xl p-2 lg:p-4 rounded-xl border-t-blue-500 border-t-4">
+
+        <h1 class=" text-l md:text-xl lg:text-xl opacity-80">Update The Article</h1>
         <div class="form-group mt-4 w-full h-full">
 
             <form action="{{ route('update', encrypt($editarticle->id)) }}" method="POST" enctype="multipart/form-data">
@@ -13,12 +14,12 @@
                 {{-- <textarea type="text" name="editor1"
                     class="w-full mt-4 h-40 pt-2 border-[1.2px] focus:shadow-md border-zinc-300 rounded-lg pl-4 focus:outline-none focus:border-sky-600"
                     placeholder="Masukan Content"></textarea> --}}
-                <div class="thumbnail-tools flex items-center w-full h-full gap-4">
+                <div class="thumbnail-tools flex lg:flex-row flex-col items-center w-full h-full gap-4">
                     <div class="thumbnail-preview my-4">
                         <p class="text-[15px]">Thumbnail Saat Ini</p>
                         <div class="thumbnail-inner mt-2">
                             <img src="{{ asset('storage/thumbnail/' . $editarticle->images) }}" alt=""
-                                class="object-fill h-30 w-36">
+                                class="object-fill h-full w-full lg:h-30 lg:w-36">
                         </div>
 
                     </div>
@@ -33,9 +34,10 @@
                     </div>
                 </div>
 
-                <div class="inputtext-content mt-4">
+                <div class="inputtext-content mt-4 mb-4">
                     <textarea class="form-control" id="editor" name="editor">{!! $editarticle->description !!}</textarea>
-                    <button type="submit" class="p-2 bg-blue-600 mt-4 rounded-md text-white">Update</button>
+                    <button type="submit"
+                        class="px-4 py-2 font-semibold bg-gradient-to-r from-blue-400 to-blue-600 mt-4 rounded-md text-white">Update</button>
 
                 </div>
             </form>
@@ -48,4 +50,5 @@
     <script>
         CKEDITOR.replace('editor');
     </script>
+    <link rel="stylesheet" href="{{ asset('css/root.css') }}">
 @endsection
