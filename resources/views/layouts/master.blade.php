@@ -20,9 +20,10 @@
             <div class="navbar bg-white shadow-md w-full h-16">
                 <div
                     class="navbarinner flex items-center justify-between w-full h-full pr-4 pl-4 md:pl-16 md:pr-16 lg:pl-24 lg:pr-24">
-                    <div class="title">
+                    <div class="title flex items-center">
+                        <img src="{{ asset('images/docslogo.png') }}" alt="" class="h-12 w-12">
                         <h1
-                            class="text-xl md:text-2xl lg:text-2xl font-bold bg-gradient-to-r from-indigo-500 to-blue-500 bg-clip-text text-transparent">
+                            class="text-xl md:text-2xl lg:text-2xl font-bold bg-gradient-to-r from-sky-500 to-blue-500 bg-clip-text text-transparent">
                             Dokumentasi</h1>
                     </div>
                     <div class="menu flex gap-2 invisible md:visible lg:visible">

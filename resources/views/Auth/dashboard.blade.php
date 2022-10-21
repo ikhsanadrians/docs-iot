@@ -21,9 +21,12 @@
                 <div
                     class="navbarinner flex items-center justify-between w-full h-full pr-4 pl-4 md:pl-16 md:pr-16 lg:pl-24 lg:pr-24">
                     <div class="mobile-title flex justify-between items-center z-10">
-                        <h1
-                            class="text-xl md:text-2xl lg:text-2xl font-bold bg-gradient-to-r from-indigo-500 to-blue-500 bg-clip-text text-transparent">
-                            Dokumentasi</h1>
+                        <div class="title flex items-center">
+                            <img src="{{ asset('images/docslogo.png') }}" alt="" class="h-12 w-12">
+                            <h1
+                                class="text-xl md:text-2xl lg:text-2xl font-bold bg-gradient-to-r from-sky-500 to-blue-500 bg-clip-text text-transparent">
+                                Dokumentasi</h1>
+                        </div>
                         <div
                             class="menuhamburger h-12 w-12 flex items-center  justify-center absolute p-2 right-5 hover:bg-zinc-200 lg:hidden rounded-full text-slate-800 hover:text-slate-700 cursor-pointer duration-300">
                             <input id="hamburgercheckbox" type="checkbox" class="absolute h-8 w-8 opacity-0">
@@ -240,6 +243,9 @@
                             </svg>
                             <span class="flex-1 ml-3 whitespace-nowrap">Back To Dashboard</span>
                         </a>
+                    </li>
+                    <li class="flex justify-center relative">
+                        <img src="{{ asset('images/logointek.png') }}" alt="logointek" class="h-12 w-32 mt-4">
                     </li>
                 </ul>
             </div>

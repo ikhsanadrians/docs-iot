@@ -19,6 +19,7 @@ class FirstSeeder extends Seeder
         User::create([
             "name" => "admin",
             "Slug" => Str::slug('admin'),
+            "role" => "moderator",
             "email" => "admins@intek.com",
            "password" => bcrypt("admin123")
 

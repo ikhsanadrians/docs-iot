@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\UserAuthController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,10 +18,12 @@ use App\Http\Controllers\ArticleController;
 
 Route::get('/',[IndexController::class,'index']);
 Route::post('/',[IndexController::class,'index']);
-Route::get('2736fab291f04e69b62d490c3c09361f5b82461a',[AdminAuthController::class,'index']); //login
+Route::get('2736fab291f04e69b62d490c3c09361f5b82461a',[AdminAuthController::class,'index']); //login admin
 Route::get('/article/{slug}',[IndexController::class,'show']);
 Route::get('dashboard',[AdminAuthController::class,'dashboard']);
-Route::post('2736fab291f04e69b62d490c3c09361f5b82461a',[AdminAuthController::class,'auth'])->name('authpost'); //login
+Route::post('login',[UserAuthController::class,'auth'])->name('authpost'); //loginuser
+Route::get('login',[UserAuthController::class,'index']); //loginuser
+Route::post('2736fab291f04e69b62d490c3c09361f5b82461a',[AdminAuthController::class,'auth'])->name('authpost'); //login admin
 Route::get('/logout',[AdminAuthController::class,'signOut'])->name('signout');
 Route::get('/article/{id}/delete',[ArticleController::class,'destroy']);
 Route::get('/article/{id}/edit',[ArticleController::class,'edit']);
