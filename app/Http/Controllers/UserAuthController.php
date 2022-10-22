@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Str;
+use App\Models\User;
 class UserAuthController extends Controller
 {
     public function index(){
@@ -24,4 +25,22 @@ class UserAuthController extends Controller
    }
 
 
+   public function registerindex(){
+
+     return view('Auth.userregister');
+
+   }
+
+   public function register(Request $request){
+     User::create([
+          "name" => $request->username,
+          "slug" => Str::slug($request->username),
+          "role" => "default_user",
+          "email" => $request->email,
+          "password" => bcrypt($request->password),
+
+     ]);
+
+    return redirect('/');
+   }
 }

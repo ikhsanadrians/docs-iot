@@ -66,7 +66,7 @@
                 <div class="date text-sky-900 font-bold">
                     <p>{{ $article->created_at->format('M d , Y') }}</p>
                 </div>
-                @if (Auth::user())
+                @if (Auth::user()->role == 'moderator')
                     <a href="{{ '/article/' . encrypt($article->id) . '/edit' }}">
                         <div
                             class="absolute right-0 lg:right-24 edit flex items-center py-[3.6px] rounded-2xl px-[7.5px] text-white gap-1 bg-gradient-to-r from-purple-500 to-cyan-600">
@@ -86,7 +86,7 @@
                 <h1 class="lg:text-[2.6rem] md:text-[2.3rem] text-[2rem] font-bold text-sky-900 ">{{ $article->title }}
                 </h1>
             </div>
-            <div class="article-images pr-0 md:pr-2 lg:pr-24 overflow-hidden mb-8 mt-4">
+            <div class="article-images pr-0 md:pr-2 lg:pr-24 overflow-hidden mb-8 mt-4 user-select">
                 <img src="{{ asset('storage/thumbnail/' . $article->images) }}" alt="imagethumbnail"
                     class="w-full h-full object-cover rounded-lg">
             </div>

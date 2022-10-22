@@ -17,8 +17,8 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        if(!Auth::user()){
-            return redirect('/login');
+        if(!Auth::user() || Auth::user()->role != "moderator"){
+            return redirect('/404');
         } else {
             return view('tools.addarticle');
 

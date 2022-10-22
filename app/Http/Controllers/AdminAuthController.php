@@ -33,14 +33,16 @@ class AdminAuthController extends Controller
         $article = Article::all();
         if(!Auth::check()){
             return redirect('/login')->withErrors(['msg' => 'The Message']);
-        } else {
+        } else if (Auth::user()->role == "moderator") {
         return view('Auth.dashboard',compact('article'));
+        } else {
+            return redirect('/login')->withErrors(['msg' => 'The Message']);
         }
     }
 
     public function statistic(){
-        if(!Auth::user()){
-            return redirect('/login');
+        if(!Auth::user() || Auth::user()->role != "moderator"){
+            return redirect('/404');
         } else {
             return view('tools.stastic');
         }
@@ -49,8 +51,8 @@ class AdminAuthController extends Controller
 
 
     public function setting(){
-        if(!Auth::user()){
-            return redirect('/login');
+        if(!Auth::user() || Auth::user()->role != "moderator"){
+            return redirect('/404');
         } else {
             $user = User::with('article')->get();
             return view('tools.adminsetting', compact('user'));
@@ -82,8 +84,8 @@ class AdminAuthController extends Controller
     }
 
    public function admindetails($slug){
-    if(!Auth::user()){
-        return redirect('/login');
+    if(!Auth::user() || Auth::user()->role != "moderator"){
+        return redirect('/404');
     } else {
         $user = User::where('slug',$slug)->firstOrFail();
         return view('tools.admindetail',compact('user'));
@@ -95,12 +97,6 @@ class AdminAuthController extends Controller
    public function imageuploaderview(){
       return view('tools.imageuploader');
    }
-
-
-
-
-
-
 
 
     public function signOut(){

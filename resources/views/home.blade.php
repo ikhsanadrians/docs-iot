@@ -14,6 +14,9 @@
 
                 </div>
             </div>
+            @if (Auth::user())
+                <h1>{{ Auth::user()->name }}</h1>
+            @endif
             <div class="articles-menu w-full h-full mt-12 flex flex-wrap gap-10">
                 @foreach ($articleall as $article)
                     <div class="articlecard w-full md:w-[90%] lg:w-[45%] rounded-md relative  h-[18rem] bg-slate-300 overflow-hidden"

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\RedirectHandlesController;
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\UserAuthController;
@@ -21,8 +22,10 @@ Route::post('/',[IndexController::class,'index']);
 Route::get('2736fab291f04e69b62d490c3c09361f5b82461a',[AdminAuthController::class,'index']); //login admin
 Route::get('/article/{slug}',[IndexController::class,'show']);
 Route::get('dashboard',[AdminAuthController::class,'dashboard']);
-Route::post('login',[UserAuthController::class,'auth'])->name('authpost'); //loginuser
-Route::get('login',[UserAuthController::class,'index']); //loginuser
+Route::get('login',[UserAuthController::class,'index'])->name('userlogin'); //loginuser
+Route::post('login',[UserAuthController::class,'auth'])->name('userloginpost');//loginuser
+Route::get('register',[UserAuthController::class,'registerindex'])->name('registerindex');
+Route::post('register',[UserAuthController::class,'register'])->name('registerpost');
 Route::post('2736fab291f04e69b62d490c3c09361f5b82461a',[AdminAuthController::class,'auth'])->name('authpost'); //login admin
 Route::get('/logout',[AdminAuthController::class,'signOut'])->name('signout');
 Route::get('/article/{id}/delete',[ArticleController::class,'destroy']);
@@ -36,3 +39,4 @@ Route::post('/dashboard/admin',[AdminAuthController::class,'createnewadmin'])->n
 Route::get('/dashboard/admin/{user:slug}/details',[AdminAuthController::class,'admindetails'])->name('admindetails');
 Route::get('/dashboard/imageuploader',[AdminAuthController::class,'imageuploaderview'])->name('imageuploader');
 Route::post('/dashboard/imageuploader',[AdminAuthController::class,'imageuploader'])->name('imageuploader');
+Route::get('404',[RedirectHandlesController::class,'index']);

@@ -28,28 +28,28 @@
                     </div>
                     <div class="menu flex gap-2 invisible md:visible lg:visible">
                         <div
-                            class="category flex hover:bg-indigo-600 duration-300 rounded-xl text-slate-700 hover:text-slate-100 py-[6.5px] px-2 gap-[1.4px] items-center">
+                            class="category flex hover:bg-gradient-to-r hover:from-sky-600 hover:to-blue-600 duration-400 rounded-xl text-slate-700 hover:text-slate-100 py-[6.5px] px-2 gap-[1.4px] items-center">
                             <span class="material-symbols-outlined flex cursor-pointer items-center">
                                 category
                             </span>
                             <h1 class="font-semibold"><a href="">Category</a></h1>
                         </div>
                         <div
-                            class="topic flex hover:bg-indigo-600 duration-300 rounded-xl text-slate-700 hover:text-slate-100 py-[6.5px] px-2 gap-[1.4px] items-center">
+                            class="topic flex hover:bg-gradient-to-r hover:from-sky-600 hover:to-blue-600 duration-400 rounded-xl text-slate-700 hover:text-slate-100 py-[6.5px] px-2 gap-[1.4px] items-center">
                             <span class="material-symbols-outlined flex cursor-pointer items-center">
                                 topic
                             </span>
                             <h1 class="font-semibold"><a href="">Topic</a></h1>
                         </div>
                         <div
-                            class="article flex hover:bg-indigo-600 duration-300 rounded-xl text-slate-700 hover:text-slate-100 py-[6.5px] px-2 gap-[1.4px] items-center">
+                            class="article flex hover:bg-gradient-to-r hover:from-sky-600 hover:to-blue-600 duration-400 rounded-xl text-slate-700 hover:text-slate-100 py-[6.5px] px-2 gap-[1.4px] items-center">
                             <span class="material-symbols-outlined flex cursor-pointer items-center">
                                 article
                             </span>
                             <h1 class="font-semibold"><a href="">Article</a></h1>
                         </div>
                         <div
-                            class="about flex hover:bg-indigo-600 duration-300 rounded-xl text-slate-700 hover:text-slate-100 py-[6.5px] px-2 gap-[1.4px] items-center">
+                            class="about flex hover:bg-gradient-to-r hover:from-sky-600 hover:to-blue-600 duration-400 rounded-xl text-slate-700 hover:text-slate-100 py-[6.5px] px-2 gap-[1.4px] items-center">
                             <span class="material-symbols-outlined flex cursor-pointer items-center">
                                 support
                             </span>
