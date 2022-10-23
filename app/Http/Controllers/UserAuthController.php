@@ -16,11 +16,12 @@ class UserAuthController extends Controller
            'email' => 'required',
            'password' => 'required',
         ]);
+
         $credentials = $request->only('email','password');
         if(Auth::attempt($credentials)) {
            return redirect()->intended('/')->with('success','Berhasil Login');
         } else {
-           return redirect('/login');
+           return redirect('/login')->with('error','Email Atau Password Salah');
         }
    }
 

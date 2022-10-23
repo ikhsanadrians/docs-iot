@@ -46,11 +46,17 @@
                 </div>
             </div>
 
-            <div
-                class="mt-8 flex justify-center items-center bg-gradient-to-r from-blue-500 to-sky-500 p-2 text-white rounded-2xl w-fit cursor-pointer">
-                <span class="material-symbols-outlined">
-                    arrow_back
-                </span>Back To Previous Page
+            <div class="buttons flex justify-center">
+                <a href="/">
+
+                    <div
+                        class="mt-8 flex justify-center items-center bg-gradient-to-r from-blue-500 to-sky-500 p-2 text-white rounded-2xl w-fit cursor-pointer">
+                        <span class="material-symbols-outlined">
+                            arrow_back
+                        </span>Back To Previous Page
+                    </div>
+                </a>
+
             </div>
 
 

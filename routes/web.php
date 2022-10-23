@@ -19,14 +19,14 @@ use App\Http\Controllers\UserAuthController;
 
 Route::get('/',[IndexController::class,'index']);
 Route::post('/',[IndexController::class,'index']);
-Route::get('2736fab291f04e69b62d490c3c09361f5b82461a',[AdminAuthController::class,'index']); //login admin
+Route::get('loginadmin',[AdminAuthController::class,'index']); //login admin
 Route::get('/article/{slug}',[IndexController::class,'show']);
 Route::get('dashboard',[AdminAuthController::class,'dashboard']);
 Route::get('login',[UserAuthController::class,'index'])->name('userlogin'); //loginuser
 Route::post('login',[UserAuthController::class,'auth'])->name('userloginpost');//loginuser
 Route::get('register',[UserAuthController::class,'registerindex'])->name('registerindex');
 Route::post('register',[UserAuthController::class,'register'])->name('registerpost');
-Route::post('2736fab291f04e69b62d490c3c09361f5b82461a',[AdminAuthController::class,'auth'])->name('authpost'); //login admin
+Route::post('loginadmin',[AdminAuthController::class,'auth'])->name('authpost'); //login admin
 Route::get('/logout',[AdminAuthController::class,'signOut'])->name('signout');
 Route::get('/article/{id}/delete',[ArticleController::class,'destroy']);
 Route::get('/article/{id}/edit',[ArticleController::class,'edit']);

@@ -31,12 +31,10 @@ class AdminAuthController extends Controller
 
     public function dashboard(){
         $article = Article::all();
-        if(!Auth::check()){
-            return redirect('/login')->withErrors(['msg' => 'The Message']);
+        if(!Auth::check() || Auth::user()->role != "moderator"){
+            return redirect('/login')->withErrors(['msg' => 'User Atau Password Salah']);
         } else if (Auth::user()->role == "moderator") {
         return view('Auth.dashboard',compact('article'));
-        } else {
-            return redirect('/login')->withErrors(['msg' => 'The Message']);
         }
     }
 

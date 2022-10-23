@@ -41,9 +41,12 @@
                                 <div class="login-submit w-full mt-2 flex justify-center">
                                     <button type="submit"
                                         class="bg-gradient-to-r from-sky-500 to-blue-600 p-2 w-full text-white font-bold rounded-lg hover:opacity-80 duration-400">Login</button>
+
                                 </div>
+                                <p class="text-center text-red-600" id="messages">{{ Session::get('error') }}</p>
                         </form>
                         <div class="register-option text-sm lg:text-sm font-semibold mt-8">
+
                             <h1 class="text-center text-slate-700">Doesn't Have Account?<span
                                     class="text-center text-blue-600 cursor-pointer"><br><a
                                         href="{{ route('registerindex') }}">Register

@@ -56,17 +56,18 @@
     <main class="pl-0 pr-2 lg:pl-[1.5rem] lg:pt-[3.3rem] lg:pr-[10rem] w-full h-full pt-12 mb-16">
         <div class="container w-full h-full">
 
-            <div class="authoranddate flex gap-2 relative">
+            <div class="authoranddate flex gap-2 relative items-center">
 
                 <div class="author max-w-fit">
                     <p class="text-l bg-gradient-to-r from-blue-600 to-sky-500 px-4 py-[1.8px] rounded-2xl text-white">
                         {{ $article->user->name }}
                     </p>
                 </div>
-                <div class="date text-sky-900 font-bold">
+                <div class="date text-sky-900 font-normal items-center">
                     <p>{{ $article->created_at->format('M d , Y') }}</p>
                 </div>
-                @if (Auth::user()->role == 'moderator')
+                @if (!Auth::user() || Auth::user()->role != 'moderator')
+                @elseif(Auth::user()->role == 'moderator')
                     <a href="{{ '/article/' . encrypt($article->id) . '/edit' }}">
                         <div
                             class="absolute right-0 lg:right-24 edit flex items-center py-[3.6px] rounded-2xl px-[7.5px] text-white gap-1 bg-gradient-to-r from-purple-500 to-cyan-600">
@@ -83,7 +84,7 @@
 
 
             <div class="article-title mb-4">
-                <h1 class="lg:text-[2.6rem] md:text-[2.3rem] text-[2rem] font-bold text-sky-900 ">{{ $article->title }}
+                <h1 class="lg:text-[2.6rem] md:text-[2.3rem] text-[2rem] font-bold text-gray-700 ">{{ $article->title }}
                 </h1>
             </div>
             <div class="article-images pr-0 md:pr-2 lg:pr-24 overflow-hidden mb-8 mt-4 user-select">

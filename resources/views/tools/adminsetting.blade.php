@@ -108,6 +108,10 @@
                         <span class="material-symbols-outlined absolute z-10 pl-2 text-zinc-400">
                             alternate_email
                         </span>
+                        @error('email')
+                            <p>{{ $message }}</p>
+                        @enderror
+
                         <input type="text" name="Email"
                             class="inputs pl-8 relative w-full h-12 bg-zinc-100 rounded-lg focus:shadow-md focus:outline-none focus:border-2  focus:border-blue-600"
                             placeholder="Masukan Email">
