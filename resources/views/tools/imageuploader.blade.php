@@ -90,9 +90,10 @@
                                 <div id="dropimagehere"
                                     class="h-full w-full text-center flex flex-col justify-center items-center  ">
                                     <!---<svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-blue-400 group-hover:text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                                                                                                                                                                                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-                                                                                                                                                                                                                                                                </svg>-->
-                                    <div class="flex flex-auto max-h-48 w-2/5 justify-center mx-auto -mt-10">
+                                                                                                                                                                                                                                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                                                                                                                                                                                                                                                                                        </svg>-->
+                                    <div class="flex flex-auto max-h-48 w-2/5 justify-center mx-auto -mt-10 overflow-hidden"
+                                        id="dropimagethumbnail">
                                         <img class="has-mask h-36 object-center"
                                             src="https://img.freepik.com/free-vector/image-upload-concept-landing-page_52683-27130.jpg?size=338&ext=jpg"
                                             alt="freepik image">
@@ -102,7 +103,7 @@
                                         <span class="text-blue-600 hover:underline">select a file</span> from your computer
                                     </p>
                                 </div>
-                                <input type="file" class="hidden">
+                                <input type="file" class="hidden" id="input">
                             </label>
                         </div>
                     </div>
@@ -126,5 +127,6 @@
 
         <div class="mb-96"></div>
         <script src="{{ asset('js/jquery.min.js') }}"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="{{ asset('js/imageuploader.js') }}"></script>
     @endsection
