@@ -441,6 +441,10 @@
                                                         </th>
                                                         <th scope="col"
                                                             class="text-sm font-medium text-gray-900 px-6 py-4 text-center align-middle">
+                                                            Category
+                                                        </th>
+                                                        <th scope="col"
+                                                            class="text-sm font-medium text-gray-900 px-6 py-4 text-center align-middle">
                                                             Date
                                                         </th>
                                                         <th scope="col"
@@ -468,6 +472,10 @@
                                                             <td
                                                                 class="text-sm text-center align-middle text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                                                 {{ Str::limit($perarticle->description, 15) }}
+                                                            </td>
+                                                            <td
+                                                                class="text-sm text-center align-middle text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                                                {{ $perarticle->category->name }}
                                                             </td>
                                                             <td
                                                                 class="text-sm text-center align-middle text-gray-900 font-light px-6 py-4 whitespace-nowrap">

@@ -26,7 +26,8 @@ class IndexController extends Controller
 
     public function show($slug){
 
-         $article = Article::where('slug',$slug)->firstOrFail();
+         $article = Article::where('slug',$slug)->with('category')->firstOrFail();
+
 
          return view('detail',compact('article'));
     }

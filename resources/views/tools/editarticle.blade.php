@@ -1,5 +1,16 @@
 @extends('Auth.dashboard')
 @section('tool')
+    <style>
+        .ckcontent pre {
+            padding: 20px;
+            border: 0px solid black;
+            background: #e7e7e7;
+            border-radius: 10px;
+            width: 100%;
+            font-size: 10px;
+            white-space: pre-wrap;
+        }
+    </style>
     <div class="container mt-4 w-full h-full bg-white shadow-2xl p-2 lg:p-4 rounded-xl border-t-blue-500 border-t-4">
 
         <h1 class=" text-l md:text-xl lg:text-xl opacity-80">Update The Article</h1>
@@ -11,6 +22,24 @@
                 <input type="text" value="{{ $editarticle->title }}" name="title"
                     class="w-full h-12 border-[1.2px] border-zinc-300 rounded-lg pl-4 focus:shadow-md focus:outline-none focus:border-sky-600"
                     placeholder="Masukan Title Article">
+                <div class="relative mt-4">
+                    <select
+                        class="block appearance-none w-full bg-gray-100 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                        id="grid-state" name="category">
+                        <option>Select Category</option>
+                        @foreach ($category as $percategory)
+                            <option value="{{ $percategory->id }}"
+                                {{ $percategory->id == $editarticle->category_id ? 'selected' : '' }}>
+                                {{ $percategory->name }}
+                            </option>
+                        @endforeach
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                        </svg>
+                    </div>
+                </div>
                 {{-- <textarea type="text" name="editor1"
                     class="w-full mt-4 h-40 pt-2 border-[1.2px] focus:shadow-md border-zinc-300 rounded-lg pl-4 focus:outline-none focus:border-sky-600"
                     placeholder="Masukan Content"></textarea> --}}
@@ -38,7 +67,6 @@
                     <textarea class="form-control" id="editor" name="editor">{!! $editarticle->description !!}</textarea>
                     <button type="submit"
                         class="px-4 py-2 font-semibold bg-gradient-to-r from-blue-400 to-blue-600 mt-4 rounded-md text-white">Update</button>
-
                 </div>
             </form>
         </div>

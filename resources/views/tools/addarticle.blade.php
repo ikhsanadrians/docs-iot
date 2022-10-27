@@ -10,11 +10,43 @@
                     <span class="material-symbols-outlined absolute z-10 pl-2 text-slate-500">
                         subtitles
                     </span>
+
+
                     <input type="text" name="title"
                         class="w-full h-12 border-[1.2px] border-zinc-300 rounded-lg pl-8 focus:shadow-md focus:outline-none focus:border-sky-600"
                         placeholder="Masukan Title Article">
 
                 </div>
+                <div class="category-input-wrapper">
+                    <div class="category-input w-full h-full flex items-center">
+                        <div class="relative mt-4 w-full" id="inputcategory">
+                            <select
+                                class="block appearance-none w-full bg-gray-100 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                id="grid-state" name="category">
+                                <option>Select Category</option>
+                                @foreach ($category as $percategory)
+                                    <option value="{{ $percategory->id }}">{{ $percategory->name }} </option>
+                                @endforeach
+                            </select>
+                            <div
+                                class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div id="addnewcategory" title="Add More Category"
+                            class="add-newcategory h-full rounded-lg bg-slate-200 flex items-center cursor-pointer mt-4 ml-1">
+                            <span class="material-symbols-outlined text-3xl flex items-center cursor-pointer text-gray-700">
+                                add
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
 
                 <div class="upload-images-thumbnail mt-4 mb-4">
                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="file_input">Upload
@@ -40,6 +72,8 @@
 
     </div>
     <script src="https://cdn.ckeditor.com/4.20.0/full/ckeditor.js"></script>
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/morecategory.js') }}"></script>
     <script>
         CKEDITOR.replace('editor');
     </script>

@@ -17,25 +17,39 @@
             @if (Auth::user())
                 <h1>{{ Auth::user()->name }}</h1>
             @endif
-            <div class="articles-menu w-full h-full mt-12 flex flex-wrap gap-10">
+            <div class="articles-menu w-full h-full mt-12 flex flex-wrap gap-6">
                 @foreach ($articleall as $article)
-                    <div class="articlecard w-full md:w-[90%] lg:w-[45%] rounded-md relative  h-[18rem] bg-slate-300 overflow-hidden"
-                        id="article">
-                        <div class="picture w-full h-full">
-                            <img src="{{ asset('storage/thumbnail/' . $article->images) }}" alt=""
-                                class="brightness-75 object-cover w-full h-full">
-                        </div>
-                        <div class="title bg-white w-24  h-12">
-                            <a href="{{ '/article/' . $article->slug }}">
-                                <h1
-                                    class="bottom-4 left-4 right-4 absolute font-bold text-xl text-white cursor-pointer hover:opacity-80">
-                                    {{ $article->title }}
-                                </h1>
-                            </a>
+                    <a href="{{ '/article/' . $article->slug }}">
+                        <div class="articlecard w-full bg-slate-100 rounded-lg p-2 md:w-[90%] lg:w-[35%] relative mb-2 max-h-[34rem] overflow-hidden"
+                            id="article">
+                            <div class="picture w-full h-1/2 rounded-2xl overflow-hidden ">
+                                <img src="{{ asset('storage/thumbnail/' . $article->images) }}" alt=""
+                                    class="brightness-100 object-cover w-full h-full">
+                            </div>
+                            <div class="title w-full flex flex-col gap-2  h-full mt-2">
+                                <div class="article-info flex gap-2 items-center text-[#031b4e]">
+                                    <p class="font-semibold ">{{ $article->created_at->format('d M') }}</p>
+                                    <p class="font-semibold bg-sky-200 px-2 py-[0.3px] rounded-lg">Laravel</p>
+                                </div>
+                                <div class="title-article">
+                                    <a href="{{ '/article/' . $article->slug }}">
+                                        <h1 class="font-semibold text-xl text-[#031b4e] cursor-pointer hover:opacity-80">
+                                            {{ $article->title }}
+                                        </h1>
+                                    </a>
+
+                                </div>
+                                <div class="title-description">
+                                    <p class="text-[#031b4e]">{!! $article->short_description !!}</p>
+                                </div>
+                                <div class="posted-by">
+                                    <p class="text-[#031b4e] font-semibold">By {{ $article->user->name }}</p>
+                                </div>
+
+                            </div>
 
                         </div>
-
-                    </div>
+                    </a>
                 @endforeach
 
             </div>

@@ -8,6 +8,7 @@ use Session;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AdminAuthController extends Controller
 {
@@ -30,7 +31,7 @@ class AdminAuthController extends Controller
 
 
     public function dashboard(){
-        $article = Article::all();
+        $article = Article::with('category')->get();
         if(!Auth::check() || Auth::user()->role != "moderator"){
             return redirect('/login')->withErrors(['msg' => 'User Atau Password Salah']);
         } else if (Auth::user()->role == "moderator") {
@@ -52,7 +53,7 @@ class AdminAuthController extends Controller
         if(!Auth::user() || Auth::user()->role != "moderator"){
             return redirect('/404');
         } else {
-            $user = User::with('article')->get();
+            $user = User::where('role','moderator')->with('article')->get();
             return view('tools.adminsetting', compact('user'));
         }
 
@@ -69,6 +70,7 @@ class AdminAuthController extends Controller
      User::create([
         "name" => $request->user,
         "slug" => Str::slug($request->user),
+        "role" => "moderator",
         "email" => $request->Email,
         "password" => bcrypt($request->password),
      ]);

@@ -6,6 +6,7 @@ use App\Models\Article;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Models\Category;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class ArticleController extends Controller
@@ -20,7 +21,8 @@ class ArticleController extends Controller
         if(!Auth::user() || Auth::user()->role != "moderator"){
             return redirect('/404');
         } else {
-            return view('tools.addarticle');
+            $category = Category::all();
+            return view('tools.addarticle',compact('category'));
 
         }
     }
@@ -92,10 +94,11 @@ class ArticleController extends Controller
      */
     public function edit(Article $article , $id)
     {
+      $category = Category::all();
       $editarticle = Article::findOrFail(decrypt($id));
 
 
-        return view('tools.editarticle',compact('editarticle'));
+        return view('tools.editarticle',compact('editarticle','category'));
 
     }
 
@@ -110,10 +113,12 @@ class ArticleController extends Controller
     {
         $decrypted_id = decrypt($id);
         $title = $request->title;
+        $category = $request->category;
         $description = $request->editor;
 
          Article::findOrFail($decrypted_id)->update([
                 "title" => $title,
+                "category_id" => $category,
                 "slug" => str::slug($title,'-'),
                 "description" => $description,
 

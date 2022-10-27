@@ -17,7 +17,6 @@ return new class extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('category_id')->nullable()->constrained();
             $table->foreignId('user_id')->constrained();
             $table->string('slug');
             $table->text('title');
