@@ -19,7 +19,7 @@
                 </div>
                 <div class="category-input-wrapper">
                     <div class="category-input w-full h-full flex items-center">
-                        <div class="relative mt-4 w-full" id="inputcategory">
+                        <div class="category-every relative mt-4 w-full" id="inputcategory">
                             <select
                                 class="block appearance-none w-full bg-gray-100 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                 id="grid-state" name="category">
