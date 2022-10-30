@@ -35,19 +35,22 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($images as $image)
-                                        <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                        <tr
+                                            class="table-rows bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                                            <td id="image-id"
+                                                class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                                                 {{ $image->id }}
                                             </td>
                                             <td class="text-sm text-gray-900 cursor-pointer font-light px-6 py-4 whitespace-nowrap"
                                                 title="">
                                                 {{ $image->title }}
                                             </td>
-                                            <td
+                                            <td id="image-url"
+                                                title="http://127.0.0.1:8000/storage/image/{{ $image->url }}"
                                                 class="text-sm text-gray-900 font-light flex items-center gap-2 px-6 py-4 whitespace-nowrap">
-                                                {{ 'http://127.0.0.1:8000/storage/image/' . Str::limit('$image->url', 5) }}
-                                                <span
-                                                    class="material-symbols-outlined text-slate-600 cursor-pointer hover:bg-slate-200 p-2 rounded-full">
+                                                {{ 'http://127.0.0.1:8000/storage/image/' . Str::limit($image->url, 5) }}
+                                                <span id="{{ $image->id }}"
+                                                    class="material-symbols-outlined copy-button text-slate-600 cursor-pointer hover:bg-slate-200 p-2 rounded-full">
                                                     content_copy
                                                 </span>
                                             </td>
@@ -99,8 +102,8 @@
                                 <div id="dropimagehere"
                                     class="h-full w-full text-center flex flex-col justify-center items-center  ">
                                     <!---<svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-blue-400 group-hover:text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                                                                                                                                                                                                                                                                                                                                                                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-                                                                                                                                                                                                                                                                                                                                                                                                                                            </svg>-->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </svg>-->
                                     <div class="flex flex-auto max-h-48 w-2/5 justify-center mx-auto -mt-10 overflow-hidden"
                                         id="dropimagethumbnail">
                                         <img class="has-mask h-36 object-center"
