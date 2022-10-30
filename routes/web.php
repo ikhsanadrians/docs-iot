@@ -38,5 +38,5 @@ Route::get('/dashboard/admin',[AdminAuthController::class,'setting'])->name('adm
 Route::post('/dashboard/admin',[AdminAuthController::class,'createnewadmin'])->name('createadmin');
 Route::get('/dashboard/admin/{user:slug}/details',[AdminAuthController::class,'admindetails'])->name('admindetails');
 Route::get('/dashboard/imageuploader',[AdminAuthController::class,'imageuploaderview'])->name('imageuploader');
-Route::post('/dashboard/imageuploader',[AdminAuthController::class,'imageuploader'])->name('imageuploader');
+Route::post('/dashboard/imageuploader',[AdminAuthController::class,'imageuploader'])->name('imageuploaderpost');
 Route::get('404',[RedirectHandlesController::class,'index']);

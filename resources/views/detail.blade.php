@@ -43,19 +43,18 @@
 
         .article-desc ul {
 
-            /* margin-top: 5px;
-                                                                                                                                                                            border-left: 10px solid rgb(50, 100, 193);
-                                                                                                                                                                            background: #272822;
-                                                                                                                                                                            padding: 20px;
-                                                                                                                                                                            color: #f8f8f2;
-                                                                                                                                                                            font-size: 15px;
-                                                                                                                                                                            border-radius: 10px;
-                                                                                                                                                                            font-family: monospace; */
+            margin-top: 5px;
+            border-left: 10px solid rgb(12, 37, 92);
+            background: #031B4E;
+            padding: 20px;
+            color: whitesmoke;
+            border-radius: 10px;
+            font-family: monospace;
 
         }
 
         /* .article-desc li {
-                                                                                                                                list-style-type: disc; */
+                                                                                                                                                                                                                                                                                                                                                                                    list-style-type: disc; */
         }
 
         .article-desc strong,
@@ -113,7 +112,17 @@
                 </h1>
             </div>
             <div class="article-category flex gap-2 mb-2">
-                <p class="bg-slate-200 px-2 py-[1.2px] rounded-md text-[#031b4e]">{{ $article->category->name }}</p>
+                {{-- @foreach ($categories as $percategory) --}}
+                <p class="bg-slate-200 px-2 py-[1.2px] rounded-md text-[#031b4e]">
+                    Nginx
+                </p>
+                <p class="bg-slate-200 px-2 py-[1.2px] rounded-md text-[#031b4e]">
+                    Linux
+                </p>
+                <p class="bg-slate-200 px-2 py-[1.2px] rounded-md text-[#031b4e]">
+                    Ubuntu
+                </p>
+                {{-- @endforeach --}}
             </div>
             <div class="article-images pr-0 md:pr-2 lg:pr-24 overflow-hidden mb-8 mt-4 user-select">
                 <img src="{{ asset('storage/thumbnail/' . $article->images) }}" alt="imagethumbnail"

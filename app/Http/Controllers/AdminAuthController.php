@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Hash;
 use App\Models\Article;
 use App\Models\User;
+use App\Models\Image;
 use Session;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
@@ -31,7 +32,7 @@ class AdminAuthController extends Controller
 
 
     public function dashboard(){
-        $article = Article::with('category')->get();
+        $article = Article::all();
         if(!Auth::check() || Auth::user()->role != "moderator"){
             return redirect('/login')->withErrors(['msg' => 'User Atau Password Salah']);
         } else if (Auth::user()->role == "moderator") {
@@ -95,8 +96,34 @@ class AdminAuthController extends Controller
 
 
    public function imageuploaderview(){
-      return view('tools.imageuploader');
+      $images = Image::all();
+      return view('tools.imageuploader',compact('images'));
    }
+
+   public function imageuploader(Request $request){
+//    dd($request->all());
+
+   if($request->hasFile('images')){
+    $images = $request->file('images');
+    $filename =$images->getClientOriginalName();
+    $images->storeAs('image',$filename);
+    $imageSize = $images->getSize();
+    $fil = number_format($imageSize / 1048576,2);
+   }
+
+    $title = $request->title;
+
+    Image::create([
+        "title" => $request->title,
+        "url" => $filename,
+        "size" => $fil,
+    ]);
+
+    return redirect()->back();
+
+    Alert::success('Sukses Menambahkan Gambar');
+
+}
 
 
     public function signOut(){

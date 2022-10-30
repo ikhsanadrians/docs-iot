@@ -475,7 +475,7 @@
                                                             </td>
                                                             <td
                                                                 class="text-sm text-center align-middle text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                                                {{ $perarticle->category->name }}
+                                                                {{-- {{ $perarticle->category->name }} --}}
                                                             </td>
                                                             <td
                                                                 class="text-sm text-center align-middle text-gray-900 font-light px-6 py-4 whitespace-nowrap">

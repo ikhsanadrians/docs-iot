@@ -45,17 +45,34 @@ class ArticleController extends Controller
               $filename = $images->getClientOriginalName();
               $request->image->storeAs('thumbnail',$filename);
 
+              $categoryall = [];
+              $category = $request->category;
+
+        //   for($j = 0; $j<count($category); $j++){
+        //      array_push($categoryall);
+        //   }
 
           $title = $request->title;
           $userid = Auth::user()->id;
 
-        Article::create([
+        //   $article = new Article();
+        //   $article->user_id = $userid;
+        //   $article->title = $title;
+        //   $article->images = $filename;
+        //   $article->slug = Str::slug($title,'-');
+        //   $article->description = $request->editor;
+        //   $article->save();
+
+
+
+        $article = Article::create([
             "user_id" => $userid,
             "title" =>  $title,
             "images" => $filename,
             "slug" => Str::slug($title,'-'),
             "description" => $request->editor,
         ]);
+           $article->categories()->attach($request->category);
 
         Alert::success('Artikel Terbuat');
     }
@@ -113,12 +130,12 @@ class ArticleController extends Controller
     {
         $decrypted_id = decrypt($id);
         $title = $request->title;
-        $category = $request->category;
+        // $category = $request->category;
         $description = $request->editor;
 
          Article::findOrFail($decrypted_id)->update([
                 "title" => $title,
-                "category_id" => $category,
+                // "category_id" => $category,
                 "slug" => str::slug($title,'-'),
                 "description" => $description,
 
