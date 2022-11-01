@@ -54,7 +54,7 @@
         }
 
         /* .article-desc li {
-                                                                                                                                                                                                                                                                                                                                                                                    list-style-type: disc; */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        list-style-type: disc; */
         }
 
         .article-desc strong,
@@ -68,7 +68,7 @@
         }
 
         .article-desc img {
-            object-fit: fill;
+            object-fit: cover;
         }
     </style>
     <main class="pl-0 pr-2 lg:pl-[1.5rem] lg:pt-[3.3rem] lg:pr-[10rem] w-full h-full pt-12 mb-16">
@@ -112,17 +112,11 @@
                 </h1>
             </div>
             <div class="article-category flex gap-2 mb-2">
-                {{-- @foreach ($categories as $percategory) --}}
-                <p class="bg-slate-200 px-2 py-[1.2px] rounded-md text-[#031b4e]">
-                    Nginx
-                </p>
-                <p class="bg-slate-200 px-2 py-[1.2px] rounded-md text-[#031b4e]">
-                    Linux
-                </p>
-                <p class="bg-slate-200 px-2 py-[1.2px] rounded-md text-[#031b4e]">
-                    Ubuntu
-                </p>
-                {{-- @endforeach --}}
+                @foreach ($article->categories as $perarticle)
+                    <p class="bg-slate-200 px-2 py-[1.2px] rounded-md text-[#031b4e]">
+                        {{ $perarticle->name }}
+                    </p>
+                @endforeach
             </div>
             <div class="article-images pr-0 md:pr-2 lg:pr-24 overflow-hidden mb-8 mt-4 user-select">
                 <img src="{{ asset('storage/thumbnail/' . $article->images) }}" alt="imagethumbnail"

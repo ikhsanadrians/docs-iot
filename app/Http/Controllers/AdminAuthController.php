@@ -103,6 +103,12 @@ class AdminAuthController extends Controller
    public function imageuploader(Request $request){
 //    dd($request->all());
 
+
+$validated = $request->validate([
+    'title' => 'required',
+    'images' => 'required|image|mimes:jpg,jpeg,png,gif|max:3048',
+]);
+
    if($request->hasFile('images')){
     $images = $request->file('images');
     $filename =$images->getClientOriginalName();

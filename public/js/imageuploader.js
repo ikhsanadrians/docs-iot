@@ -1,8 +1,10 @@
+
 $(document).ready(function () {
     let fileInput = document.querySelector('#input');
     let dropArea = document.querySelector('#dropimagehere')
     let thumbnail = document.querySelector("#dropimagethumbnail");
-    let file;
+    let borderDrop = document.querySelector("#borderdropimage")
+    let file
     $("#dropimagehere").on('dragover',function(event){
     event.preventDefault();
      $("#borderdropimage").removeClass("border-dashed");
@@ -10,21 +12,36 @@ $(document).ready(function () {
 
 $("#dropimagehere").on('dragleave',function(event){
     event.preventDefault()
-    $("#borderdropimage").addClass("border-dashed");
+    $("#borderdropimage").addClass(".border-dashed");
 })
-
 fileInput.addEventListener("change",(event) => {
     event.preventDefault();
+    if(!borderDrop.classList.contains("border-dashed")){
+        borderDrop.classList.add("border-solid")
+        borderDrop.classList.remove("border-dashed");
+    } else {
+        borderDrop.classList.remove("border-dashed");
+        borderDrop.classList.add("border-solid")
+    }
     file = event.dataTransfer.files[0];
-    dropArea.classList.remove("border-dashed");
     showFile();
 })
+
 
 dropArea.addEventListener("drop",(event) => {
     event.preventDefault();
+    if(!dropArea.classList.contains("border-dashed")){
+        borderDrop.classList.add('border-solid"')
+        borderDrop.classList.remove("border-dashed");
+    } else {
+        borderDrop.classList.remove("border-dashed");
+        borderDrop.classList.add('border-solid"')
+    }
     file = event.dataTransfer.files[0];
     showFile();
 })
+
+
 
 
 function showFile(){
@@ -60,13 +77,21 @@ for (const tbrow of tablerows) {
        let tbrows = tbrow.querySelector('#image-id').innerText
        if($(this).attr("id") == tbrows){
           navigator.clipboard.writeText(singletbrow.parentNode.querySelector('#image-url').getAttribute('title'))
-       }
+          tippy('.copy-button', {
+            content: 'Copied!',
+            trigger:'click'
+          });
+
+        }
 
 });
 
 
 
 }
+
+
+
 
 
 

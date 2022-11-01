@@ -31,10 +31,8 @@ class IndexController extends Controller
 
          $article = Article::where('slug',$slug)->firstOrFail();
          $idofarticle =  $article->id;
-         $categories = ArticleCategory::where("article_id", $idofarticle)->get();
 
-
-         return view('detail',compact('article','categories'));
+         return view('detail',compact('article'));
     }
 
 }

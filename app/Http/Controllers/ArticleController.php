@@ -37,7 +37,7 @@ class ArticleController extends Controller
 
 
           $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5024',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:8024',
           ]);
 
           if($request->hasFile('image')){
@@ -48,20 +48,10 @@ class ArticleController extends Controller
               $categoryall = [];
               $category = $request->category;
 
-        //   for($j = 0; $j<count($category); $j++){
-        //      array_push($categoryall);
-        //   }
 
           $title = $request->title;
           $userid = Auth::user()->id;
 
-        //   $article = new Article();
-        //   $article->user_id = $userid;
-        //   $article->title = $title;
-        //   $article->images = $filename;
-        //   $article->slug = Str::slug($title,'-');
-        //   $article->description = $request->editor;
-        //   $article->save();
 
 
 

@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('category_article', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->unsignedBigInteger('article_id');
             $table->unsignedBigInteger('category_id');
             $table->foreign('article_id')->references('id')->on('articles')->onDelete('cascade');

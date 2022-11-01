@@ -41,8 +41,13 @@
                                                 class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                                                 {{ $image->id }}
                                             </td>
-                                            <td class="text-sm text-gray-900 cursor-pointer font-light px-6 py-4 whitespace-nowrap"
+                                            <td class="text-sm h-full text-center text-gray-900 cursor-pointer font-light px-6 py-4 whitespace-nowrap"
                                                 title="">
+                                                <div class="image-cover h-12 w-18 overflow-hidden">
+                                                    <img src="http://127.0.0.1:8000/storage/image/{{ $image->url }}"
+                                                        alt="img" class="w-full h-full object-cover">
+
+                                                </div>
                                                 {{ $image->title }}
                                             </td>
                                             <td id="image-url"
@@ -102,8 +107,8 @@
                                 <div id="dropimagehere"
                                     class="h-full w-full text-center flex flex-col justify-center items-center  ">
                                     <!---<svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-blue-400 group-hover:text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </svg>-->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </svg>-->
                                     <div class="flex flex-auto max-h-48 w-2/5 justify-center mx-auto -mt-10 overflow-hidden"
                                         id="dropimagethumbnail">
                                         <img class="has-mask h-36 object-center"
@@ -122,6 +127,9 @@
                     <p class="text-sm text-gray-300">
                         <span>File type: doc,pdf,types of images</span>
                     </p>
+                    @if ($errors->has('images'))
+                        <p class="text-red-500">{{ $errors->first('images') }}</p>
+                    @endif
                     <div>
                         <button type="submit"
                             class="my-5 w-full flex justify-center bg-blue-500 text-gray-100 p-4  rounded-full tracking-wide
@@ -141,4 +149,7 @@
         <script src="{{ asset('js/jquery.min.js') }}"></script>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="{{ asset('js/imageuploader.js') }}"></script>
+        <script src="{{ asset('js/dropzone-min.js') }}"></script>
+        <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+        <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
     @endsection
