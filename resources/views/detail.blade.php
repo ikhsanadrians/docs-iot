@@ -67,7 +67,7 @@
         }
 
         /* .article-desc li {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    list-style-type: disc; */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                list-style-type: disc; */
         }
 
         .article-desc strong,
@@ -128,7 +128,7 @@
             <div class="article-category flex gap-2 mb-2">
                 @foreach ($article->categories as $perarticle)
                     <p class="bg-slate-200 px-2 py-[1.2px] rounded-md text-[#031b4e] flex items-center gap-1">
-                        <i class="devicon-react-original colored"></i>{{ $perarticle->name }}
+                        <i class="devicon-angularjs-plain colored"></i>{{ $perarticle->name }}
                     </p>
                 @endforeach
             </div>
