@@ -4,11 +4,11 @@ $(document).ready(function () {
         $('#setlight').empty();
         $('#setlight').text('light_mode');
         $('.toggle').removeClass('text-indigo-500')
-        $('.toggle').addClass('text-orange-500')
+        $('.toggle').addClass('text-red-500')
     } else {
         $('#setlight').empty()
         $('#setlight').text('dark_mode');
-        $('.toggle').removeClass('text-orange-500')
+        $('.toggle').removeClass('text-red-500')
         $('.toggle').addClass('text-indigo-500')
     }
   })

@@ -21,7 +21,8 @@
         .article-desc pre {
             padding: 20px;
             border: 0px solid black;
-            background: #e7e7e7;
+            background: #1d1f21;
+
             border-radius: 10px;
             width: 100%;
             white-space: pre-wrap;
@@ -66,24 +67,23 @@
 
         }
 
-        /* .article-desc li {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                list-style-type: disc; */
-        }
 
-        .article-desc strong,
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        span {
-            color: #031B4E;
-        }
+        /* .article-desc > strong,
+                        h1,
+                        h2,
+                        h3,
+                        h4,
+                        h5,
+                        span {
+                            color: #031B4E;
+                        } */
 
         .article-desc img {
             object-fit: cover;
         }
     </style>
+
+    <link rel="stylesheet" href="{{ asset('css/detail.css') }}">
     <main class="pl-0 pr-2 lg:pl-[1.5rem] lg:pt-[3.3rem] lg:pr-[10rem] w-full h-full pt-12 mb-16">
         <div class="container w-full h-full">
 
