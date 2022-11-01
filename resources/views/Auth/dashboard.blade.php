@@ -40,37 +40,35 @@
 
 
 
-                    <div class="menu flex gap-2 invisible md:visible lg:visible">
+                    <div class="menu flex gap-4 invisible md:visible lg:visible">
                         <div
-                            class="category flex hover:bg-indigo-600 duration-300 rounded-xl text-slate-700 hover:text-slate-100 py-[6.5px] px-2 gap-[1.4px] items-center">
-                            <span class="material-symbols-outlined flex cursor-pointer items-center">
-                                category
-                            </span>
+                            class="category flex hover:bg-gradient-to-r hover:from-sky-500 hover:to-blue-500 duration-400 rounded-xl text-slate-700 hover:text-slate-100 py-[6.5px] px-2 gap-[1.4px] items-center">
+
                             <h1 class="font-semibold"><a href="">Category</a></h1>
                         </div>
                         <div
-                            class="topic flex hover:bg-indigo-600 duration-300 rounded-xl text-slate-700 hover:text-slate-100 py-[6.5px] px-2 gap-[1.4px] items-center">
-                            <span class="material-symbols-outlined flex cursor-pointer items-center">
-                                topic
-                            </span>
+                            class="topic flex hover:bg-gradient-to-r hover:from-sky-500 hover:to-blue-500 duration-400 rounded-xl text-slate-700 hover:text-slate-100 py-[6.5px] px-2 gap-[1.4px] items-center">
+
                             <h1 class="font-semibold"><a href="">Topic</a></h1>
                         </div>
                         <div
-                            class="article flex hover:bg-indigo-600 duration-300 rounded-xl text-slate-700 hover:text-slate-100 py-[6.5px] px-2 gap-[1.4px] items-center">
-                            <span class="material-symbols-outlined flex cursor-pointer items-center">
-                                article
-                            </span>
+                            class="article flex hover:bg-gradient-to-r hover:from-sky-500 hover:to-blue-500 duration-400 rounded-xl text-slate-700 hover:text-slate-100 py-[6.5px] px-2 gap-[1.4px] items-center">
+
                             <h1 class="font-semibold"><a href="">Article</a></h1>
                         </div>
                         <div
-                            class="about flex hover:bg-indigo-600 duration-300 rounded-xl text-slate-700 hover:text-slate-100 py-[6.5px] px-2 gap-[1.4px] items-center">
-                            <span class="material-symbols-outlined flex cursor-pointer items-center">
-                                support
-                            </span>
+                            class="about flex hover:bg-gradient-to-r hover:from-sky-500 hover:to-blue-500 duration-400 rounded-xl text-slate-700 hover:text-slate-100 py-[6.5px] px-2 gap-[1.4px] items-center">
+
                             <h1 class="font-semibold"><a href="">About</a></h1>
 
 
 
+                        </div>
+                        <div class="set-light flex items-center">
+                            <span
+                                class="material-symbols-outlined text-slate-500 cursor-pointer p-2 rounded-md hover:bg-zinc-200 focus:border-2 focus:border-zinc-400 duration-300">
+                                dark_mode
+                            </span>
                         </div>
 
 
@@ -115,9 +113,8 @@
                                     d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z">
                                 </path>
                             </svg>
-                            <span class="flex-1 ml-3 whitespace-nowrap">Kanban</span>
-                            <span
-                                class="inline-flex justify-center items-center px-2 ml-3 text-sm font-medium text-gray-800 bg-gray-200 rounded-full dark:bg-gray-700 dark:text-gray-300">Pro</span>
+                            <span class="flex-1 ml-3 whitespace-nowrap">Add Category</span>
+
                         </a>
                     </li>
                     <li>
@@ -278,9 +275,8 @@
                                         d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z">
                                     </path>
                                 </svg>
-                                <span class="flex-1 ml-3 whitespace-nowrap">Kanban</span>
-                                <span
-                                    class="inline-flex justify-center items-center px-2 ml-3 text-sm font-medium text-gray-800 bg-gray-200 rounded-full dark:bg-gray-700 dark:text-gray-300">Pro</span>
+                                <span class="flex-1 ml-3 whitespace-nowrap">Add Category</span>
+
                             </a>
                         </li>
                         <li>
@@ -516,11 +512,19 @@
         </div>
     </div>
     <div class="loader">
-        <span class="loader__element"></span>
-        <span class="loader__element"></span>
-        <span class="loader__element"></span>
-    </div>
+        <div class="title flex items-center justify-center absolute bottom-10">
+            <img src="{{ asset('images/docslogo.png') }}" alt="" class="h-12 w-12">
+            <h1
+                class="text-xl md:text-2xl lg:text-2xl font-bold bg-gradient-to-r from-sky-500 to-blue-500 bg-clip-text text-transparent">
+                Dokumentasi</h1>
+        </div>
 
+        <span class="loader__element"></span>
+        <span class="loader__element"></span>
+        <span class="loader__element"></span>
+
+
+    </div>
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/loading.js') }}"></script>
     <script src="{{ asset('js/hamburger.js') }}"></script>
