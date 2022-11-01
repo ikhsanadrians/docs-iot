@@ -70,7 +70,21 @@
         </div>
     </div>
     <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/loading.js') }}"></script>
+    <div class="loader">
+        <div class="title flex items-center justify-center absolute bottom-10">
+            <img src="{{ asset('images/docslogo.png') }}" alt="" class="h-12 w-12">
+            <h1
+                class="text-xl md:text-2xl lg:text-2xl font-bold bg-gradient-to-r from-sky-500 to-blue-500 bg-clip-text text-transparent">
+                Dokumentasi</h1>
+        </div>
 
+        <span class="loader__element"></span>
+        <span class="loader__element"></span>
+        <span class="loader__element"></span>
+
+
+    </div>
 </body>
 
 </html>

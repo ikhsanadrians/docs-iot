@@ -38,8 +38,21 @@
                 white-space: pre-wrap;
             }
 
+            .article-desc>h1 {
+                font-size: 25px;
+                color: #031B4E;
+            }
+
+
 
         }
+
+        .article-desc>h1 {
+            font-size: 30px;
+            color: #031B4E;
+        }
+
+
 
         .article-desc ul {
 
@@ -54,7 +67,7 @@
         }
 
         /* .article-desc li {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                        list-style-type: disc; */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                list-style-type: disc; */
         }
 
         .article-desc strong,
@@ -93,14 +106,10 @@
                 </div>
                 @if (!Auth::user() || Auth::user()->role != 'moderator')
                 @elseif(Auth::user()->role == 'moderator')
-                    <a href="{{ '/article/' . encrypt($article->id) . '/edit' }}">
-                        <div
-                            class="absolute right-0 lg:right-24 edit flex items-center py-[3.6px] rounded-2xl px-[7.5px] text-white gap-1 bg-gradient-to-r from-purple-500 to-cyan-600">
-                            <span class="material-symbols-outlined cursor-pointer flex items-center">
-                                edit
-                            </span>
-                            Edit Artikel
-                        </div>
+                    <a href="{{ '/article/' . encrypt($article->id) . '/edit' }}" class="flex justify-end">
+                        <span class="material-symbols-outlined cursor-pointer">
+                            edit
+                        </span>
                     </a>
                 @endif
             </div>
@@ -129,6 +138,16 @@
         </div>
 
     </main>
+    <div class="categories mt-12">
+        <ul>
+            <li>Laravel</li>
+            <li>Mqtt</li>
+            <li>CodeIgniter</li>
+            <li>Python</li>
+            <li>Javascript</li>
+        </ul>
+
+    </div>
     <div class="mb-96"></div>
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/sintaxhighlightning.js') }}"></script>
