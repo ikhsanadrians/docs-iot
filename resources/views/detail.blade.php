@@ -67,7 +67,7 @@
         }
 
         /* .article-desc li {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    list-style-type: disc; */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    list-style-type: disc; */
         }
 
         .article-desc strong,
@@ -106,10 +106,15 @@
                 </div>
                 @if (!Auth::user() || Auth::user()->role != 'moderator')
                 @elseif(Auth::user()->role == 'moderator')
-                    <a href="{{ '/article/' . encrypt($article->id) . '/edit' }}" class="flex justify-end">
-                        <span class="material-symbols-outlined cursor-pointer">
+                    <a href="{{ '/article/' . encrypt($article->id) . '/edit' }}"
+                        class="flex font-semibold justify-end border-[1.5px] text-sky-600 border-sky-600
+                        px-2 py-1 rounded-lg hover:text-white hover:bg-gradient-to-r
+                         hover:from-blue-500 hover:to-sky-500 duration-300
+                         hover:border-0">
+                        <span class="material-symbols-outlined cursor-pointer ">
                             edit
                         </span>
+                        Edit Article
                     </a>
                 @endif
             </div>
@@ -122,8 +127,8 @@
             </div>
             <div class="article-category flex gap-2 mb-2">
                 @foreach ($article->categories as $perarticle)
-                    <p class="bg-slate-200 px-2 py-[1.2px] rounded-md text-[#031b4e]">
-                        {{ $perarticle->name }}
+                    <p class="bg-slate-200 px-2 py-[1.2px] rounded-md text-[#031b4e] flex items-center gap-1">
+                        <i class="devicon-react-original colored"></i>{{ $perarticle->name }}
                     </p>
                 @endforeach
             </div>
