@@ -42,31 +42,39 @@
 
                     <div class="menu flex gap-4 invisible md:visible lg:visible">
                         <div
-                            class="category flex hover:bg-gradient-to-r hover:from-sky-500 hover:to-blue-500 duration-400 rounded-xl text-slate-700 hover:text-slate-100 py-[6.5px] px-2 gap-[1.4px] items-center">
-
+                            class="category flex hover:bg-gradient-to-r hover:from-sky-500 hover:to-blue-500 duration-400 rounded-xl text-slate-500 hover:text-slate-100 py-[6.5px] px-2 gap-[1.4px] items-center">
+                            <span class="material-symbols-outlined flex cursor-pointer items-center">
+                                category
+                            </span>
                             <h1 class="font-semibold"><a href="">Category</a></h1>
                         </div>
                         <div
-                            class="topic flex hover:bg-gradient-to-r hover:from-sky-500 hover:to-blue-500 duration-400 rounded-xl text-slate-700 hover:text-slate-100 py-[6.5px] px-2 gap-[1.4px] items-center">
-
+                            class="topic flex hover:bg-gradient-to-r hover:from-sky-500 hover:to-blue-500 duration-400 rounded-xl text-slate-500 hover:text-slate-100 py-[6.5px] px-2 gap-[1.4px] items-center">
+                            <span class="material-symbols-outlined flex cursor-pointer items-center">
+                                topic
+                            </span>
                             <h1 class="font-semibold"><a href="">Topic</a></h1>
                         </div>
                         <div
-                            class="article flex hover:bg-gradient-to-r hover:from-sky-500 hover:to-blue-500 duration-400 rounded-xl text-slate-700 hover:text-slate-100 py-[6.5px] px-2 gap-[1.4px] items-center">
-
+                            class="article flex hover:bg-gradient-to-r hover:from-sky-500 hover:to-blue-500 duration-400 rounded-xl text-slate-500 hover:text-slate-100 py-[6.5px] px-2 gap-[1.4px] items-center">
+                            <span class="material-symbols-outlined flex cursor-pointer items-center">
+                                article
+                            </span>
                             <h1 class="font-semibold"><a href="">Article</a></h1>
                         </div>
                         <div
-                            class="about flex hover:bg-gradient-to-r hover:from-sky-500 hover:to-blue-500 duration-400 rounded-xl text-slate-700 hover:text-slate-100 py-[6.5px] px-2 gap-[1.4px] items-center">
-
+                            class="about flex hover:bg-gradient-to-r hover:from-sky-500 hover:to-blue-500 duration-400 rounded-xl text-slate-500 hover:text-slate-100 py-[6.5px] px-2 gap-[1.4px] items-center">
+                            <span class="material-symbols-outlined flex cursor-pointer items-center">
+                                support
+                            </span>
                             <h1 class="font-semibold"><a href="">About</a></h1>
 
 
 
                         </div>
                         <div class="set-light flex items-center">
-                            <span
-                                class="material-symbols-outlined text-slate-500 cursor-pointer p-2 rounded-md hover:bg-zinc-200 focus:border-2 focus:border-zinc-400 duration-300">
+                            <span id="setlight"
+                                class="toggle material-symbols-outlined text-indigo-500 cursor-pointer p-2 rounded-md hover:bg-zinc-200 focus:border-2 focus:border-zinc-400 duration-300">
                                 dark_mode
                             </span>
                         </div>
@@ -104,7 +112,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#"
+                        <a href="{{ route('addcategory') }}"
                             class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                             <svg aria-hidden="true"
                                 class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -266,7 +274,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#"
+                            <a href="{{ route('addcategory') }}"
                                 class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                                 <svg aria-hidden="true"
                                     class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -527,6 +535,7 @@
     </div>
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/loading.js') }}"></script>
+    <script src="{{ asset('js/toggledark.js') }}"></script>
     <script src="{{ asset('js/hamburger.js') }}"></script>
 </body>
 

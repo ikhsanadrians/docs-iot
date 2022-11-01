@@ -39,6 +39,6 @@ Route::post('/dashboard/admin',[AdminAuthController::class,'createnewadmin'])->n
 Route::get('/dashboard/admin/{user:slug}/details',[AdminAuthController::class,'admindetails'])->name('admindetails');
 Route::get('/dashboard/imageuploader',[AdminAuthController::class,'imageuploaderview'])->name('imageuploader');
 Route::post('/dashboard/imageuploader',[AdminAuthController::class,'imageuploader'])->name('imageuploaderpost');
-Route::get('/dashboard/addcategory',[AdminAuthController::class,'addcategoryindex']);
+Route::get('/dashboard/addcategory',[AdminAuthController::class,'addcategoryindex'])->name('addcategory');
 Route::post('/dashboard/addcategory',[AdminAuthController::class,'addcategory'])->name('addcategorypost');
 Route::get('404',[RedirectHandlesController::class,'index']);

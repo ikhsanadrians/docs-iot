@@ -131,6 +131,11 @@ $validated = $request->validate([
 
 }
 
+public function addcategoryindex(){
+    return view('tools.addcategory');
+}
+
+
 
     public function signOut(){
         Session::flush();

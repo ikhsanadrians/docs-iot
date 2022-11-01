@@ -7,7 +7,7 @@
             <form action="{{ route('addarticlepost') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="input-title w-full h-full relative flex items-center">
-                    <span class="material-symbols-outlined absolute z-10 pl-2 text-slate-500">
+                    <span class="material-symbols-outlined absolute z-10 pl-2 text-slate-400">
                         subtitles
                     </span>
 
