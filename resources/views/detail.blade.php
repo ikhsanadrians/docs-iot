@@ -67,7 +67,7 @@
         }
 
         /* .article-desc li {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                list-style-type: disc; */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    list-style-type: disc; */
         }
 
         .article-desc strong,
@@ -138,16 +138,6 @@
         </div>
 
     </main>
-    <div class="categories mt-12">
-        <ul>
-            <li>Laravel</li>
-            <li>Mqtt</li>
-            <li>CodeIgniter</li>
-            <li>Python</li>
-            <li>Javascript</li>
-        </ul>
-
-    </div>
     <div class="mb-96"></div>
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/sintaxhighlightning.js') }}"></script>
