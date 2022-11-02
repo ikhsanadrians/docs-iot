@@ -5,6 +5,7 @@ use Hash;
 use App\Models\Article;
 use App\Models\User;
 use App\Models\Image;
+use App\Models\Category;
 use Session;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
@@ -65,11 +66,22 @@ class AdminAuthController extends Controller
     $request->validate([
     "user" => "required",
     "Email" => "required | unique:users,email,",
+    "profilepic" => "image|mimes:jpg,jpeg,png,gif|max:3048",
     "password" => "required"
+
     ]);
+
+    if($request->hasFile('profilepic')){
+        $images = $request->file('profilepic');
+        $filename =$images->getClientOriginalName();
+        $images->storeAs('userprofile',$filename);
+
+       }
+
 
      User::create([
         "name" => $request->user,
+        "user_profile" => $filename,
         "slug" => Str::slug($request->user),
         "role" => "moderator",
         "email" => $request->Email,
@@ -132,7 +144,8 @@ $validated = $request->validate([
 }
 
 public function addcategoryindex(){
-    return view('tools.addcategory');
+    $categories = Category::all();
+    return view('tools.addcategory',compact('categories'));
 }
 
 

@@ -33,40 +33,42 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($categories as $category)
+                                        <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                                            <td
+                                                class="text-center align-middle px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                                {{ $category->id }}
+                                            </td>
+                                            <td class="text-center align-middle text-sm text-gray-900 cursor-pointer font-light px-6 py-4 whitespace-nowrap"
+                                                title="">
+                                                {{ $category->name }}
 
-                                    <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                                        <td
-                                            class="text-center align-middle px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                            </td>
+                                            <td
+                                                class="text-center align-middle text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                                {{ Str::limit($category->icon, 15) }}
+                                            </td>
+                                            <td
+                                                class="text-sm text-center align-middle text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                                {{ $category->created_at }}
+                                            </td>
+                                            <td
+                                                class="text-sm text-center align-middle text-gray-900 font-light px-6 py-4 whitespace-nowrap">
 
-                                        </td>
-                                        <td class="text-center align-middle text-sm text-gray-900 cursor-pointer font-light px-6 py-4 whitespace-nowrap"
-                                            title="">
+                                            </td>
+                                            <td
+                                                class="text-sm text-center align-middle text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                                <a href="">
+                                                    <span
+                                                        class="material-symbols-outlined text-slate-700 cursor-pointer hover:text-blue-400 duration-300">
+                                                        settings
+                                                    </span>
+                                                </a>
 
-                                        </td>
-                                        <td
-                                            class="text-center align-middle text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                            </td>
 
-                                        </td>
-                                        <td
-                                            class="text-sm text-center align-middle text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-
-                                        </td>
-                                        <td
-                                            class="text-sm text-center align-middle text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-
-                                        </td>
-                                        <td
-                                            class="text-sm text-center align-middle text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            <a href="">
-                                                <span
-                                                    class="material-symbols-outlined text-slate-700 cursor-pointer hover:text-blue-400 duration-300">
-                                                    settings
-                                                </span>
-                                            </a>
-
-                                        </td>
-
-                                    </tr>
+                                        </tr>
+                                    @endforeach
 
 
 

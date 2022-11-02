@@ -16,7 +16,8 @@
                 <div class="profile-inner flex flex-col">
                     <div
                         class="profile-pic w-44 h-44 rounded-full overflow-hidden shadow-lg ring ring-primary ring-offset-base-100 ring-offset-2">
-                        <img src="{{ asset('images/defaultprofile.png') }}" alt="profile" class="object-cover">
+                        <img src="{{ asset('storage/userprofile/' . $user->user_profile) }}" alt="profile"
+                            class="object-cover">
                     </div>
                     <div class="profile-name flex justify-center mt-4">
                         <div class="namesettings">

@@ -73,3 +73,21 @@ body {
   @keyframes preloader {
     100% { transform: scale(2); }
   }
+
+
+  .post-list > ul > li {
+    margin-bottom: 10px;
+    cursor:pointer;
+
+  }
+
+
+  .article-category > p > img {
+    height: 20px;
+
+  }
+
+
+  #tech-stack > img {
+       height: 20px;
+  }

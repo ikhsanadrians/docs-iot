@@ -1,5 +1,5 @@
  @extends('layouts.master')
- @section('content')
+ @section('contents')
      <div class="container -z-1 mt-10 flex justify-center w-full h-full lg:px-20 mb-[1200px]">
          <div class="container-inner w-full h-full">
              <div class="search-box w-full relative flex justify-center top-2 ">
@@ -27,9 +27,11 @@
                                  </div>
                                  <div class="title w-full flex flex-col gap-2  h-full mt-2 px-2">
                                      <div class="article-info flex gap-2 items-center text-[#031b4e]">
-                                         <p class="font-semibold ">{{ $article->created_at->format('d M') }}</p>
+                                         <p class="font-semibold">{{ $article->created_at->format('d M') }}</p>
                                          @foreach ($article->categories as $percategory)
-                                             <p class="font-semibold bg-sky-200 px-2 py-[0.3px] rounded-lg">
+                                             <p id="tech-stack"
+                                                 class="font-semibold flex text-sm items-center shadow-sm gap-1 bg-sky-100 px-2 py-[0.3px] rounded-lg">
+                                                 {!! $percategory->icon !!}
                                                  {{ $percategory->name }}</p>
                                          @endforeach
                                      </div>

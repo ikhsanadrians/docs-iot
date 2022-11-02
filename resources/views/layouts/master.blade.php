@@ -66,7 +66,11 @@
             <main class="h-full w-full flex">
                 @include('partials.sidebar')
                 @yield('content')
+                @yield('contents')
                 @include('partials.gotothetop')
+                @if (View::hasSection('content'))
+                    @include('partials.morepost')
+                @endif
             </main>
 
         </div>

@@ -93,9 +93,10 @@
                     admin_panel_settings
                 </span>
             </div>
-            <form action="{{ route('createadmin') }}" method="POST">
+            <form action="{{ route('createadmin') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="inputgroup mt-4 flex flex-col gap-4">
+
                     <div class="user flex items-center">
                         <span class="material-symbols-outlined absolute z-10 pl-2 text-zinc-400 ">
                             account_circle
@@ -103,6 +104,14 @@
                         <input type="text" name="user"
                             class="inputs pl-8 relative w-full h-12 bg-zinc-100 rounded-lg focus:shadow-md focus:outline-none focus:border-2  focus:border-blue-600"
                             placeholder="Masukan User">
+                    </div>
+                    <div class="upload-images-thumbnail">
+                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                            for="file_input">Upload
+                            Foto Profil</label>
+                        <input type="file"
+                            class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                            id="file_input" name="profilepic">
                     </div>
                     <div class="email flex items-center">
                         <span class="material-symbols-outlined absolute z-10 pl-2 text-zinc-400">
