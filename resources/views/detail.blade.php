@@ -77,14 +77,14 @@
         }
 
         /* .article-desc > strong,
-                                                                                                                                                                        h1,
-                                                                                                                                                                        h2,
-                                                                                                                                                                        h3,
-                                                                                                                                                                        h4,
-                                                                                                                                                                        h5,
-                                                                                                                                                                        span {
-                                                                                                                                                                            color: #031B4E;
-                                                                                                                                                                        } */
+                                                                                                                                                                                                                                            h1,
+                                                                                                                                                                                                                                            h2,
+                                                                                                                                                                                                                                            h3,
+                                                                                                                                                                                                                                            h4,
+                                                                                                                                                                                                                                            h5,
+                                                                                                                                                                                                                                            span {
+                                                                                                                                                                                                                                                color: #031B4E;
+                                                                                                                                                                                                                                            } */
 
         .article-desc img {
             width: 100%;
@@ -100,8 +100,15 @@
 
                 <div class="author cursor-pointer max-w-fit flex gap-2">
                     <div class="img h-8 w-8 overflow-hidden rounded-full">
-                        <img src="https://doimages.nyc3.digitaloceanspaces.com/46f22fba-7718-478b-86ae-e8b875f0473e_default-avatar.jpeg"
-                            alt="" class="object-cover">
+
+
+                        @if (!$article->user->user_profile)
+                            <img src="https://doimages.nyc3.digitaloceanspaces.com/46f22fba-7718-478b-86ae-e8b875f0473e_default-avatar.jpeg"
+                                alt="" class="object-cover">
+                        @else
+                            <img src="{{ asset('storage/userprofile/' . $article->user->user_profile) }}" alt=""
+                                class="object-cover shadow-md">
+                        @endif
                     </div>
                     <p
                         class="text-l duration-200 items-center flex hover:bg-blue-500 hover:text-white bg-sky-200 px-4 py-[1.8px] rounded-lg font-semibold text-sky-600">
@@ -136,7 +143,8 @@
             </div>
             <div class="article-category flex gap-2 mb-2">
                 @foreach ($article->categories as $perarticle)
-                    <p class="bg-slate-200 px-2 py-[1.2px] rounded-md text-[#031b4e] flex items-center gap-1">
+                    <p
+                        class="bg-slate-200 px-2 py-[1.2px] rounded-md shadow-sm text-[#031b4e] font-semibold flex items-center gap-1">
                         {!! $perarticle->icon !!}{{ $perarticle->name }}
                     </p>
                 @endforeach

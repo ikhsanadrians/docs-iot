@@ -29,7 +29,7 @@ class IndexController extends Controller
     public function show($slug){
 
 
-         $article = Article::where('slug',$slug)->firstOrFail();
+         $article = Article::with('user')->where('slug',$slug)->firstOrFail();
          $idofarticle =  $article->id;
 
          return view('detail',compact('article'));

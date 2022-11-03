@@ -91,3 +91,11 @@ body {
   #tech-stack > img {
        height: 20px;
   }
+
+
+  .navbar {
+    background-color:rgba(247, 247, 247, 0.5);
+    backdrop-filter: blur(8px);
+
+
+  }

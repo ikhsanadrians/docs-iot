@@ -18,7 +18,7 @@
     @include('sweetalert::alert')
     <div id="app w-full h-full">
         <header class="w-full h-full sticky z-30 top-0">
-            <div class="navbar bg-white shadow-md w-full h-16">
+            <div class="navbar w-full h-16">
                 <div
                     class="navbarinner flex items-center justify-between w-full h-full pr-4 pl-4 md:pl-16 md:pr-16 lg:pl-24 lg:pr-24">
                     <div class="mobile-title flex justify-between items-center z-10">
@@ -537,6 +537,7 @@
     <script src="{{ asset('js/loading.js') }}"></script>
     <script src="{{ asset('js/toggledark.js') }}"></script>
     <script src="{{ asset('js/hamburger.js') }}"></script>
+    <script src="{{ asset('js/navbar.js') }}"></script>
 </body>
 
 </html>

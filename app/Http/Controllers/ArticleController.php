@@ -178,4 +178,6 @@ class ArticleController extends Controller
         return view('tools.search');
     }
 
+
+
 }

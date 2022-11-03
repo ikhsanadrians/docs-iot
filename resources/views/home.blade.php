@@ -1,21 +1,10 @@
  @extends('layouts.master')
  @section('contents')
-     <div class="container -z-1 mt-10 flex justify-center w-full h-full lg:px-20 mb-[1200px]">
+     <div class="container -z-1 mt-10 flex justify-center w-full h-full lg:px-20 mb-[2500px]">
          <div class="container-inner w-full h-full">
-             <div class="search-box w-full relative flex justify-center top-2 ">
-                 <div class="the-inputs w-full">
-                     <span class="material-symbols-outlined absolute text-slate-500">
-                         search
-                     </span>
-                     <input id="search" name="search" placeholder="Search" type="search"
-                         class="focus:outline-none pl-8 text-slate-600 border-b-[1.5px] pb-2 bg-[#f7f7f7] border-slate-400 w-full md:w-[60%] lg:w-[45%]">
-                     <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
 
 
-                 </div>
-             </div>
-
-             <div class="articles-menu w-full h-full mt-12 grid-rows-none">
+             <div class="articles-menu w-full h-full  grid-rows-none">
                  <div class="articles-inner flex gap-2 flex-wrap">
                      @foreach ($articleall as $article)
                          <a href="{{ '/article/' . $article->slug }}">

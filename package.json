@@ -16,7 +16,8 @@
     "dependencies": {
         "chart.js": "^3.9.1",
         "color-themes-for-google-code-prettify": "^2.0.4",
-        "daisyui": "^2.31.0",
+        "daisyui": "^2.38.0",
+        "flowbite": "^1.5.3",
         "tippy.js": "^6.3.7"
     }
 }
