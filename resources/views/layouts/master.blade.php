@@ -8,6 +8,7 @@
     <meta name="_token" content="{!! csrf_token() !!}" />
     <title>Dokumentasi</title>
     <link rel="stylesheet" href="{{ asset('css/root.css') }}">
+    <link rel="icon" href="{{ asset('images/docslogo.png') }}" alt="tablogo">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -22,7 +23,7 @@
             <div class="navbar  w-full h-16">
                 <div
                     class="navbarinner flex items-center justify-between w-full h-full pr-4 pl-4 md:pl-16 md:pr-16 lg:pl-24 lg:pr-24">
-                    <div class="title-and-search gap-6 flex w-full h-full items-center">
+                    <div class="title-and-search lg:gap-6 gap-16 md:gap-6 flex  w-full h-full items-center">
                         <div class="title flex items-center">
                             <img src="{{ asset('images/docslogo.png') }}" alt="" class="h-12 w-12">
                             <h1
@@ -30,10 +31,9 @@
                                 Dokumentasi</h1>
                         </div>
 
-                        <div
-                            class="search-box w-[40rem] hover:border-invisible md:visible lg:visible relative flex items-center justify-start ">
+                        <div class="search-box lg:w-[40rem] w-[2rem] relative flex items-center justify-start ">
                             <button id="search-button"
-                                class="search-box-inner w-full h-full hover:translate-y-1 duration-150 hover:font-bold">
+                                class="search-box-inner w-full h-full duration-150 hover:font-bold hover:">
                                 <label for="simple-search" class="sr-only">Search</label>
                                 <div class="relative w-full md:w-full lg:w-[45%] flex items-center ">
                                     <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
@@ -44,7 +44,7 @@
                                                 clip-rule="evenodd"></path>
                                         </svg>
                                     </div>
-                                    <div class="kbd absolute right-2 flex items-center">
+                                    <div class="kbd absolute right-2 flex items-center hidden md:hidden lg:block">
                                         <p class="flex items-center gap-1 text-sm font-semibold"><span
                                                 class="bg-gradient-to-r from-gray-200 to-slate-400 rounded-md text-slate-700 shadow-md py-0 px-1">CTRL</span><span
                                                 class="bg-gradient-to-r from-gray-200 to-slate-400 rounded-md text-slate-700 shadow-md py-0 px-1">K</span>
@@ -52,7 +52,7 @@
                                     </div>
 
                                     <input type="text" id="simple-search"
-                                        class="bg-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                        class="bg-none border border-gray-300 hover:ring-blue-500 hover:ring-1 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                         placeholder="Search" required disabled>
                                 </div>
                             </button>
@@ -119,6 +119,7 @@
     <script src="{{ asset('js/navbar.js') }}"></script>
     <script src="{{ asset('js/toggledark.js') }}"></script>
     <script src="{{ asset('js/search.js') }}"></script>
+    <script src="{{ asset('js/searchquery.js') }}"></script>
     <div class="loader">
         <div class="title flex items-center justify-center absolute bottom-10">
             <img src="{{ asset('images/docslogo.png') }}" alt="" class="h-12 w-12">
@@ -134,9 +135,9 @@
 
     </div>
 
-    <div id="search-modal" class="search-wrappers flex justify-center w-full h-full hidden">
+    <div id="search-modal" class="search-wrappers flex justify-center w-full h-full hidden duration-400">
         <div id="search-modals"
-            class="fixed top-2 md:top-4 lg:top-28 md:w-[40rem] z-20 w-full lg:w-[40rem] h-[30rem] bg-slate-100 rounded-md">
+            class="fixed top-2 duration-400 md:top-4 lg:top-28 md:w-[40rem] z-20 w-full lg:w-[40rem] h-[30rem] bg-slate-100 rounded-md">
             <div class="search-modals-inner w-full h-full p-4">
 
                 <form>
@@ -151,15 +152,18 @@
                             </svg>
                         </div>
                         <input type="search" id="default-search"
-                            class="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            class="block p-4 pl-10 w-full text-sm text-gray-900 duration-200 hover:placeholder:font-bold hover:ring-1 hover:ring-blue-500 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Search Docs" required="">
 
                     </div>
                 </form>
 
-                <div class="text-slate-500 flex justify-center mt-12">
-                    No Recent Searches
+                <div class="text-slate-500 flex w-full mt-12">
+                    <table class="w-full h-full">
+                        <tbody id="results" class="w-full"></tbody>
+                    </table>
                 </div>
+
             </div>
         </div>
 
