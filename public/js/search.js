@@ -26,6 +26,25 @@ $(document).ready(function(){
 
         }
     })
+
+    // let searchbutton = document.querySelector("#search-button")
+    // let searchwrappers = document.querySelector(".search-wrappers")
+    // let body = document.querySelector('body')
+
+    // searchbutton.addEventListener("click",()=>{
+    //     if(searchwrappers.classList.contains('hidden')){
+    //         searchwrappers.classList.remove('hidden')
+    //         searchwrappers.classList.add('block')
+    //         body.classList.add('overflow-y-hidden')
+    //     } else {
+    //         searchwrappers.classList.remove('block')
+    //         searchwrappers.classList.add('hidden')
+    //         body.classList.remove('overflow-y-hidden')
+    //     }
+    // })
+
+
+
     $('#backdrop').on('click',function(){
         $('#backdrop').removeClass('block')
         $('body').removeClass('overflow-y-hidden')
@@ -37,44 +56,4 @@ $(document).ready(function(){
 
 
 })
-
-
-
-// $(document).ready(function () {
-//     $("#search").on('keyup',function(){
-//         let searchQuest = $(this).val();
-//                  $.ajax({
-//                 method: 'POST',
-//                 url: "/",
-//                 dataType: 'json',
-//                 data: {
-//                     "searchQuest" : searchQuest,
-//                     "_token" : $('#token').val()
-
-//                 },
-//                 success: (data) => {
-//                     for(let i=0; i<data.length; i++){
-//                      console.log(data[i].title);
-//                     }
-//                     // $.each(data,function(index,value){
-//                     //     let article = $(".articlecard").find('h1').text();
-//                     //     console.log(article);
-//                     //     for(let i=0; i<data.length; i++){
-//                     //     if(article[i] != data[i].title ){
-//                     //         console.dir(article[i]);
-//                     //         $(".articlecard").show();
-//                     //     } else {
-//                     //         $(".articlecard").hide();
-//                     //         console.log('data cocok');
-//                     //     }
-//                     // }
-//                     // })
-
-
-
-
-//                 }
-//             });
-//     });
-// })
 
