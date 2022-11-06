@@ -12,9 +12,9 @@ $(document).ready(function () {
                 "_token" : $('#token').val()
             },
             success: (data) => {
-
+                let norecentmsg = "No Recent Searches"
                 if(searchQuest == ""){
-                    $('#result').html("No Recent Searches")
+                    $('#result').html(norecentmsg)
                 } else {
                     $('#results').html(data)
                 }

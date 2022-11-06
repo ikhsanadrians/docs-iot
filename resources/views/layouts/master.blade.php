@@ -51,7 +51,8 @@
                             </div>
 
                             <input type="text" id="simple-search"
-                                class="bg-none border border-gray-300 hover:ring-blue-500 hover:ring-1 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                class="bg-none border border-gray-300 hover:ring-blue-500 hover:ring-1 text-gray-900 text-sm lg:rounded-lg
+                                md:rounded-lg rounded-full focus:ring-blue-500 focus:border-blue-500 block lg:w-full md:w-full w-10 h-10 pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 placeholder="Search" required disabled>
                         </div>
 
@@ -159,7 +160,9 @@
 
                 <div class="text-slate-500 flex w-full mt-12">
                     <table class="w-full h-full">
-                        <tbody id="results" class="w-full text-center">No Recent Searches</tbody>
+                        <tbody id="results" class="w-full text-center">
+
+                        </tbody>
                     </table>
                 </div>
 

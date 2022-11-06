@@ -77,14 +77,14 @@
         }
 
         /* .article-desc > strong,
-                                                                                                                                                                                                                                                            h1,
-                                                                                                                                                                                                                                                            h2,
-                                                                                                                                                                                                                                                            h3,
-                                                                                                                                                                                                                                                            h4,
-                                                                                                                                                                                                                                                            h5,
-                                                                                                                                                                                                                                                            span {
-                                                                                                                                                                                                                                                                color: #031B4E;
-                                                                                                                                                                                                                                                            } */
+                                                                                                                                                                                                                                                                                        h1,
+                                                                                                                                                                                                                                                                                        h2,
+                                                                                                                                                                                                                                                                                        h3,
+                                                                                                                                                                                                                                                                                        h4,
+                                                                                                                                                                                                                                                                                        h5,
+                                                                                                                                                                                                                                                                                        span {
+                                                                                                                                                                                                                                                                                            color: #031B4E;
+                                                                                                                                                                                                                                                                                        } */
 
         .article-desc img {
             width: 100%;
@@ -111,13 +111,13 @@
                         @endif
                     </div>
                     <p
-                        class="md:text-l text-xs lg:text-l duration-200 items-center flex hover:bg-blue-500 hover:text-white bg-sky-200 px-4 py-[1.8px] rounded-lg font-semibold text-sky-600">
+                        class="md:text-l text-xs lg:text-base duration-200 items-center flex hover:bg-blue-500 hover:text-white bg-sky-200 px-4 py-[1.8px] rounded-lg font-semibold text-sky-600">
 
                         {{ $article->user->name }}
 
                     </p>
                 </div>
-                <div class="date text-sky-900 font-normal items-center lg:text-l text-sm">
+                <div class="date text-sky-900 font-normal items-center lg:text-base md:text-md text-sm">
                     <p>Published on {{ $article->created_at->format('M d , Y') }}</p>
                 </div>
                 @if (!Auth::user() || Auth::user()->role != 'moderator')
