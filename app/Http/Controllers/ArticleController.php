@@ -157,26 +157,7 @@ class ArticleController extends Controller
 
 
 
-    public function search(Request $request){
 
-         if($request->ajax()){
-            $output = '';
-            $query = $request->get('search');
-            $articles = Article::where('title','LIKE','%'.$query.'%')->get();
-
-         if($articles){
-            foreach($articles as $article){
-
-                $output = $article->title;
-
-
-            }
-            return response()->json($output);
-        }
-
-        }
-        return view('tools.search');
-    }
 
 
 
