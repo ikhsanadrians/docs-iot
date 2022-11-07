@@ -52,7 +52,7 @@ class IndexController extends Controller
             if($articleall){
                 foreach($articleall as $key => $article){
                   $articlealls.= '<ul>'.
-                  '<li class="bg-slate-100 duration-200 font-semibold shadow-md hover:bg-blue-500 rounded-md hover:text-white mb-2 p-4 w-full">'.'<a href='."article/$article->slug".'>'.$article->title.'</a>'.'</li>'.
+                  '<li class="bg-slate-100 duration-200 font-semibold shadow-md hover:bg-blue-500 rounded-md hover:text-white mb-2 p-4 w-full">'.'<a href='."/article/$article->slug".'>'.$article->title.'</a>'.'</li>'.
                   '</ul>';
             }
          }

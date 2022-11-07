@@ -77,14 +77,14 @@
         }
 
         /* .article-desc > strong,
-                                                                                                                                                                                                                                                                                        h1,
-                                                                                                                                                                                                                                                                                        h2,
-                                                                                                                                                                                                                                                                                        h3,
-                                                                                                                                                                                                                                                                                        h4,
-                                                                                                                                                                                                                                                                                        h5,
-                                                                                                                                                                                                                                                                                        span {
-                                                                                                                                                                                                                                                                                            color: #031B4E;
-                                                                                                                                                                                                                                                                                        } */
+                                                                                                                                                                                                                                                                                                h1,
+                                                                                                                                                                                                                                                                                                h2,
+                                                                                                                                                                                                                                                                                                h3,
+                                                                                                                                                                                                                                                                                                h4,
+                                                                                                                                                                                                                                                                                                h5,
+                                                                                                                                                                                                                                                                                                span {
+                                                                                                                                                                                                                                                                                                    color: #031B4E;
+                                                                                                                                                                                                                                                                                                } */
 
         .article-desc img {
             width: 100%;
@@ -118,7 +118,7 @@
                     </p>
                 </div>
                 <div class="date text-sky-900 font-normal items-center lg:text-base md:text-md text-sm">
-                    <p>Published on {{ $article->created_at->format('M d , Y') }}</p>
+                    <p>Published on {{ $article->created_at->format('d M , Y') }}</p>
                 </div>
                 @if (!Auth::user() || Auth::user()->role != 'moderator')
                 @elseif(Auth::user()->role == 'moderator')

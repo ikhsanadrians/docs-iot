@@ -83,10 +83,12 @@
                             <h1 class="font-semibold"><a href="">Article</a></h1>
                         </div>
                         <div
-                            class="about flex hover:bg-gradient-to-r hover:from-sky-600 hover:to-blue-600 duration-400 rounded-xl text-sky-900 hover:text-slate-100 py-[6.5px] px-2 gap-[1.4px] items-center">
-                            <span class="material-symbols-outlined flex cursor-pointer items-center">
-                                support
-                            </span>
+                            class="about flex hover:bg-gradient-to-r hover:from-sky-600 hover:to-blue-600 duration-400 rounded-xl text-sky-900 fill-sky-900 hover:fill-slate-100 hover:text-slate-100 py-[6.5px] px-2 gap-[1.4px] items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="ionicon h-6" viewBox="0 0 512 512">
+                                <title>Information Circle</title>
+                                <path
+                                    d="M256 56C145.72 56 56 145.72 56 256s89.72 200 200 200 200-89.72 200-200S366.28 56 256 56zm0 82a26 26 0 11-26 26 26 26 0 0126-26zm48 226h-88a16 16 0 010-32h28v-88h-16a16 16 0 010-32h32a16 16 0 0116 16v104h28a16 16 0 010 32z" />
+                            </svg>
                             <h1 class="font-semibold"><a href="">About</a></h1>
                         </div>
                         <div class="set-light flex items-center">

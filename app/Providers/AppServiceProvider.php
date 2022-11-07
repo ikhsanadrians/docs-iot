@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Models\Category;
+use App\Models\Article;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +25,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+       view()->composer('partials.sidebar',function($view){
+           $view->with('categories',Category::paginate(10));
+       });
+
+       view()->composer('partials.morepost',function($view){
+        $view->with('articles',Article::with('categories')->get());
+       });
+
+
     }
 }
