@@ -21,8 +21,8 @@
         .article-desc pre {
             padding: 20px;
             border: 0px solid black;
-            background: #1d1f21;
-
+            background: #031B4E;
+            color: white;
             border-radius: 10px;
             width: 100%;
             white-space: pre-wrap;
@@ -32,6 +32,7 @@
             .article-desc pre {
                 padding: 20px;
                 border: 0px solid black;
+                color: white;
                 background: #e7e7e7;
                 border-radius: 10px;
                 width: 100%;
@@ -77,14 +78,14 @@
         }
 
         /* .article-desc > strong,
-                                                                                                                                                                                                                                                                                                h1,
-                                                                                                                                                                                                                                                                                                h2,
-                                                                                                                                                                                                                                                                                                h3,
-                                                                                                                                                                                                                                                                                                h4,
-                                                                                                                                                                                                                                                                                                h5,
-                                                                                                                                                                                                                                                                                                span {
-                                                                                                                                                                                                                                                                                                    color: #031B4E;
-                                                                                                                                                                                                                                                                                                } */
+                                                                                                                                                                                                                                                                                                                    h1,
+                                                                                                                                                                                                                                                                                                                    h2,
+                                                                                                                                                                                                                                                                                                                    h3,
+                                                                                                                                                                                                                                                                                                                    h4,
+                                                                                                                                                                                                                                                                                                                    h5,
+                                                                                                                                                                                                                                                                                                                    span {
+                                                                                                                                                                                                                                                                                                                        color: #031B4E;
+                                                                                                                                                                                                                                                                                                                    } */
 
         .article-desc img {
             width: 100%;

@@ -30,7 +30,7 @@ class AppServiceProvider extends ServiceProvider
        });
 
        view()->composer('partials.morepost',function($view){
-        $view->with('articles',Article::with('categories')->get());
+        $view->with('articles',Article::with('categories')->latest()->paginate(5));
        });
 
 

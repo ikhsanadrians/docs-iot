@@ -478,10 +478,13 @@
                                                                 class="text-sm text-center align-middle text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                                                 {{ Str::limit($perarticle->description, 15) }}
                                                             </td>
-                                                            <td
-                                                                class="text-sm text-center align-middle text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                                                {{-- {{ $perarticle->category->name }} --}}
-                                                            </td>
+                                                            @foreach ($perarticle->categories->take(1) as $percategory)
+                                                                <td id="category-wrapper"
+                                                                    class="text-sm  items-center flex gap-1 text-center align-middle text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                                                    {!! $percategory->icon !!}
+                                                                    {{ $percategory->name }}
+                                                                </td>
+                                                            @endforeach
                                                             <td
                                                                 class="text-sm text-center align-middle text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                                                 {{ $perarticle->created_at }}

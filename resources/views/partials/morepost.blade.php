@@ -13,9 +13,8 @@
                 @foreach ($articles as $perarticle)
                     @if ($article->id != $perarticle->id)
                         <li class="p-[1.5px]">
-                            <div
-                                class="profile-all w-full flex gap-1 items-center mb-1 bg-slate-200 rounded-l-full rounded-r-2xl">
-                                <div class="profile w-6 h-6 overflow-hidden rounded-full">
+                            <div class="profile-all w-full flex gap-1 items-center mb-1 rounded-l-full rounded-r-2xl">
+                                <div class="profile w-6 h-6 overflow-hidden rounded-full flex items-center">
                                     @if (!$perarticle->user->user_profile)
                                         <img src="https://doimages.nyc3.digitaloceanspaces.com/46f22fba-7718-478b-86ae-e8b875f0473e_default-avatar.jpeg"
                                             alt="profile" class="w-full h-full object-cover">
@@ -29,7 +28,7 @@
                                     @foreach ($perarticle->categories->take(1) as $category)
                                         <span id="iconmorepost" class="flex items-center gap-1">
                                             {!! $category->icon !!}
-                                            {{ $category->name }}
+
                                         </span>
                                     @endforeach
 
@@ -52,6 +51,6 @@
 </aside>
 <style>
     #iconmorepost>img {
-        height: 15px;
+        height: 25px;
     }
 </style>

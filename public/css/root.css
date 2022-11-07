@@ -99,3 +99,12 @@ body {
 
 
   }
+
+  #catagory-wrapper {
+    display: flex;
+    align-items:center;
+  }
+
+  #category-wrapper > img {
+    height: 20px;
+  }
