@@ -1,8 +1,9 @@
 @extends('Auth.dashboard')
 @section('tool')
-    <div class="container mt-4 w-full h-full">
-        <h1 class="text-2xl opacity-80">Add New Article</h1>
-        <div class="form-group mt-4 w-full h-full shadow-2xl p-6 rounded-xl bg-white border-t-4 border-t-blue-500">
+    <div class="container mt-4 w-full max-h-full ">
+        <h1 class="text-2xl opacity-80 dark:text-slate-400">Add New Article</h1>
+        <div
+            class="form-group mt-4 w-full h-full shadow-2xl p-6 rounded-xl bg-white dark:bg-slate-700 border-t-4 border-t-blue-500">
 
             <form action="{{ route('addarticlepost') }}" method="POST" enctype="multipart/form-data">
                 @csrf
@@ -13,15 +14,15 @@
 
 
                     <input type="text" name="title"
-                        class="w-full h-12 border-[1.2px] border-zinc-300 rounded-lg pl-8 focus:shadow-md focus:outline-none focus:border-sky-600"
+                        class="w-full h-12 border-[1.2px] border-zinc-300 dark:bg-slate-800 dark:border-slate-600 dark:text-white rounded-lg pl-8 focus:shadow-md focus:outline-none focus:border-sky-600"
                         placeholder="Masukan Title Article">
 
                 </div>
                 <div class="category-input-wrapper">
                     <div class="category-input w-full h-full flex items-center">
-                        <div class="category-every relative mt-4 w-full" id="inputcategory">
+                        <div class="category-everies relative mt-4 w-full" id="inputcategory">
                             <select
-                                class="block appearance-none w-full bg-gray-100 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                class="block appearance-none w-full bg-gray-100 border dark:bg-slate-800 dark:text-white border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                 id="grid-state" name="category[]">
                                 <option>Select Category</option>
                                 @foreach ($category as $percategory)
@@ -33,12 +34,33 @@
 
                             </div>
                         </div>
-                        <div id="addnewcategory" title="Add More Category"
+                        <div id="addnewcategories" title="Add More Category"
                             class="add-newcategory h-full rounded-lg bg-slate-200 flex items-center cursor-pointer mt-4 ml-1">
                             <span class="material-symbols-outlined text-3xl flex items-center cursor-pointer text-gray-700">
                                 add
                             </span>
                         </div>
+
+                    </div>
+                </div>
+
+                <div class="posttype-input-wrapper">
+                    <div class="posttype-input w-full h-full flex items-center">
+                        <div class="postype-every relative mt-4 w-full" id="inputcategory">
+                            <select
+                                class="block appearance-none w-full bg-gray-100 dark:bg-slate-800 dark:text-white border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                id="grid-state" name="typepost">
+                                @foreach ($articletype as $perarticletype)
+                                    <option value="{{ $perarticletype->id }}">{{ $perarticletype->name }}</option>
+                                @endforeach
+
+                            </select>
+                            <div
+                                class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+
+                            </div>
+                        </div>
+
 
                     </div>
                 </div>
@@ -79,5 +101,5 @@
     <script>
         CKEDITOR.replace('editor');
     </script>
-    <div class="mb-96"></div>
+    <div class="mb-80"></div>
 @endsection

@@ -1,7 +1,11 @@
 /*! Color themes for Google Code Prettify | MIT License | github.com/jmblog/color-themes-for-google-code-prettify */
+@import "tailwindcss/components";
+
 body {
     height: 100%;
 }
+
+
 
 .prettyprint {
     background: #202746;

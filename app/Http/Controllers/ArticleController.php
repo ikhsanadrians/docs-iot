@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\ArticleType;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -22,7 +23,8 @@ class ArticleController extends Controller
             return redirect('/404');
         } else {
             $category = Category::all();
-            return view('tools.addarticle',compact('category'));
+            $articletype = ArticleType::all();
+            return view('tools.addarticle',compact('category','articletype'));
 
         }
     }
@@ -34,8 +36,6 @@ class ArticleController extends Controller
      */
     public function create(Request $request)
     {
-
-
           $request->validate([
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:8024',
           ]);
@@ -58,6 +58,7 @@ class ArticleController extends Controller
         $article = Article::create([
             "user_id" => $userid,
             "title" =>  $title,
+            "article_type_id" => $request->typepost,
             "images" => $filename,
             "slug" => Str::slug($title,'-'),
             "description" => $request->editor,
@@ -101,11 +102,12 @@ class ArticleController extends Controller
      */
     public function edit(Article $article , $id)
     {
+      $articletype = ArticleType::all();
       $category = Category::all();
       $editarticle = Article::findOrFail(decrypt($id));
 
 
-        return view('tools.editarticle',compact('editarticle','category'));
+        return view('tools.editarticle',compact('editarticle','category' , 'articletype'));
 
     }
 

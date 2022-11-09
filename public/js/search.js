@@ -27,21 +27,7 @@ $(document).ready(function(){
         }
     })
 
-    // let searchbutton = document.querySelector("#search-button")
-    // let searchwrappers = document.querySelector(".search-wrappers")
-    // let body = document.querySelector('body')
 
-    // searchbutton.addEventListener("click",()=>{
-    //     if(searchwrappers.classList.contains('hidden')){
-    //         searchwrappers.classList.remove('hidden')
-    //         searchwrappers.classList.add('block')
-    //         body.classList.add('overflow-y-hidden')
-    //     } else {
-    //         searchwrappers.classList.remove('block')
-    //         searchwrappers.classList.add('hidden')
-    //         body.classList.remove('overflow-y-hidden')
-    //     }
-    // })
 
 
 

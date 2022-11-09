@@ -17,17 +17,17 @@
 
 </head>
 
-<body>
+<body class="dark:bg-[#0F172A]">
     <div id="app w-full h-full">
         <header class="w-full h-full sticky z-10 top-0">
-            <div class="navbar  w-full h-16">
+            <div class="navbar  w-full h-16 bg-[#E8EBF2]/25 dark:bg-[#0F172A]/25">
                 <div
                     class="navbarinner flex items-center justify-between w-full h-full pr-4 pl-4 md:pl-16 md:pr-16 lg:pl-24 lg:pr-24">
                     <div class="title-and-search lg:gap-6 gap-16 md:gap-6 flex  w-full h-full items-center">
                         <div class="title flex items-center">
-                            <img src="{{ asset('images/docslogo.png') }}" alt="" class="h-12 w-12">
+                            <img src="{{ asset('images/docslogolates.png') }}" alt="" class="h-12 w-12">
                             <h1
-                                class="text-xl md:text-2xl lg:text-2xl font-bold bg-gradient-to-r from-sky-500 to-blue-500 bg-clip-text text-transparent">
+                                class="text-xl md:text-2xl lg:text-2xl font-bold bg-gradient-to-r from-sky-500 to-blue-500 dark:text-white bg-clip-text text-transparent">
                                 Dokumentasi</h1>
                         </div>
 
@@ -62,28 +62,22 @@
 
                     <div class="menu flex gap-2 invisible md:visible lg:visible">
                         <div
-                            class="category flex hover:bg-gradient-to-r hover:from-sky-600 hover:to-blue-600 duration-400 rounded-xl text-sky-900 hover:text-slate-100 py-[6.5px] px-2 gap-[1.4px] items-center">
-                            <span class="material-symbols-outlined flex cursor-pointer items-center">
-                                category
-                            </span>
+                            class="category flex hover:bg-gradient-to-r hover:from-sky-600 hover:to-blue-600 duration-300 rounded-xl dark:text-slate-300 text-sky-900 hover:text-slate-100py-[6.5px] px-2 gap-[1.8px] items-center dark:hover-slate-300">
+                            <ion-icon name="grid"></ion-icon>
                             <h1 class="font-semibold"><a href="">Category</a></h1>
                         </div>
                         <div
-                            class="topic flex hover:bg-gradient-to-r hover:from-sky-600 hover:to-blue-600 duration-400 rounded-xl text-sky-900 hover:text-slate-100 py-[6.5px] px-2 gap-[1.4px] items-center">
-                            <span class="material-symbols-outlined flex cursor-pointer items-center">
-                                topic
-                            </span>
+                            class="topic flex hover:bg-gradient-to-r hover:from-sky-600 hover:to-blue-600 duration-300 rounded-xl dark:text-slate-300 text-sky-900 hover:text-slate-100 py-[6.5px] px-2 gap-[1.8px] items-center">
+                            <ion-icon name="layers"></ion-icon>
                             <h1 class="font-semibold"><a href="">Topic</a></h1>
                         </div>
                         <div
-                            class="article flex hover:bg-gradient-to-r hover:from-sky-600 hover:to-blue-600 duration-400 rounded-xl text-sky-900 hover:text-slate-100 py-[6.5px] px-2 gap-[1.4px] items-center">
-                            <span class="material-symbols-outlined flex cursor-pointer items-center">
-                                article
-                            </span>
+                            class="article flex hover:bg-gradient-to-r hover:from-sky-600 fill-sky-900 hover:to-blue-600 duration-300 rounded-xl dark:text-slate-300 text-sky-900 hover:text-slate-100 py-[6.5px] px-2 gap-[1.8px] items-center dark:hover-slate-300">
+                            <ion-icon name="document-text"></ion-icon>
                             <h1 class="font-semibold"><a href="">Article</a></h1>
                         </div>
                         <div
-                            class="about flex hover:bg-gradient-to-r hover:from-sky-600 hover:to-blue-600 duration-400 rounded-xl text-sky-900 fill-sky-900 hover:fill-slate-100 hover:text-slate-100 py-[6.5px] px-2 gap-[1.4px] items-center">
+                            class="about flex hover:bg-gradient-to-r hover:from-sky-600 hover:to-blue-600 duration-300 rounded-xl dark:text-slate-300 dark:fill-slate-300 text-sky-900 fill-sky-900 hover:fill-slate-100 hover:text-slate-100 py-[6.5px] px-2 gap-[1.8px] items-center dark:hover-slate-300">
                             <svg xmlns="http://www.w3.org/2000/svg" class="ionicon h-6" viewBox="0 0 512 512">
                                 <title>Information Circle</title>
                                 <path
@@ -91,7 +85,9 @@
                             </svg>
                             <h1 class="font-semibold"><a href="">About</a></h1>
                         </div>
-                        <div class="set-light flex items-center">
+                        <div
+                            class="set-light flex items-center relative rounded-lg hover:bg-zinc-200 focus:border-2 focus:border-zinc-400 duration-300">
+                            <input type="checkbox" id="setthelight" class="absolute h-8 w-10 opacity-0">
                             <span id="setlight"
                                 class="toggle material-symbols-outlined text-indigo-500 cursor-pointer p-2 rounded-md hover:bg-zinc-200 focus:border-2 focus:border-zinc-400 duration-300">
                                 dark_mode
@@ -122,7 +118,7 @@
     <script src="{{ asset('js/toggledark.js') }}"></script>
     <script src="{{ asset('js/search.js') }}"></script>
     <script src="{{ asset('js/searchquery.js') }}"></script>
-    <div class="loader">
+    <div class="loader dark:!bg-[#0F172A]">
         <div class="title flex items-center justify-center absolute bottom-10">
             <img src="{{ asset('images/docslogo.png') }}" alt="" class="h-12 w-12">
             <h1
@@ -139,7 +135,7 @@
 
     <div id="search-modal" class="search-wrappers flex justify-center w-full h-full hidden duration-400">
         <div id="search-modals"
-            class="fixed top-2 duration-400 md:top-4 lg:top-28 md:w-[40rem] z-20 w-full lg:w-[40rem] h-[30rem] bg-slate-100 rounded-md">
+            class="fixed top-2 duration-400 md:top-4 lg:top-28 md:w-[40rem] z-20 w-full lg:w-[40rem] h-[30rem] bg-slate-100 dark:bg-slate-700 rounded-md">
             <div class="search-modals-inner w-full h-full p-4">
 
                 <form>
@@ -160,9 +156,10 @@
                     </div>
                 </form>
 
-                <div class="text-slate-500 flex w-full mt-12">
-                    <table class="w-full h-full">
-                        <tbody id="results" class="w-full text-center">
+                <div class="text-slate-500 flex w-full h-full mt-8  overflow-hidden">
+                    <table class="w-full  flex flex-col overflow-hidden pb-24">
+                        <tbody id="results" class="w-full  text-center  overflow-auto
+                        ">
 
                         </tbody>
                     </table>
@@ -172,8 +169,11 @@
         </div>
 
     </div>
-
-    <div id="backdrop" class="hidden fixed top-0 z-10 backdrop w-full h-full  bg-slate-700 opacity-30"></div>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <div id="backdrop"
+        class="hidden fixed top-0 z-10 backdrop w-full h-full  bg-slate-700 dark:bg-slate-500 opacity-30">
+    </div>
 </body>
 
 </html>

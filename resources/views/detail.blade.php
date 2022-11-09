@@ -2,23 +2,23 @@
 @section('content')
     <style>
         .article-desc a {
-            color: #031B4E;
+
             text-decoration: underline;
 
         }
 
         .article-desc p {
             line-height: 2.2;
-            color: #031B4E;
+
         }
 
         .article-desc h1 {
-            color: #222220;
             font-weight: 500;
 
         }
 
         .article-desc pre {
+
             padding: 20px;
             border: 0px solid black;
             background: #031B4E;
@@ -42,7 +42,7 @@
 
             .article-desc>h1 {
                 font-size: 25px;
-                color: #031B4E;
+
             }
 
 
@@ -51,7 +51,7 @@
 
         .article-desc>h1 {
             font-size: 30px;
-            color: #031B4E;
+
         }
 
         .article-desc img {
@@ -59,6 +59,16 @@
             margin-bottom: 15px;
         }
 
+        .article-desc ol {
+            display: block;
+            list-style-type: decimal;
+            margin-top: 1em;
+            margin-bottom: 1em;
+            line-height: 2.2;
+            margin-left: 0;
+            margin-right: 0;
+            padding-left: 40px;
+        }
 
 
         .article-desc ul {
@@ -74,18 +84,18 @@
         }
 
         .article-desc>ol>li span {
-            color: #031B4E;
+            /* color: #031B4E; */
         }
 
         /* .article-desc > strong,
-                                                                                                                                                                                                                                                                                                                    h1,
-                                                                                                                                                                                                                                                                                                                    h2,
-                                                                                                                                                                                                                                                                                                                    h3,
-                                                                                                                                                                                                                                                                                                                    h4,
-                                                                                                                                                                                                                                                                                                                    h5,
-                                                                                                                                                                                                                                                                                                                    span {
-                                                                                                                                                                                                                                                                                                                        color: #031B4E;
-                                                                                                                                                                                                                                                                                                                    } */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                h1,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                h2,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   h3,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                h4,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                h5,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                span {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    color: #031B4E;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                } */
 
         .article-desc img {
             width: 100%;
@@ -112,14 +122,14 @@
                         @endif
                     </div>
                     <p
-                        class="md:text-l text-xs lg:text-base duration-200 items-center flex hover:bg-blue-500 hover:text-white bg-sky-200 px-4 py-[1.8px] rounded-lg font-semibold text-sky-600">
+                        class="md:text-l text-xs lg:text-base duration-200 items-center flex hover:bg-blue-500 hover:text-white bg-sky-200 dark:bg-slate-700 dark:border-[1.2px] dark:border-slate-600 px-4 py-[1.8px] rounded-lg font-semibold text-sky-600 dark:text-slate-200">
 
                         {{ $article->user->name }}
 
                     </p>
                 </div>
-                <div class="date text-sky-900 font-normal items-center lg:text-base md:text-md text-sm">
-                    <p>Published on {{ $article->created_at->format('d M , Y') }}</p>
+                <div class="date text-sky-900 dark:text-slate-400 font-normal items-center lg:text-base md:text-md text-sm">
+                    <p>Published on {{ $article->created_at->format('d M Y') }}</p>
                 </div>
                 @if (!Auth::user() || Auth::user()->role != 'moderator')
                 @elseif(Auth::user()->role == 'moderator')
@@ -139,13 +149,17 @@
 
 
             <div class="article-title mb-2">
-                <h1 class="lg:text-[2.6rem] md:text-[2.3rem] text-[1.8rem] font-bold text-[#031b4e] ">{{ $article->title }}
+                <h1 class="lg:text-[2.6rem] md:text-[2.3rem] text-[1.8rem] font-bold text-[#031b4e] dark:text-slate-400">
+                    @if ($article->article_type_id == 2)
+                        <ion-icon name="lock-closed"></ion-icon>
+                    @endif
+                    {{ $article->title }}
                 </h1>
             </div>
             <div class="article-category flex gap-2 mb-2">
                 @foreach ($article->categories as $perarticle)
                     <p
-                        class="bg-slate-200 px-2 py-[1.2px] rounded-md shadow-sm text-[#031b4e] font-semibold flex items-center gap-1">
+                        class="bg-slate-200 dark:bg-slate-700 dark:text-slate-200 px-2 py-[1.2px] rounded-md shadow-sm text-[#031b4e] font-semibold flex items-center gap-1">
                         {!! $perarticle->icon !!}{{ $perarticle->name }}
                     </p>
                 @endforeach
@@ -154,7 +168,7 @@
                 <img src="{{ asset('storage/thumbnail/' . $article->images) }}" alt="imagethumbnail"
                     class="w-full h-full object-cover rounded-lg">
             </div>
-            <div class="article-desc md:pr-8 lg:pr-8">
+            <div class="article-desc md:pr-8 lg:pr-8 !text-[#031B4E] dark:text-slate-400 ">
                 <p>{!! html_entity_decode($article->description) !!}</p>
             </div>
 

@@ -11,20 +11,22 @@
             white-space: pre-wrap;
         }
     </style>
-    <div class="container mt-4 w-full h-full bg-white shadow-2xl p-2 lg:p-4 rounded-xl border-t-blue-500 border-t-4">
+    <div class="container mt-4 w-full max-h-full">
 
         <h1 class=" text-l md:text-xl lg:text-xl opacity-80">Update The Article</h1>
-        <div class="form-group mt-4 w-full h-full">
+        <div
+            class="form-group mt-4 w-full h-full shadow-2xl p-6 rounded-xl bg-white dark:bg-slate-700 border-t-4 border-t-blue-500">
 
             <form action="{{ route('update', encrypt($editarticle->id)) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <input type="text" value="{{ $editarticle->title }}" name="title"
-                    class="w-full h-12 border-[1.2px] border-zinc-300 rounded-lg pl-4 focus:shadow-md focus:outline-none focus:border-sky-600"
+                    class="w-full h-12 border-[1.2px] border-zinc-300 dark:bg-slate-800 dark:text-slate-300 rounded-lg pl-4 focus:shadow-md focus:outline-none focus:border-sky-600"
                     placeholder="Masukan Title Article">
                 <div class="relative mt-4">
                     <select
-                        class="block appearance-none w-full bg-gray-100 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                        class="block appearance-none w-full bg-gray-100 border dark:bg-slate-800
+                        dark:text-slate-300 border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                         id="grid-state" name="category">
                         <option>Select Category</option>
                         @foreach ($category as $percategory)
@@ -38,6 +40,27 @@
                         <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                             <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
                         </svg>
+                    </div>
+                </div>
+                <div class="posttype-input-wrapper w-full h-full">
+                    <div class="posttype-input w-full h-full flex items-center">
+                        <div class="postype-every relative mt-4 w-full" id="inputcategory">
+                            <select
+                                class="block appearance-none w-full bg-gray-100 dark:border-slate-500 dark:bg-slate-700 border border-gray-200 text-gray-700 dark:text-slate-300 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                id="grid-state" name="typepost">
+                                @foreach ($articletype as $perarticletype)
+                                    <option value="{{ $perarticletype->id }}"
+                                        {{ $perarticletype->id == $editarticle->article_type_id ? 'selected' : '' }}>
+                                        {{ $perarticletype->name }}</option>
+                                @endforeach
+                            </select>
+                            <div
+                                class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+
+                            </div>
+                        </div>
+
+
                     </div>
                 </div>
                 {{-- <textarea type="text" name="editor1"
@@ -63,7 +86,7 @@
                     </div>
                 </div>
 
-                <div class="inputtext-content mt-4 mb-4">
+                <div class="inputtext-content mt-4 mb-4 h-full w-full">
                     <textarea class="form-control" id="editor" name="editor">{!! $editarticle->description !!}</textarea>
                     <button type="submit"
                         class="px-4 py-2 font-semibold bg-gradient-to-r from-blue-400 to-blue-600 mt-4 rounded-md text-white">Update</button>
