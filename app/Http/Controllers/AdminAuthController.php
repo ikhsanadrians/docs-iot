@@ -175,6 +175,12 @@ public function addcategory(Request $request){
 
 }
 
+  public function usersettingindex(){
+
+  }
+
+
+
 
     public function signOut(){
         Session::flush();
