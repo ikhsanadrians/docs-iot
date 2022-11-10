@@ -70,15 +70,47 @@ function showFile(){
 
 });
 
+// const tablerows = document.getElementsByClassName('table-rows');
+// for (const tbrow of tablerows) {
+//     $('.copy-button').on('click', function(e) {
+//        let singletbrow = tbrow.querySelector('#image-id')
+//        let tbrows = tbrow.querySelector('#image-id').innerText
+//        if($(this).attr("id") == tbrows){
+//          let singletbrowvalue = singletbrow.parentNode.querySelector('#image-url').getAttribute('title')
+//          try {
+//          var retVal = navigator.clipboard.writeText(singletbrowvalue);
+//           tippy('.copy-button', {
+//             content: 'Copied!',
+//             trigger:'click'
+//           });
+
+//         } catch(err){
+//              console.log(err)
+//         }
+//     }
+
+// });
+
+
+
+// }
+
+
+
+
+
+
 const tablerows = document.getElementsByClassName('table-rows');
 for (const tbrow of tablerows) {
     $('.copy-button').on('click', function(e) {
        let singletbrow = tbrow.querySelector('#image-id')
        let tbrows = tbrow.querySelector('#image-id').innerText
        if($(this).attr("id") == tbrows){
-         let singletbrowvalue = singletbrow.parentNode.querySelector('#image-url').getAttribute('title')
+         let singletbrowvalue = singletbrow.parentNode.querySelector('#images-url')
+         singletbrowvalue.select();
+         singletbrowvalue.setSelectionRange(0, 99999);
          try {
-         var retVal = navigator.clipboard.writeText(singletbrowvalue);
+         var retVal = document.execCommand("copy");
           tippy('.copy-button', {
             content: 'Copied!',
             trigger:'click'
@@ -94,9 +126,6 @@ for (const tbrow of tablerows) {
 
 
 }
-
-
-
 
 
 
