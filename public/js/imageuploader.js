@@ -76,13 +76,18 @@ for (const tbrow of tablerows) {
        let singletbrow = tbrow.querySelector('#image-id')
        let tbrows = tbrow.querySelector('#image-id').innerText
        if($(this).attr("id") == tbrows){
-          navigator.clipboard.writeText(singletbrow.parentNode.querySelector('#image-url').getAttribute('title'))
+         let singletbrowvalue = singletbrow.parentNode.querySelector('#image-url').getAttribute('title')
+         try {
+         var retVal = navigator.clipboard.writeText(singletbrowvalue);
           tippy('.copy-button', {
             content: 'Copied!',
             trigger:'click'
           });
 
+        } catch(err){
+             console.log(err)
         }
+    }
 
 });
 
