@@ -176,8 +176,8 @@ public function addcategory(Request $request){
 }
 
   public function usersettingindex(){
-
-  }
+     return view('tools.usersetting');
+   }
 
 
 
