@@ -14,28 +14,16 @@
                         </a>
                     </li>
                 @else
-                    @if (!$perarticle->id || $perarticle->id != $category->id)
-                        <li>
-                            <a href="#"
-                                class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-slate-400 hover:bg-gray-200 dark:hover:bg-gray-700 hover:translate-x-2 duration-500">
-                                <div class="icon">
-                                    {!! $category->icon !!}
-                                </div>
-                                <span
-                                    class="ml-3 font-semibold text-sky-900 dark:text-slate-400">{{ $category->name }}</span>
-                            </a>
-                        </li>
-                    @else
-                        <li>
-                            <a href="#"
-                                class="flex items-center p-2  bg-gray-200 text-base dark:text-slate-300 font-normal text-gray-900 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 hover:translate-x-2 duration-500">
-                                <div class="icon">
-                                    {!! $category->icon !!}
-                                </div>
-                                <span class="ml-3 font-semibold text-sky-900 ">{{ $category->name }}</span>
-                            </a>
-                        </li>
-                    @endif
+                    <li>
+                        <a href="#"
+                            class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-slate-400 hover:bg-gray-200 dark:hover:bg-gray-700 hover:translate-x-2 duration-500">
+                            <div class="icon">
+                                {!! $category->icon !!}
+                            </div>
+                            <span
+                                class="ml-3 font-semibold text-sky-900 dark:text-slate-400">{{ $category->name }}</span>
+                        </a>
+                    </li>
                 @endif
             @endforeach
 
