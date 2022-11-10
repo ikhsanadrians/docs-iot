@@ -77,5 +77,48 @@
                 </div>
             </div>
         </div>
+
+        <h1 class="text-2xl opacity-80 dark:text-slate-400 mt-4">Add New Category</h1>
+        <div
+            class="form-group mt-4 w-full max-h-full shadow-2xl p-6 rounded-xl bg-white dark:bg-slate-700 border-t-4 border-t-blue-500">
+
+            <form action="{{ route('addcategorypost') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="input-title w-full h-full relative flex items-center">
+                    <span class="material-symbols-outlined absolute z-10 pl-2 text-slate-400">
+                        subtitles
+                    </span>
+                    <input type="text" name="titlecategory"
+                        class="w-full h-12 border-[1.2px] border-zinc-300 dark:bg-slate-800 dark:border-slate-600 dark:text-white rounded-lg pl-8 focus:shadow-md focus:outline-none focus:border-sky-600"
+                        placeholder="Masukan Title Category">
+                </div>
+                <div class="url-icon w-full mt-2 h-full relative flex items-center">
+                    <span class="material-symbols-outlined absolute z-10 pl-2 text-slate-400">
+                        subtitles
+                    </span>
+                    <input type="text" name="urlicon"
+                        class="w-full h-12 border-[1.2px] border-zinc-300 dark:bg-slate-800 dark:border-slate-600 dark:text-white rounded-lg pl-8 focus:shadow-md focus:outline-none focus:border-sky-600"
+                        placeholder="Masukan Url Icon">
+                </div>
+
+                <div class="upload-images-thumbnail mt-4 mb-4">
+                    <p class="dark:text-slate-300">Atau Upload Icon</p>
+                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="file_input"></label>
+                    <input name="icon"
+                        class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                        aria-describedby="file_input_help" id="file_input" type="file">
+                    <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX.
+                        800x400px).</p>
+
+                </div>
+
+                <button
+                    class="bg-gradient-to-r from-blue-500 to-sky-500  w-[15%] h-full py-3 px-2 text-white font-bold rounded-md hover:shadow-md hover:scale-105 duration-500 dark:text-white dark:bg-slate-800">Submit</button>
+
+
+
+            </form>
+
+        </div>
     </div>
 @endsection

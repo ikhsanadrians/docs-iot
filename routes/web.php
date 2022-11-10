@@ -41,4 +41,6 @@ Route::get('/dashboard/imageuploader',[AdminAuthController::class,'imageuploader
 Route::post('/dashboard/imageuploader',[AdminAuthController::class,'imageuploader'])->name('imageuploaderpost');
 Route::get('/dashboard/addcategory',[AdminAuthController::class,'addcategoryindex'])->name('addcategory');
 Route::post('/dashboard/addcategory',[AdminAuthController::class,'addcategory'])->name('addcategorypost');
+Route::get('/dashboard/usersetting',[AdminAuthController::class,'usersettingindex'])->name('usersetting');
+Route::post('dashboard/usersetting',[AdminAuthController::class,'usersetting'])->name('usersettingpost');
 Route::get('404',[RedirectHandlesController::class,'index']);

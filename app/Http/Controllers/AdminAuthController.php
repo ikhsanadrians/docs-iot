@@ -149,6 +149,32 @@ public function addcategoryindex(){
 }
 
 
+public function addcategory(Request $request){
+   $title = $request->titlecategory;
+   $urlicons = $request->urlicon;
+
+   if($request->hasFile('icon')){
+       $icons = $request->file('icon');
+       $iconname = $icons->getClientOriginalName();
+       $icons->storeAs('iconcategory',$iconname);
+       Category::create([
+         "name" => $title,
+         "icon" => "<img src='/storage/iconcategory/$iconname'>"
+        ]);
+        return redirect()->back();
+        Alert::success("Sukses Menambahkan Gambar");
+   } else {
+     Category::create([
+        "name" => $title,
+        "icon" => $urlicons,
+       ]);
+
+       return redirect()->back();
+       Alert::success("Sukses Menambahkan Gambar");
+   }
+
+}
+
 
     public function signOut(){
         Session::flush();

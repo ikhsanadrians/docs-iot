@@ -354,7 +354,7 @@
                                     d="M378.7 32H133.3L256 182.7L378.7 32zM512 192l-107.4-141.3L289.6 192H512zM107.4 50.67L0 192h222.4L107.4 50.67zM244.3 474.9C247.3 478.2 251.6 480 256 480s8.653-1.828 11.67-5.062L510.6 224H1.365L244.3 474.9z">
                                 </path>
                             </svg>
-                            <span class="ml-4">Upgrade to Pro</span>
+                            <span class="ml-4">Users Settings</span>
                         </a>
                     </li>
                     <li>
@@ -422,7 +422,7 @@
                     @yield('tool')
                 @else
                     <div
-                        class="mt-4 p-4 table-container w-full h-full shadow-xl bg-white dark:bg-slate-600 rounded-2xl border-t-blue-500 border-t-4">
+                        class="mt-4 p-4 table-container w-full max-h-full shadow-xl bg-white dark:bg-slate-600 rounded-2xl border-t-blue-500 border-t-4">
                         <div class="flex flex-col">
                             <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
                                 <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
@@ -469,14 +469,18 @@
                                                             class="text-center align-middle px-6 py-4 whitespace-nowrap text-sm font-medium">
                                                             {{ $perarticle->id }}
                                                         </td>
-                                                        <td class="text-sm text-center align-middle flex items-center cursor-pointer font-light px-6 py-4 whitespace-nowrap"
+                                                        <td class="text-sm text-center align-middle flex gap-2 items-center cursor-pointer font-light px-6 py-4 whitespace-nowrap"
                                                             title="{{ $perarticle->title }}">
                                                             @if ($perarticle->article_type_id == 2)
                                                                 <ion-icon name="lock-closed-outline"></ion-icon>
                                                             @else
                                                                 <ion-icon name="lock-open-outline"></ion-icon>
                                                             @endif
+                                                            <img class="h-12"
+                                                                src="{{ asset('storage/thumbnail/' . $perarticle->images) }}"
+                                                                alt="">
                                                             {{ Str::limit($perarticle->title, 15) }}
+
                                                         </td>
                                                         <td
                                                             class="text-sm text-center align-middle font-light px-6 py-4 whitespace-nowrap">
