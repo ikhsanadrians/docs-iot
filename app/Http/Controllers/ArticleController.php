@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use App\Models\ArticleType;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Category;
@@ -150,8 +151,18 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article, $id)
     {
+           $articleToDelete = Article::findOrFail(decrypt($id));
+            $articleImagePath = $articleToDelete->images;
+            if(!unlink(storage_path('app/public/thumbnail/'.$articleImagePath))){
+                $articleToDelete->delete();
+            } else {
+                $articleToDelete->delete();
 
-        Article::where('id',decrypt($id))->delete();
+                Storage::delete($articleToDelete->images);
+
+            }
+
+
         return redirect('/dashboard');
 
     }
