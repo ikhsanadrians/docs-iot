@@ -33,7 +33,7 @@ class UserAuthController extends Controller
    }
 
    public function register(Request $request){
-     User::create([
+     $users = User::create([
           "name" => $request->username,
           "slug" => Str::slug($request->username),
           "role" => "default_user",
@@ -42,6 +42,6 @@ class UserAuthController extends Controller
 
      ]);
 
-    return redirect('/');
+    return redirect('/login')->with('users',$users);
    }
 }

@@ -83,11 +83,24 @@
                                     <p class="text-[#031b4e]">{!! $article->short_description !!}</p>
                                 </div> --}}
                                          <div class="posted-by bottom-2 absolute">
+                                             <div class="posted-by-inner flex items-center gap-1">
+                                                 <div class="profile-pic h-6 w-6 rounded-full overflow-hidden">
+                                                     @if (!$article->user->user_profile)
+                                                         <img src="https://doimages.nyc3.digitaloceanspaces.com/46f22fba-7718-478b-86ae-e8b875f0473e_default-avatar.jpeg"
+                                                             alt="" class="object-cover w-full h-full">
+                                                     @else
+                                                         <img class="object-cover w-full h-full"
+                                                             src="{{ asset('storage/userprofile/' . $article->user->user_profile) }}"
+                                                             alt="">
+                                                     @endif
+                                                 </div>
+                                                 <p class="text-slate-500 font-normal flex items-center">
 
-                                             <p class="text-slate-500 font-normal flex items-center">
-                                                 Posted by
-                                                 {{ $article->user->name }}
-                                             </p>
+
+                                                     {{ $article->user->name }}
+                                                 </p>
+                                             </div>
+
 
                                          </div>
                                          @if ($article->article_type_id == 2)
@@ -112,6 +125,7 @@
 
      </div>
      <script src="{{ asset('js/jquery.min.js') }}"></script>
+
      <script type="text/javascript">
          jQuery(document).ready(function($) {
              $.ajaxSetup({

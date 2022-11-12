@@ -25,7 +25,7 @@ class IndexController extends Controller
                     foreach($articleall as $key => $article){
 
                       $articlealls.= '<ul>'.
-                      '<li class="bg-slate-100 duration-200 dark:bg-slate-600 dark:text-slate-300 font-semibold shadow-md hover:bg-blue-500 rounded-md hover:text-white mb-2 p-4 w-full">'.'<a href='."article/$article->slug".'>'.$article->title.'</a>'.'</li>'.
+                      '<li class="relative flex items-center justify-center bg-slate-100 duration-200 dark:bg-slate-600 dark:text-slate-300 font-semibold shadow-md hover:bg-blue-500 rounded-md hover:text-white mb-2 p-4 w-full">'.'<a href='."article/$article->slug".'>'.'<ion-icon name="document-text-outline"></ion-icon>'.$article->title.'</a>'.'</li>'.
                       '</ul>';
     }
     }
@@ -60,7 +60,7 @@ class IndexController extends Controller
             if($articleall){
                 foreach($articleall as $key => $article){
                   $articlealls.= '<ul>'.
-                  '<li class="bg-slate-100  dark:bg-slate-600 dark:text-slate-300 duration-200 font-semibold shadow-md hover:bg-blue-500 rounded-md hover:text-white mb-2 p-4 w-full">'.'<a href='."/article/$article->slug".'>'.$article->title.'</a>'.'</li>'.
+                  '<li class="resultsearch bg-slate-100  dark:bg-slate-600 dark:text-slate-300 duration-200 font-semibold shadow-md hover:bg-blue-500 rounded-md hover:text-white mb-2 p-4 w-full">'.'<a href='."/article/$article->slug".'>'.$article->title.'</a>'.'</li>'.
                   '</ul>';
             }
 

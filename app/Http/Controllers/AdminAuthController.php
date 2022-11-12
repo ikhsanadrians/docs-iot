@@ -35,7 +35,7 @@ class AdminAuthController extends Controller
     public function dashboard(){
         $article = Article::all();
         if(!Auth::check() || Auth::user()->role != "moderator"){
-            return redirect('/login')->withErrors(['msg' => 'User Atau Password Salah']);
+            return redirect('loginadmin')->withErrors(['msg' => 'User Atau Password Salah']);
         } else if (Auth::user()->role == "moderator") {
         return view('Auth.dashboard',compact('article'));
         }
@@ -176,7 +176,8 @@ public function addcategory(Request $request){
 }
 
   public function usersettingindex(){
-     return view('tools.usersetting');
+     $defaultuser = User::where('role','default_user')->get();
+     return view('tools.usersetting',compact('defaultuser'));
    }
 
 

@@ -15,6 +15,7 @@
 </head>
 
 <body>
+
     <div class="container w-full h-full bg-[#f7f7f7] flex justify-center py-8 lg:py-8 px-4">
         <div
             class="login-card bg-gradient-to-r from-slate-100 to-slate-200 border-[1.4px] border-slate-300 h-[25rem] md:h-[35rem] lg:h-[35rem] w-full  lg:w-1/3 rounded-2xl">
@@ -47,6 +48,7 @@
                         <button type=submit
                             class="bg-gradient-to-r from-blue-600 to-sky-600 py-2 lg:px-6 w-full text-white font-bold rounded-lg hover:opacity-90 focus:scale-95 duration-300">Login</button>
                 </form>
+
             </div>
 
         </div>

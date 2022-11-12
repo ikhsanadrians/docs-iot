@@ -22,7 +22,7 @@ return new class extends Migration
             $table->foreignId('article_type_id')->constrained();
             $table->text('title');
             $table->text('description');
-            $table->string('images');
+            $table->longtext('images');
             $table->timestamps();
         });
     }
