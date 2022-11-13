@@ -1,5 +1,6 @@
 @extends('Auth.dashboard')
 @section('tool')
+<h1>User Settings</h1>
     <div
         class="mt-4 p-4 table-container w-full max-h-full shadow-xl bg-white dark:bg-slate-800 dark:text-slate-200 rounded-xl border-t-blue-500 border-t-4">
         <div class="flex flex-col">
