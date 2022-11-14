@@ -3,7 +3,7 @@ event.preventDefault()
 var form =  $(this).closest("form");
 var name = $(this).data("name");
 swal.fire({
-    title: `Are you sure you want to delete this Article?`,
+     title: `Are you sure you want to delete this Article?`,
     text: "If you delete this, it will Permanently Deleted.",
     type: "warning",
     showCancelButton: !0,

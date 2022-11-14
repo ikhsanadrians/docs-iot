@@ -148,7 +148,7 @@ class ArticleController extends Controller
      *
      * @param  \App\Models\Article  $article
      * @return \Illuminate\Http\Response
-     */
+    */
     public function destroy(Article $article, $id)
     {
            $articleToDelete = Article::findOrFail(decrypt($id));

@@ -5,6 +5,7 @@ use Hash;
 use App\Models\Article;
 use App\Models\User;
 use App\Models\Image;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Category;
 use Session;
 use Illuminate\Support\Str;
@@ -179,6 +180,19 @@ public function addcategory(Request $request){
      $defaultuser = User::where('role','default_user')->get();
      return view('tools.usersetting',compact('defaultuser'));
    }
+
+
+   public function imagedestroy($id){
+    $imgtodelete = Image::findOrFail(decrypt($id));
+    $imgpath = $imgtodelete->url;
+    if(!unlink(storage_path('app/public/image/'.$imgpath))){
+        $imgtodelete->delete();
+    } else {
+        $imgtodelete->delete();
+        Storage::delete($imgpath);
+    }
+    return redirect()->back();
+  }
 
 
 
