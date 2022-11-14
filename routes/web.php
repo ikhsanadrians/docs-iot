@@ -28,7 +28,7 @@ Route::get('register',[UserAuthController::class,'registerindex'])->name('regist
 Route::post('register',[UserAuthController::class,'register'])->name('registerpost');
 Route::post('loginadmin',[AdminAuthController::class,'auth'])->name('authpost'); //login admin
 Route::get('/logout',[AdminAuthController::class,'signOut'])->name('signout');
-Route::get('/article/{id}/delete',[ArticleController::class,'destroy']);
+Route::delete('/article/{id}/delete',[ArticleController::class,'destroy'])->name('articledestroy');
 Route::get('/article/{id}/edit',[ArticleController::class,'edit']);
 Route::put('article/{id}/update',[ArticleController::class,'update'])->name('update');
 Route::get('dashboard/tambahartikel',[ArticleController::class,'index'])->name('addarticle');

@@ -2,12 +2,12 @@
 @section('tool')
 <h1>User Settings</h1>
     <div
-        class="mt-4 p-4 table-container w-full max-h-full shadow-xl bg-white dark:bg-slate-800 dark:text-slate-200 rounded-xl border-t-blue-500 border-t-4">
-        <div class="flex flex-col">
-            <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-                <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+        class="mt-4 p-4 mb-24 table-container w-full max-h-full h-full shadow-xl bg-white dark:bg-slate-800 dark:text-slate-200 rounded-xl border-t-blue-500 border-t-4">
+        <div class="flex flex-col h-full">
+            <div class="overflow-x-auto sm:-mx-6 lg:-mx-8 h-full">
+                <div class="py-2 inline-block min-w-full  min-h-full sm:px-6 lg:px-8">
                     <div class="overflow-hidden">
-                        <table class="min-w-full">
+                        <table class="min-w-full min-h-full">
                             <thead class="border-b">
                                 <tr>
                                     <th scope="col" class="text-center align-middle text-sm font-medium px-6 py-4">
@@ -28,7 +28,7 @@
 
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody class="h-full">
                                 @foreach ($defaultuser as $peruser)
                                     <tr class="border-b transition duration-300 ease-in-out hover:bg-gray-100">
                                         <td

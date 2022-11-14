@@ -501,15 +501,22 @@
                                                             class="text-sm text-center align-middle font-light px-6 py-4 whitespace-nowrap">
                                                             {{ $perarticle->user->name }}
                                                         </td>
-                                                        <td class="text-center align-middle">
-                                                            <a
-                                                                href="{{ 'article/' . encrypt($perarticle->id) . '/delete' }}"><span
-                                                                    class="material-symbols-outlined text-red-600 dark:text-slate-900">
-                                                                    delete
-                                                                </span></a>
+
+                                                        <td class="text-center align-middle flex gap-1">
+                                                            <form
+                                                                action="{{ route('articledestroy', encrypt($perarticle->id)) }}"
+                                                                method="POST">
+                                                                @method('DELETE')
+                                                                @csrf
+                                                                <button type="submit" id="confirmdeletebtn"><span
+                                                                        class="material-symbols-outlined text-red-600 dark:text-slate-900">
+                                                                        delete
+                                                                    </span></button>
+                                                            </form>
+
                                                             <a
                                                                 href="{{ 'article/' . encrypt($perarticle->id) . '/edit' }}"><span
-                                                                    class="material-symbols-outlined text-yellow-600 dark:text-slate-900">
+                                                                    class="material-symbols-outlined text-yellow-600 dark:text-slate-900 hover:opacity-80">
                                                                     edit
                                                                 </span></a>
                                                         </td>
@@ -545,6 +552,8 @@
 
     </div>
     <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/sweetalert.all.js') }}"></script>
+    <script src="{{ asset('js/confirmdelete.js') }}"></script>
     <script src="{{ asset('js/loading.js') }}"></script>
     <script src="{{ asset('js/toggledark.js') }}"></script>
     <script src="{{ asset('js/hamburger.js') }}"></script>

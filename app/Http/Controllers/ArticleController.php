@@ -157,7 +157,6 @@ class ArticleController extends Controller
                 $articleToDelete->delete();
             } else {
                 $articleToDelete->delete();
-                unlink(storage_path('app/public/thumbnail/'.$articleImagePath));
                 Storage::delete($articleToDelete->images);
             }
 
