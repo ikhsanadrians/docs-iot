@@ -21,7 +21,7 @@ class User extends Authenticatable
         'name',
         'slug',
         'user_profile',
-        'role',
+        'user_roles_id',
         'email',
         'password',
     ];
@@ -52,5 +52,9 @@ class User extends Authenticatable
     public function getRouteKeyName()
     {
        return 'slug';
+    }
+
+    public function UserRoles(){
+        return $this->belongsTo(UserRole::class);
     }
 }

@@ -4,7 +4,10 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\ArticleType;
+use App\Models\UserRole;
 use App\Models\User;
+use App\Models\Category;
 use Illuminate\Support\Str;
 
 class FirstSeeder extends Seeder
@@ -16,10 +19,37 @@ class FirstSeeder extends Seeder
      */
     public function run()
     {
+
+       Category::create([
+          "name" => "Java",
+          "icon" => '<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" />',
+         ]);
+
+         ArticleType::create([
+            "id" => 1,
+            "name" => "Public"
+         ]);
+
+         ArticleType::create([
+             "id" => 2,
+             "name" => "Private"
+
+        ]);
+
+        UserRole::create([
+            "id" => 1,
+            "name" => "Moderator"
+        ]);
+
+        UserRole::create([
+            "id" => 2,
+            "name" => "Default_User"
+        ]);
+
         User::create([
             "name" => "admin",
             "Slug" => Str::slug('admin'),
-            "role" => "moderator",
+            "user_roles_id" => 1,
             "email" => "admins@intek.com",
            "password" => bcrypt("admin123")
 

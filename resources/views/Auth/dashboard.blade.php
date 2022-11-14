@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Dokumentasi</title>
+    <meta name="_token" content="{!! csrf_token() !!}" />
     <link rel="stylesheet" href="{{ asset('css/root.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
     <link rel="stylesheet"
@@ -553,6 +554,7 @@
     </div>
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/sweetalert.all.js') }}"></script>
+
     <script src="{{ asset('js/confirmdelete.js') }}"></script>
     <script src="{{ asset('js/loading.js') }}"></script>
     <script src="{{ asset('js/toggledark.js') }}"></script>
@@ -561,7 +563,16 @@
     <script src="{{ asset('clipboard.js-master/dist/clipboard.min.js') }}"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-Token': $('meta[name="_token"]').attr('content');
+                }
+            });
+        });
+    </script>
+    <script src="{{ asset('js/changerole.js') }}"></script>
     <div class="mb-80"></div>
 </body>
 

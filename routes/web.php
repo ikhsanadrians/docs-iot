@@ -43,5 +43,6 @@ Route::delete('/dashboard/image/{id}/delete',[AdminAuthController::class,'imaged
 Route::get('/dashboard/addcategory',[AdminAuthController::class,'addcategoryindex'])->name('addcategory');
 Route::post('/dashboard/addcategory',[AdminAuthController::class,'addcategory'])->name('addcategorypost');
 Route::get('/dashboard/usersetting',[AdminAuthController::class,'usersettingindex'])->name('usersetting');
-Route::post('dashboard/usersetting',[AdminAuthController::class,'usersetting'])->name('usersettingpost');
+Route::get('/dashboard/usersetting/{user:slug}/details',[AdminAuthController::class,'userdetails'])->name('userdetails');
+Route::post('/dashboard/usersetting/{user:slug}/details',[AdminAuthController::class,'userupdate'])->name('userupdate');
 Route::get('404',[RedirectHandlesController::class,'index']);

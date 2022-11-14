@@ -46,10 +46,10 @@
                                             {{ $peruser->created_at }}
                                         </td>
                                         <td class="text-sm text-center align-middle font-light px-6 py-4 whitespace-nowrap">
-                                            {{ $peruser->role }}
+                                            {{ $peruser->userroles->name }}
                                         </td>
                                         <td class="text-sm text-center align-middle font-light px-6 py-4 whitespace-nowrap">
-                                            <a>
+                                            <a href="{{ route('userdetails', $peruser->slug) }}">
                                                 <span
                                                     class="material-symbols-outlined text-slate-700 dark:text-slate-300 cursor-pointer hover:text-blue-400 duration-300">
                                                     settings

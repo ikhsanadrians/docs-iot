@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Hash;
 use App\Models\Article;
 use App\Models\User;
+use App\Models\UserRole;
 use App\Models\Image;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Category;
@@ -35,15 +36,15 @@ class AdminAuthController extends Controller
 
     public function dashboard(){
         $article = Article::all();
-        if(!Auth::check() || Auth::user()->role != "moderator"){
+        if(!Auth::check() || Auth::user()->user_roles_id != 1){
             return redirect('loginadmin')->withErrors(['msg' => 'User Atau Password Salah']);
-        } else if (Auth::user()->role == "moderator") {
+        } else if (Auth::user()->user_roles_id == 1) {
         return view('Auth.dashboard',compact('article'));
         }
     }
 
     public function statistic(){
-        if(!Auth::user() || Auth::user()->role != "moderator"){
+        if(!Auth::user() || Auth::user()->user_roles_id != 1){
             return redirect('/404');
         } else {
             return view('tools.stastic');
@@ -53,10 +54,10 @@ class AdminAuthController extends Controller
 
 
     public function setting(){
-        if(!Auth::user() || Auth::user()->role != "moderator"){
+        if(!Auth::user() || Auth::user()->user_roles_id != 1){
             return redirect('/404');
         } else {
-            $user = User::where('role','moderator')->with('article')->get();
+            $user = User::where('user_roles_id',1)->with('article')->get();
             return view('tools.adminsetting', compact('user'));
         }
 
@@ -84,7 +85,7 @@ class AdminAuthController extends Controller
         "name" => $request->user,
         "user_profile" => $filename,
         "slug" => Str::slug($request->user),
-        "role" => "moderator",
+        "user_roles_id" =>  1,
         "email" => $request->Email,
         "password" => bcrypt($request->password),
      ]);
@@ -98,7 +99,7 @@ class AdminAuthController extends Controller
     }
 
    public function admindetails($slug){
-    if(!Auth::user() || Auth::user()->role != "moderator"){
+    if(!Auth::user() || Auth::user()->user_roles_id != 1){
         return redirect('/404');
     } else {
         $user = User::where('slug',$slug)->firstOrFail();
@@ -177,9 +178,23 @@ public function addcategory(Request $request){
 }
 
   public function usersettingindex(){
-     $defaultuser = User::where('role','default_user')->get();
+     $defaultuser = User::where('user_roles_id',2)->get();
      return view('tools.usersetting',compact('defaultuser'));
    }
+
+   public function userdetails(Request $request,$slug){
+    $defuser = User::with('userroles')->where('slug',$slug)->firstOrFail();
+    $userroles = UserRole::all();
+    if($request->ajax()){
+        if($request->has('valueselect')){
+             $defuser->update([
+                "user_roles_id" => $request->valueselect
+             ]);
+        }
+   }
+    return view('tools.userdetails',compact('defuser','userroles'));
+   }
+
 
 
    public function imagedestroy($id){
