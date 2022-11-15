@@ -20,7 +20,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        if(!Auth::user() || Auth::user()->role != "moderator"){
+        if(!Auth::user() || Auth::user()->user_roles_id != 1){
             return redirect('/404');
         } else {
             $category = Category::all();

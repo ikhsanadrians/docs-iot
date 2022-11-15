@@ -98,12 +98,20 @@ class AdminAuthController extends Controller
 
     }
 
-   public function admindetails($slug){
+   public function admindetails(Request $request,$slug){
     if(!Auth::user() || Auth::user()->user_roles_id != 1){
         return redirect('/404');
     } else {
-        $user = User::where('slug',$slug)->firstOrFail();
-        return view('tools.admindetail',compact('user'));
+        $user = User::with('userroles')->where('slug',$slug)->firstOrFail();
+        $userroles = UserRole::all();
+        if($request->ajax()){
+            if($request->has('valueselect')){
+                 $user->update([
+                    "user_roles_id" => $request->valueselect
+                 ]);
+            }
+       }
+        return view('tools.admindetail',compact('user','userroles'));
     }
 
    }
@@ -115,7 +123,6 @@ class AdminAuthController extends Controller
    }
 
    public function imageuploader(Request $request){
-//    dd($request->all());
 
 
 $validated = $request->validate([
@@ -178,7 +185,7 @@ public function addcategory(Request $request){
 }
 
   public function usersettingindex(){
-     $defaultuser = User::where('user_roles_id',2)->get();
+     $defaultuser = User::where('user_roles_id',2)->orWhere('user_roles_id',3)->get();
      return view('tools.usersetting',compact('defaultuser'));
    }
 
@@ -196,7 +203,6 @@ public function addcategory(Request $request){
    }
 
 
-
    public function imagedestroy($id){
     $imgtodelete = Image::findOrFail(decrypt($id));
     $imgpath = $imgtodelete->url;
@@ -208,9 +214,6 @@ public function addcategory(Request $request){
     }
     return redirect()->back();
   }
-
-
-
 
     public function signOut(){
         Session::flush();

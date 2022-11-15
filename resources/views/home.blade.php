@@ -6,7 +6,7 @@
 
              <div class="articles-menu w-full h-full  grid-rows-none">
                  <div class="articles-inner flex gap-2 flex-wrap h-full w-full">
-                     @if (!Auth::user() || Auth::user()->role != 'moderator')
+                     @if (!Auth::user() || Auth::user()->user_roles_id == 2)
                          @foreach ($articleall as $article)
                              @if ($article->article_type_id != 2)
                                  <a href="{{ '/article/' . $article->slug }}">
@@ -36,8 +36,8 @@
 
                                              </div>
                                              {{-- <div class="title-description">
-                                    <p class="text-[#031b4e]">{!! $article->short_description !!}</p>
-                                </div> --}}
+                                               <p class="text-[#031b4e]">{!! $article->short_description !!}</p>
+                                            </div> --}}
                                              <div class="posted-by bottom-2 absolute">
                                                  <p class="text-slate-500 font-normal">Posted by {{ $article->user->name }}
                                                  </p>
