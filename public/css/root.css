@@ -119,6 +119,14 @@ body {
     font-size: 1.5rem;
   }
 
+  #iconsearchcat > img {
+    height: 20px;
+  }
+
+  #iconsearchcat {
+    display: flex;
+    gap:2;
+  }
 
   @media (max-width: 800px) {
     body ,html {

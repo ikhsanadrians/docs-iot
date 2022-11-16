@@ -24,20 +24,23 @@ class IndexController extends Controller
                   }
                   if($articleall){
                     if( !Auth::user() || Auth::user()->user_roles_id == 2){
-                    foreach($articleall as $key => $article){
-                        if($article->article_type_id == 1){
-                            $articlealls.= '<ul>'.
-                            '<li class="resultsearch justify-start bg-slate-100  dark:bg-slate-600 dark:text-slate-300 duration-200 font-semibold shadow-md hover:bg-blue-500 rounded-md hover:text-white mb-2 p-4 w-full flex items-center">'.'<a class="flex items-center" href='."/article/$article->slug".'>'.'<ion-icon name="document-text"></ion-icon>'.Str::limit($article->title,65).'</a>'.'</li>'.
-                            '</ul>';
-                        }
-                      }
-                    } else {
                         foreach($articleall as $key => $article){
-                                $articlealls.= '<ul>'.
-                                '<li class="resultsearch justify-start bg-slate-100 flex items-center dark:bg-slate-600 dark:text-slate-300 duration-200 font-semibold shadow-md hover:bg-blue-500 rounded-md hover:text-white mb-2 p-4 w-full">'.'<a class="flex items-center" href='."/article/$article->slug".'>'.'<ion-icon name="document-text"></ion-icon>'.Str::limit($article->title,65).'</a>'.'</li>'.
+                            foreach($article->categories as $percategory){
+                            if($article->article_type_id == 1){
+                                $articlealls.= '<ul>'.'<p class="text-left font-semibold" id="iconsearchcat">'.$percategory->icon.$percategory->name.'</p>'.
+                                '<li class="resultsearch justify-start relative bg-slate-100  dark:bg-slate-600 dark:text-slate-300 duration-200 font-semibold shadow-md hover:bg-blue-500 rounded-md hover:text-white mb-2 p-4 w-full flex items-center">'.'<a class="flex items-center" href='."/article/$article->slug".'>'.'<ion-icon name="document-text"></ion-icon>'.Str::limit($article->title,65).'<ion-icon name="return-down-back-outline" class="absolute right-2 text-white"></ion-icon>'.'</a>'.'</li>'.
                                 '</ul>';
+                            }
                           }
-                      }
+                        }} else {
+                            foreach($articleall as $key => $article){
+                                foreach($article->categories as $percategory){
+                                    $articlealls.= '<ul>'.'<p class="text-left font-semibold" id="iconsearchcat">'.$percategory->icon.$percategory->name.'</p>'.
+                                '<li class="resultsearch justify-start bg-slate-100  dark:bg-slate-600 dark:text-slate-300 duration-200 font-semibold shadow-md hover:bg-blue-500 rounded-md hover:text-white mb-2 p-4 w-full flex items-center">'.'<a class="flex items-center" href='."/article/$article->slug".'>'.'<ion-icon name="document-text"></ion-icon>'.Str::limit($article->title,65).'</a>'.'</li>'.
+                                '</ul>';
+                                }
+                              }
+                          }
              }
 
        if($articlealls == ""){
@@ -60,7 +63,7 @@ class IndexController extends Controller
     $article = Article::with('user')->where('slug',$slug)->firstOrFail();
     $idofarticle = $article->id;
     $articlealls = "";
-    $noresult = '<div class="bg-red-500 p-4 rounded-md font-semibold text-white list-none"><ion-icon name="warning"></ion-icon>No Result</div>';
+    $noresult = '<div class="bg-red-500 p-4 rounded-md font-semibold text-white list-none flex justify-center items-center"><ion-icon name="warning"></ion-icon>No Result</div>';
     if($request->ajax()){
         if($request->has('searchQuest')){
             $articleall = Article::where('title','like','%'.$request->searchQuest.'%')->get();
@@ -69,20 +72,23 @@ class IndexController extends Controller
             }
             if($articleall){
                 if( !Auth::user() || Auth::user()->user_roles_id == 2){
-                foreach($articleall as $key => $article){
-                    if($article->article_type_id == 1){
-                        $articlealls.= '<ul>'.
-                        '<li class="resultsearch bg-slate-100  dark:bg-slate-600 dark:text-slate-300 duration-200 font-semibold shadow-md hover:bg-blue-500 rounded-md hover:text-white mb-2 p-4 w-full">'.'<a href='."/article/$article->slug".'>'.'<ion-icon name="document-text"></ion-icon>'.Str::limit($article->title,65).'</a>'.'</li>'.
-                        '</ul>';
-                    }
-                  }
-                } else {
                     foreach($articleall as $key => $article){
-                            $articlealls.= '<ul>'.
-                            '<li class="resultsearch bg-slate-100  dark:bg-slate-600 dark:text-slate-300 duration-200 font-semibold shadow-md hover:bg-blue-500 rounded-md hover:text-white mb-2 p-4 w-full">'.'<a href='."/article/$article->slug".'>'.'<ion-icon name="document-text"></ion-icon>'.Str::limit($article->title,65).'</a>'.'</li>'.
+                        foreach($article->categories as $percategory){
+                        if($article->article_type_id == 1){
+                            $articlealls.= '<ul>'.'<p class="text-left font-semibold" id="iconsearchcat">'.$percategory->icon.$percategory->name.'</p>'.
+                            '<li class="resultsearch justify-start relative bg-slate-100  dark:bg-slate-600 dark:text-slate-300 duration-200 font-semibold shadow-md hover:bg-blue-500 rounded-md hover:text-white mb-2 p-4 w-full flex items-center">'.'<a class="flex items-center" href='."/article/$article->slug".'>'.'<ion-icon name="document-text"></ion-icon>'.Str::limit($article->title,65).'<ion-icon name="return-down-back-outline" class="absolute right-2 text-white"></ion-icon>'.'</a>'.'</li>'.
                             '</ul>';
+                        }
                       }
-                  }
+                    }} else {
+                        foreach($articleall as $key => $article){
+                            foreach($article->categories as $percategory){
+                                $articlealls.= '<ul>'.'<p class="text-left font-semibold" id="iconsearchcat">'.$percategory->icon.$percategory->name.'</p>'.
+                            '<li class="resultsearch justify-start bg-slate-100  dark:bg-slate-600 dark:text-slate-300 duration-200 font-semibold shadow-md hover:bg-blue-500 rounded-md hover:text-white mb-2 p-4 w-full flex items-center">'.'<a class="flex items-center" href='."/article/$article->slug".'>'.'<ion-icon name="document-text"></ion-icon>'.Str::limit($article->title,65).'</a>'.'</li>'.
+                            '</ul>';
+                            }
+                          }
+                      }
          }
 
          if($articlealls == ""){

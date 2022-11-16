@@ -2,15 +2,13 @@
  @section('contents')
      <div class="container -z-1 mt-10 flex justify-center w-full h-full lg:px-20 mb-[2500px]">
          <div class="container-inner w-full h-full">
-
-
              <div class="articles-menu w-full h-full  grid-rows-none">
                  <div class="articles-inner flex gap-2 flex-wrap h-full w-full">
                      @if (!Auth::user() || Auth::user()->user_roles_id == 2)
                          @foreach ($articleall as $article)
                              @if ($article->article_type_id != 2)
                                  <a href="{{ '/article/' . $article->slug }}">
-                                     <div class="articlecard w-full h-full bg-slate-100 dark:bg-slate-800 dark:border-[1.2px] dark:border-slate-600 shadow-lg hover:scale-105 hover:shadow-2xl duration-300 rounded-lg p-2 md:w-[90%] lg:w-[31%] relative mb-2 min-h-full overflow-hidden"
+                                     <div class="articlecard w-full h-full bg-sky-200/40 dark:bg-slate-800 dark:border-[1.2px] dark:border-slate-600 shadow-lg hover:scale-105 hover:shadow-2xl duration-300 rounded-lg p-2 md:w-[90%] lg:w-[31%] relative mb-2 min-h-full overflow-hidden"
                                          id="article">
                                          <div class="picture w-full h-1/2 rounded-2xl overflow-hidden ">
                                              <img src="{{ asset('storage/thumbnail/' . $article->images) }}" loading="lazy"
@@ -54,7 +52,7 @@
                      @else
                          @foreach ($articleall as $article)
                              <a href="{{ '/article/' . $article->slug }}">
-                                 <div class="articlecard w-full h-full bg-slate-100 dark:bg-slate-800 dark:border-[1.2px] dark:border-slate-600 shadow-lg hover:scale-105 hover:shadow-2xl duration-300 rounded-lg p-2 md:w-[90%] lg:w-[31%] relative mb-2 min-h-full overflow-hidden"
+                                 <div class="articlecard w-full h-full bg-sky-200/40 dark:bg-slate-800 dark:border-[1.2px] dark:border-slate-600 shadow-lg hover:scale-105 hover:shadow-2xl duration-300 rounded-lg p-2 md:w-[90%] lg:w-[31%] relative mb-2 min-h-full overflow-hidden"
                                      id="article">
                                      <div class="picture w-full h-1/2 rounded-2xl overflow-hidden ">
                                          <img src="{{ asset('storage/thumbnail/' . $article->images) }}" loading="lazy"
@@ -124,6 +122,8 @@
 
 
      </div>
+
+     <div id="particles-js" class="absolute h-full w-full -z-20 hidden lg:block md:block"></div>
      <script src="{{ asset('js/jquery.min.js') }}"></script>
 
      <script type="text/javascript">
@@ -135,7 +135,14 @@
              });
          });
      </script>
+
      <script src="https://cdn.ckeditor.com/4.20.0/standard/ckeditor.js">
          config.allowedContent = true;
+     </script>
+     <script src="{{ asset('js/particles.js') }}"></script>
+     <script src="{{ asset('js/app.js') }}"></script>
+     <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+     <script>
+         console.log(mqtt)
      </script>
  @endsection

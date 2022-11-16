@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\RedirectHandlesController;
 use App\Http\Controllers\AdminAuthController;
+use App\Http\Controllers\IotController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\UserAuthController;
 /*
@@ -45,4 +46,5 @@ Route::post('/dashboard/addcategory',[AdminAuthController::class,'addcategory'])
 Route::get('/dashboard/usersetting',[AdminAuthController::class,'usersettingindex'])->name('usersetting');
 Route::get('/dashboard/usersetting/{user:slug}/details',[AdminAuthController::class,'userdetails'])->name('userdetails');
 Route::post('/dashboard/usersetting/{user:slug}/details',[AdminAuthController::class,'userupdate'])->name('userupdate');
+Route::get('/dashboard/iot',[IotController::class,'index'])->name('iotindex');
 Route::get('404',[RedirectHandlesController::class,'index']);

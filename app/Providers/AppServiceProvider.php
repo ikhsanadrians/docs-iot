@@ -34,6 +34,10 @@ class AppServiceProvider extends ServiceProvider
         $view->with('articles',Article::with('categories')->latest()->paginate(5));
        });
 
+       view()->composer('layouts.master',function($view){
+        $view->with('categories',Category::paginate(5));
+    });
+
 
     }
 }

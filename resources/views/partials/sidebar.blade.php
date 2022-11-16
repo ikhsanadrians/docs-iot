@@ -1,5 +1,5 @@
 <aside class="w-64 mt-8 ml-8 h-full md:block hidden lg:block sticky top-24" aria-label="Sidebar">
-    <div class="overflow-y-auto py-4 px-3 bg-[#f7f7f7] rounded dark:bg-gray-800/0">
+    <div class="overflow-y-auto py-4 px-3  rounded dark:bg-gray-800/0">
         <ul class="space-y-2">
             @foreach ($categories as $category)
                 @if (View::hasSection('contents'))

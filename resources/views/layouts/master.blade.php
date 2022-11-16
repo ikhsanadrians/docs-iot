@@ -111,6 +111,63 @@
             </main>
 
         </div>
+        <footer
+            class="w-full min-h-[24rem] pt-[4rem] pb-[2rem] max-h-[50rem] bg-gradient-to-r from-blue-900 to-sky-900">
+            <div
+                class="w-full h-full relative flex flex-col lg:flex-row md:flex-col gap-4 items-center justify-start lg:justify-between">
+                <div class="robot-img absolute -top-16 md:hidden hidden lg:block pointer-events-none select-none">
+                    <img src="https://intek.co.id/wp-content/uploads/2021/09/intek-bot-2-copy-2-1-1.png" alt=""
+                        class="h-96">
+                </div>
+                <div class="titleandwebsname pl-2 md:pl-2 lg:pl-72">
+                    <div class="footer-title flex items-center my-0 lg:-my-24" style="filter: brightness(0) invert(1);">
+
+                        <img src="{{ asset('images/docslogolates.png') }}" alt="" class="h-12 w-12">
+                        <h1
+                            class="text-xl md:text-2xl lg:text-2xl font-bold bg-gradient-to-r from-sky-500 to-blue-500 dark:text-white bg-clip-text text-transparent">
+                            Dokumentasi</h1>
+                    </div>
+
+                </div>
+                <div
+                    class="links md:pr-2 pr-2 lg:pr-72 text-white justify-start lg:justify-center font-bold text-xl flex flex-row flex-wrap gap-20">
+                    <ul class="flex flex-col gap-2">
+                        <li>Category</li>
+                        <li>Topic</li>
+                        <li>Article</li>
+                        <li>About</li>
+                    </ul>
+                    <ul class="flex flex-col gap-2">
+                        @foreach ($categories as $category)
+                            <li>{{ $category->name }}</li>
+                        @endforeach
+
+                    </ul>
+                    <ul class="flex flex-col gap-2">
+                        <li class="flex gap-2 items-center">
+                            <i class="devicon-linkedin-plain"></i>
+                            LinkedIn
+                        </li>
+                        <li class="flex gap-2 items-center">
+                            <i class="devicon-facebook-plain"></i>
+                            Facebook
+                        </li>
+                        <li class="flex gap-2 items-center">
+                            <i class="devicon-github-plain"></i>
+                            Github
+                        </li>
+                        <li class="flex gap-2 items-center">
+                            <i class="devicon-twitter-plain"></i>
+                            Twitter
+                        </li>
+                    </ul>
+                </div>
+                <div
+                    class="robot-img absolute -top-16 -right-28 md:hidden hidden lg:block pointer-events-none select-none">
+                    <img src="{{ asset('images/robotintek.png') }}" alt="" class="h-96">
+                </div>
+            </div>
+        </footer>
     </div>
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/loading.js') }}"></script>
@@ -174,6 +231,7 @@
     <div id="backdrop"
         class="hidden fixed top-0 z-10 backdrop w-full h-full  bg-slate-700 dark:bg-slate-500 opacity-30">
     </div>
+
 </body>
 
 </html>

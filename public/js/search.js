@@ -11,6 +11,20 @@ $(document).ready(function(){
         }
     }
 
+    function ShowModalsSearch(){
+        if($('.search-wrappers').hasClass('hidden')){
+            $('.search-wrappers').removeClass('hidden')
+            $('.search-wrappers').addClass('block')
+            $('body').addClass('overflow-y-hidden')
+            addBackDrop()
+        } else {
+            $('.search-wrappers').removeClass('block')
+            $('body').removeClass('overflow-y-hidden')
+            $('.search-wrappers').addClass('hidden')
+            addBackDrop()
+        }
+    }
+
 
     $('#search-button').on('click',function(){
         if($('.search-wrappers').hasClass('hidden')){
@@ -27,6 +41,13 @@ $(document).ready(function(){
         }
     })
 
+
+    window.addEventListener("keydown",(e)=>{
+      if(e.ctrlKey && e.key.toLowerCase() === "k"){
+          e.preventDefault()
+          ShowModalsSearch()
+      }
+    })
 
 
 
