@@ -9,21 +9,14 @@
     <link rel="stylesheet" href="{{ asset('css/iot.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Rubik+Glitch&display=swap"
-        rel="stylesheet">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet"
         href="https://fonts.googleapis.cofm/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <style>
-        * {
-            font-family: 'Rubik Glitch', cursive;
-        }
-
         body {
             margin: 0;
-            background-color: #001430;
+            background-color: #001025;
             overflow: hidden;
         }
 
@@ -45,11 +38,11 @@
 
 </head>
 
-<body onload="startConnect()">
+<body onload="startConnect1();startConnect2()">
     {{-- <img src="{{ asset('images/bg.jpg') }}" alt="bg"
         class="bg w-[100%] h-[100%] absolute object-cover -z-10 brightness-50 select-none pointer-events-none">
         --}}
-    <div class="bg -z-10 absolute w-[100%] h-[100%] object-cover">
+    <div class="bg -z-10 absolute w-[100%] h-[100%] object-fill">
         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
             y="0px" viewBox="0 0 960 560" style="enable-background:new 0 0 960 560; object-fit: cover;"
             xml:space="preserve" width="100vw" height="100vh" preserveAspectRatio="xMidYMid slice">
@@ -993,16 +986,18 @@
             </g>
         </svg>
     </div>
-    <div class="container z-20 flex justify-center pt-56">
+    <div class="container z-20 flex justify-center pt-56 gap-4">
         <div
-            class="lampu h-[18rem] w-[22rem] bg-blue-500/20 shadow-2xl shadow-blue-600/50 rounded-lg border-x-4 border-x-blue-700">
+            class="lampu h-[20rem] w-[22rem] backdrop-blur-sm bg-blue-300/10 shadow-2xl shadow-blue-600/50 rounded-lg border-x-4 border-x-blue-700">
             <div class="lampu-inner h-full w-full flex justify-center">
-                <div class="logo w-full h-full">
-                    <span
-                        class="material-symbols-outlined flex justify-center text-center text-[10rem] text-blue-500 drop-shadow-lg shadow-cyan-500/60">
+                <div class="logo w-full h-full -my-14">
+                    <span id="lampusoldericon"
+                        class="material-symbols-outlined flex  justify-center text-center text-[10rem] text-blue-500 drop-shadow-lg shadow-cyan-500/60"
+                        style="filter: drop-shadow(5px 5px 12px #4E7AFF);">
                         emoji_objects
                     </span>
-                    <h1 class="text-center text-3xl text-blue-500">Lampu Solder</h1>
+
+                    <h1 class="text-center text-3xl text-blue-500 shadow-2xl shadow-blue-800">Lampu Solder</h1>
                     <figure class="flex justify-center mt-8">
                         <div class="wrap">
                             <label class="round-switch">
@@ -1010,85 +1005,101 @@
                                 <span class="slider"></span>
                             </label>
                     </figure>
+                    <div
+                        class="status flex justify-center mt-14 text-white bg-blue-500/60 shadow-2xl shadow-blue-600/50">
+                        Menyala
+                    </div>
                 </div>
 
             </div>
 
         </div>
+        <div
+            class="ac h-[18rem] w-[22rem] backdrop-blur-sm bg-blue-300/10 shadow-2xl shadow-blue-600/50 rounded-lg border-x-4 border-x-blue-700">
+            <div class="lampu-inner h-full w-full flex justify-center">
+                <div class="logo w-full h-full -my-14">
+                    <span id="acicon"
+                        class="material-symbols-outlined flex animate-spin duration-500 justify-center text-center text-[10rem] text-blue-500 drop-shadow-lg shadow-cyan-500/60">
+                        mode_fan
+                    </span>
 
+                    <h1 class="text-center text-3xl text-blue-500 shadow-2xl shadow-blue-800">AC</h1>
+                    <figure class="flex justify-center mt-8">
+                        <div class="wrap">
+                            <label class="round-switch">
+                                <input type="checkbox" id="chboxac">
+                                <span class="slider"></span>
+                            </label>
+                    </figure>
+                    <div
+                        class="status flex justify-center mt-8 text-white bg-blue-500/60 shadow-2xl shadow-blue-600/50">
+                        Menyala
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div
+            class="ac h-[20rem] w-[22rem] backdrop-blur-sm bg-blue-300/10 shadow-2xl shadow-blue-600/50 rounded-lg border-x-4 border-x-blue-700">
+            <div class="lampu-inner h-full w-full flex justify-center">
+                <div class="logo w-full h-full -my-14">
+                    <span id="ckboxsteker"
+                        class="material-symbols-outlined flex  justify-center text-center text-[10rem] text-blue-500 drop-shadow-lg shadow-cyan-500/60">
+                        outlet
+                    </span>
+
+                    <h1 class="text-center text-3xl text-blue-500 shadow-2xl shadow-blue-800">Steker</h1>
+                    <div class="steker-select flex justify-center">
+                        <select name="steker-number" id="pilihsteker"
+                            class="text-blue-500 bg-blue-900/80 border-blue-600 shadow-2xl shadow-blue-500">
+                            <option value="all">Semua Steker</option>
+                            <option value="power-2">Steker-2</option>
+                            <option value="power-4">Steker-4</option>
+                        </select>
+                    </div>
+
+                    <figure class="flex justify-center mt-8">
+                        <div class="wrap">
+                            <label class="round-switch">
+                                <input type="checkbox" id="stekerslider">
+                                <span class="slider"></span>
+                            </label>
+                    </figure>
+                    <div
+                        class="status flex justify-center mt-8 text-white bg-blue-500/60 shadow-2xl shadow-blue-600/50">
+                        Menyala
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div
+            class="bottom-nav border-2 border-blue-700 shadow-2xl shadow-blue-600/50 bg-blue-900/90 w-[30rem] h-[6rem] absolute bottom-6 rounded-md">
+            <div class="inner w-full h-full p-4 flex justify-center items-center">
+                <span
+                    class="material-symbols-outlined bbaricon hover:text-yellow-400 duration-200 cursor-pointer text-[6rem] text-blue-500 drop-shadow-lg shadow-cyan-500/60">
+                    emoji_objects
+                </span>
+                <span
+                    class="material-symbols-outlined bbaricon  hover:text-yellow-400 duration-600 cursor-pointer text-[6rem] text-blue-500 drop-shadow-lg shadow-cyan-500/60">
+                    mode_fan
+                </span>
+                <span
+                    class="material-symbols-outlined bbaricon hover:text-yellow-400 duration-200 cursor-pointer text-[6rem] text-blue-500 drop-shadow-lg shadow-cyan-500/60">
+                    outlet
+                </span>
+            </div>
+        </div>
     </div>
     </div>
 
 
 </body>
-
+<script src="{{ asset('js/jquery.min.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js" type="text/javascript"></script>
-<script>
-    let client;
-
-    function startConnect() {
-
-        clientID = "client_ind" + parseInt(Math.random() * 100);
-        host = "iot.intek.co.id";
-        port = "9001";
-
-        client = new Paho.MQTT.Client(host, Number(port), clientID);
-
-        client.onConnectionLost = onConnectionLost;
-        // client.onMessageArrived = onMessageArrived;
-
-        // Connect the client, if successful, call onConnect function
-        client.connect({
-            onSuccess: onConnect,
-            userName: 'ali',
-            password: '1234'
-        });
-
-    }
-
-    // Called when the client connects
-    function onConnect() {
-        topic = "/tele";
-        client.subscribe("cmnd/lampu_solder/power")
-
-
-    }
-
-    // Called when the client loses its connection
-    function onConnectionLost(responseObject) {
-        document.getElementById("messages").innerHTML = '<span>ERROR: Connection lost</span><br/>';
-        console.log("ERROR")
-        if (responseObject.errorCode !== 0) {
-            document.getElementById("messages").innerHTML = '<span>ERROR: ' + +responseObject.errorMessage +
-                '</span><br/>';
-        }
-
-
-    }
-
-
-    console.dir(client)
-
-
-
-
-
-    let ckbox = document.querySelector('#chbox')
-    ckbox.addEventListener('change', () => {
-        if (ckbox.checked) {
-            message = new Paho.MQTT.Message("1");
-            message.destinationName = "cmnd/lampu_solder/power";
-            client.send(message);
-
-            console.log("Ke cek bro")
-        } else {
-            message = new Paho.MQTT.Message("0");
-            message.destinationName = "cmnd/lampu_solder/power";
-            client.send(message);
-            console.log("ga cek kok")
-        }
-    })
-</script>
+<script src="{{ asset('js/iot.js') }}"></script>
 <script>
     var paths = document.querySelectorAll('.st0');
 
