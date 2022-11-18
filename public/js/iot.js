@@ -100,12 +100,12 @@ let cksteker = document.querySelector("#stekerslider")
 if (localStorage.getItem('lampu_solder') == "menyala") {
     ckbox.checked = true
     $('#lampusoldericon').removeClass('text-blue-500')
-    $('#lampusoldericon').addClass('text-yellow-500')
+    $('#lampusoldericon').addClass('text-yellow-600')
     $('#lampusoldericon').addClass('animate-pulse')
 
 } else {
     ckbox.checked = false
-    $('#lampusoldericon').removeClass('text-yellow-500')
+    $('#lampusoldericon').removeClass('text-yellow-600')
     $('#lampusoldericon').addClass('text-blue-500')
     $('#lampusoldericon').removeClass('animate-pulse')
 }
@@ -114,12 +114,12 @@ if (localStorage.getItem('lampu_solder') == "menyala") {
 if (localStorage.getItem('ac') == "menyala") {
     ckboxac.checked = true
     $('#acicon').removeClass('text-blue-500')
-    $('#acicon').addClass('text-yellow-500')
+    $('#acicon').addClass('text-yellow-600')
     $('#acicon').addClass('animate-spin')
 
 } else {
     ckboxac.checked = false
-    $('#acicon').removeClass('text-yellow-500')
+    $('#acicon').removeClass('text-yellow-600')
     $('#acicon').addClass('text-blue-500')
     $('#acicon').removeClass('animate-spin')
 }
@@ -182,7 +182,7 @@ ckbox.addEventListener('change', () => {
         console.log(message.payloadString)
         console.log("Ke cek bro")
         $('#lampusoldericon').removeClass('text-blue-500')
-        $('#lampusoldericon').addClass('text-yellow-500')
+        $('#lampusoldericon').addClass('text-yellow-600')
         $('#lampusoldericon').addClass('animate-pulse')
         window.localStorage.setItem('lampu_solder', 'menyala');
 
@@ -191,7 +191,7 @@ ckbox.addEventListener('change', () => {
         message.destinationName = "cmnd/lampu_solder/power";
         client1.send(message);
         console.log("ga cek kok")
-        $('#lampusoldericon').removeClass('text-yellow-500')
+        $('#lampusoldericon').removeClass('text-yellow-600')
         $('#lampusoldericon').addClass('text-blue-500')
         $('#lampusoldericon').removeClass('animate-pulse')
         window.localStorage.setItem('lampu_solder', 'mati');
@@ -207,14 +207,14 @@ ckboxac.addEventListener('change', () => {
         window.localStorage.setItem('ac', 'menyala');
         $('#acicon').addClass('animate-spin')
         $('#acicon').removeClass('text-blue-500')
-        $('#acicon').addClass('text-yellow-500')
+        $('#acicon').addClass('text-yellow-600')
     } else {
         message = new Paho.MQTT.Message("2");
         message.destinationName = "Cikunir/lt2/suhu2/sharp";
         client2.send(message)
         window.localStorage.setItem('ac', 'mati');
         $('#acicon').removeClass('animate-spin')
-        $('#acicon').removeClass('text-yellow-500')
+        $('#acicon').removeClass('text-yellow-600')
         $('#acicon').addClass('text-blue-500')
     }
 })
