@@ -21,12 +21,15 @@ class AdminAuthController extends Controller
     }
 
     public function auth(Request $request){
+
          $request->validate([
             'email' => 'required',
             'password' => 'required',
          ]);
          $credentials = $request->only('email','password');
-         if(Auth::attempt($credentials)) {
+         $remember_me = $request->has('remember') ? true : false;
+
+         if(Auth::attempt($credentials,$remember_me)) {
             return redirect()->intended('dashboard')->with('success','Berhasil Login');
          } else {
             return redirect('/login');

@@ -47,6 +47,7 @@ function onConnect2() {
     topic = "/Cikunir";
     client2.subscribe("lt2/suhu2/sharp")
     client2.subscribe("cmnd/Main_4")
+    client2.subscribe("lt2/stts/suhu2/sharp")
 
 }
 
@@ -54,6 +55,7 @@ function onConnect2() {
 function onConnect() {
     topic = "/tele";
     client1.subscribe("cmnd/lampu_solder/power")
+    client1.subscribe("stat/lampu_solder/RESULT")
 
 
 }
@@ -71,18 +73,26 @@ function onMessageArrived(message) {
     console.log("onMessageArrived: " + message.payloadString);
     console.log("topic: " + message.destinationName);
 
-    if (message.destinationName == "cmnd/lampu_solder/power") {
-        console.log("data lampu masuk")
-        let data = message.payloadString;
-        if (data == 1) {
+    if(message.destinationName == "stat/lampu_solder/RESULT"){
+        let data = JSON.parse(message.payloadString)
+        if(data.POWER == "ON"){
             window.localStorage.setItem('lampu_solder', 'menyala');
+            ckbox.checked = true
+            $('#lampusoldericon').removeClass('text-blue-500')
+            $('#lampusoldericon').addClass('text-yellow-500')
+            $('#lampusoldericon').addClass('animate-pulse')
+            $('#status_lampu').text("Menyala" );
         } else {
             window.localStorage.setItem('lampu_solder', 'mati');
+            ckbox.checked = false
+            $('#lampusoldericon').removeClass('text-yellow-500')
+            $('#lampusoldericon').addClass('text-blue-500')
+            $('#lampusoldericon').removeClass('animate-pulse')
+            $('#status_lampu').text("Mati" );
         }
-    }
+
 }
-
-
+}
 
 
 
@@ -102,12 +112,13 @@ if (localStorage.getItem('lampu_solder') == "menyala") {
     $('#lampusoldericon').removeClass('text-blue-500')
     $('#lampusoldericon').addClass('text-yellow-600')
     $('#lampusoldericon').addClass('animate-pulse')
-
+    $('#status_lampu').text("Menyala" );
 } else {
     ckbox.checked = false
     $('#lampusoldericon').removeClass('text-yellow-600')
     $('#lampusoldericon').addClass('text-blue-500')
     $('#lampusoldericon').removeClass('animate-pulse')
+    $('#status_lampu').text("Mati" );
 }
 
 
@@ -139,12 +150,12 @@ $("#pilihsteker").on("change", function() {
                 message.destinationName = "cmnd/Main_4/POWER2";
                 client2.send(message)
             } else {
-                message = new Paho.MQTT.Message("1");
-                message.destinationName = "cmnd/Main_4/POWER4";
-                client2.send(message)
-                message = new Paho.MQTT.Message("1");
-                message.destinationName = "cmnd/Main_4/POWER2";
-                client2.send(message)
+                message1 = new Paho.MQTT.Message("1");
+                message2 = new Paho.MQTT.Message("1");
+                message1.destinationName = "cmnd/Main_4/POWER4";
+                client2.send(message1)
+                message2.destinationName = "cmnd/Main_4/POWER2";
+                client2.send(message2)
             }
         } else {
             if ($("#pilihsteker").val() == "power-4") {
@@ -162,6 +173,7 @@ $("#pilihsteker").on("change", function() {
                 message2.destinationName = "cmnd/Main_4/POWER4";
                 client2.send(message1)
                 client2.send(message2)
+
             }
         }
     })

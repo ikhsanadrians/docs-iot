@@ -3,7 +3,7 @@
     <div id="app w-full h-full">
         <div class="container flex justify-center mt-8 lg:mt-16 md:mt-16 sm:mt-16 p-4 md:p-0 lg:p-0">
             <div
-                class="register-container w-full lg:w-[400px] sm:w-[450px] md:w-[430px] h-[580px] bg-white shadow-2xl rounded-lg">
+                class="register-container mx-auto w-full lg:w-[400px] sm:w-[450px] md:w-[430px] h-[580px] bg-white shadow-2xl rounded-lg">
                 <div class="register-inner w-full h-full p-6 flex justify-center relative">
                     <div class="register-wrapper-inner w-full h-full">
                         <div class="register-title">

@@ -3,7 +3,7 @@
     <div id="app w-full h-full">
         <div class="container flex justify-center mt-16 p-4 md:p-0 lg:p-0">
             <div
-                class="login-container w-full lg:w-[400px] sm:w-[400px] md:w-[400px] h-[500px] bg-white shadow-2xl rounded-lg">
+                class="login-container mx-auto w-full lg:w-[400px] sm:w-[400px] md:w-[400px] h-[500px] bg-white shadow-2xl rounded-lg">
                 <div class="login-inner w-full h-full p-6 flex justify-center relative">
                     <div class="login-wrapper-inner w-full h-full">
                         <div class="login-title">

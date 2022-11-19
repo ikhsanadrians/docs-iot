@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Iot Tools</title>
     <link rel="stylesheet" href="{{ asset('css/iot.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/base.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
@@ -986,98 +987,102 @@
             </g>
         </svg>
     </div>
-    <div class="container z-20 flex justify-center pt-56 gap-4">
-        <div
-            class="lampu h-[20rem] w-[22rem] backdrop-blur-sm bg-blue-300/10 shadow-2xl shadow-blue-600/50 rounded-lg border-x-4 border-x-blue-700">
-            <div class="lampu-inner h-full w-full flex justify-center">
-                <div class="logo w-full h-full -my-14">
-                    <span id="lampusoldericon"
-                        class="material-symbols-outlined flex  justify-center text-center text-[10rem] text-blue-500 drop-shadow-lg shadow-cyan-500/60"
-                        style="filter: drop-shadow(5px 5px 12px #4E7AFF);">
-                        emoji_objects
-                    </span>
+    <div class="container z-20 flex justify-center lg:flex-row flex-col lg:pt-56 md:pt-56 pt-24 gap-4">
+        <div class="inner-container flex justify-center gap-2 row">
+            <div
+                class="lampu h-[20rem] w-[22rem] mx-auto backdrop-blur-sm bg-blue-300/10 shadow-2xl shadow-blue-600/50 rounded-lg border-x-4 border-x-blue-700">
+                <div class="lampu-inner h-full w-full flex justify-center">
+                    <div class="logo w-full h-full -my-14">
+                        <span id="lampusoldericon"
+                            class="material-symbols-outlined flex  justify-center text-center text-[10rem] text-blue-500 drop-shadow-lg shadow-cyan-500/60"
+                            style="filter: drop-shadow(5px 5px 12px #4E7AFF);">
+                            emoji_objects
+                        </span>
 
-                    <h1 class="text-center text-3xl text-blue-500 shadow-2xl shadow-blue-800">Lampu Solder</h1>
-                    <figure class="flex justify-center mt-8">
-                        <div class="wrap">
-                            <label class="round-switch">
-                                <input type="checkbox" id="chbox">
-                                <span class="slider"></span>
-                            </label>
-                    </figure>
-                    <div
-                        class="status flex justify-center mt-14 text-white bg-blue-500/60 shadow-2xl shadow-blue-600/50">
-                        Menyala
+                        <h1 class="text-center text-3xl text-blue-500 shadow-2xl shadow-blue-800">Lampu Solder</h1>
+                        <figure class="flex justify-center mt-8">
+                            <div class="wrap">
+                                <label class="round-switch">
+                                    <input type="checkbox" id="chbox">
+                                    <span class="slider"></span>
+                                </label>
+                        </figure>
+                        <div id="status_lampu"
+                            class="status flex justify-center mt-14 text-white bg-blue-500/60 shadow-2xl shadow-blue-600/50">
+
+                        </div>
                     </div>
+
                 </div>
 
             </div>
+            <div
+                class="ac h-[18rem] w-[22rem]  mx-auto  backdrop-blur-sm bg-blue-300/10 shadow-2xl shadow-blue-600/50 rounded-lg border-x-4 border-x-blue-700">
+                <div class="lampu-inner h-full w-full flex justify-center">
+                    <div class="logo w-full h-full -my-14">
+                        <span id="acicon"
+                            class="material-symbols-outlined flex animate-spin duration-500 justify-center text-center text-[10rem] text-blue-500 drop-shadow-lg shadow-cyan-500/60">
+                            mode_fan
+                        </span>
 
-        </div>
-        <div
-            class="ac h-[18rem] w-[22rem] backdrop-blur-sm bg-blue-300/10 shadow-2xl shadow-blue-600/50 rounded-lg border-x-4 border-x-blue-700">
-            <div class="lampu-inner h-full w-full flex justify-center">
-                <div class="logo w-full h-full -my-14">
-                    <span id="acicon"
-                        class="material-symbols-outlined flex animate-spin duration-500 justify-center text-center text-[10rem] text-blue-500 drop-shadow-lg shadow-cyan-500/60">
-                        mode_fan
-                    </span>
-
-                    <h1 class="text-center text-3xl text-blue-500 shadow-2xl shadow-blue-800">AC</h1>
-                    <figure class="flex justify-center mt-8">
-                        <div class="wrap">
-                            <label class="round-switch">
-                                <input type="checkbox" id="chboxac">
-                                <span class="slider"></span>
-                            </label>
-                    </figure>
-                    <div
-                        class="status flex justify-center mt-8 text-white bg-blue-500/60 shadow-2xl shadow-blue-600/50">
-                        Menyala
+                        <h1 class="text-center text-3xl text-blue-500 shadow-2xl shadow-blue-800">AC</h1>
+                        <figure class="flex justify-center mt-8">
+                            <div class="wrap">
+                                <label class="round-switch">
+                                    <input type="checkbox" id="chboxac">
+                                    <span class="slider"></span>
+                                </label>
+                        </figure>
+                        <div
+                            class="status flex justify-center mt-8 text-white bg-blue-500/60 shadow-2xl shadow-blue-600/50">
+                            Menyala
+                        </div>
                     </div>
+
                 </div>
 
             </div>
+            <div
+                class="outlet h-[20rem] w-[22rem]  mx-auto  backdrop-blur-sm bg-blue-300/10 shadow-2xl shadow-blue-600/50 rounded-lg border-x-4 border-x-blue-700">
+                <div class="lampu-inner h-full w-full flex justify-center">
+                    <div class="logo w-full h-full -my-14">
+                        <span id="ckboxsteker"
+                            class="material-symbols-outlined flex  justify-center text-center text-[10rem] text-blue-500 drop-shadow-lg shadow-cyan-500/60">
+                            outlet
+                        </span>
 
-        </div>
-        <div
-            class="ac h-[20rem] w-[22rem] backdrop-blur-sm bg-blue-300/10 shadow-2xl shadow-blue-600/50 rounded-lg border-x-4 border-x-blue-700">
-            <div class="lampu-inner h-full w-full flex justify-center">
-                <div class="logo w-full h-full -my-14">
-                    <span id="ckboxsteker"
-                        class="material-symbols-outlined flex  justify-center text-center text-[10rem] text-blue-500 drop-shadow-lg shadow-cyan-500/60">
-                        outlet
-                    </span>
+                        <h1 class="text-center text-3xl text-blue-500 shadow-2xl shadow-blue-800">Steker</h1>
+                        <div class="steker-select flex justify-center">
+                            <select name="steker-number" id="pilihsteker"
+                                class="text-blue-500 bg-blue-900/80 border-blue-600 shadow-2xl shadow-blue-500">
+                                <option value="all">Semua Steker</option>
+                                <option value="power-2">Steker-2</option>
+                                <option value="power-4">Steker-4</option>
+                            </select>
+                        </div>
 
-                    <h1 class="text-center text-3xl text-blue-500 shadow-2xl shadow-blue-800">Steker</h1>
-                    <div class="steker-select flex justify-center">
-                        <select name="steker-number" id="pilihsteker"
-                            class="text-blue-500 bg-blue-900/80 border-blue-600 shadow-2xl shadow-blue-500">
-                            <option value="all">Semua Steker</option>
-                            <option value="power-2">Steker-2</option>
-                            <option value="power-4">Steker-4</option>
-                        </select>
+                        <figure class="flex justify-center mt-8">
+                            <div class="wrap">
+                                <label class="round-switch">
+                                    <input type="checkbox" id="stekerslider">
+                                    <span class="slider"></span>
+                                </label>
+                        </figure>
+                        <div
+                            class="status flex justify-center mt-8 text-white bg-blue-500/60 shadow-2xl shadow-blue-600/50">
+                            Menyala
+                        </div>
                     </div>
 
-                    <figure class="flex justify-center mt-8">
-                        <div class="wrap">
-                            <label class="round-switch">
-                                <input type="checkbox" id="stekerslider">
-                                <span class="slider"></span>
-                            </label>
-                    </figure>
-                    <div
-                        class="status flex justify-center mt-8 text-white bg-blue-500/60 shadow-2xl shadow-blue-600/50">
-                        Menyala
-                    </div>
                 </div>
 
             </div>
-
         </div>
+
+
         <div
-            class="bottom-nav border-2 border-blue-700 shadow-2xl shadow-blue-600/50 bg-blue-900/90 w-[30rem] h-[6rem] absolute bottom-6 rounded-md">
-            <div class="inner w-full h-full p-4 flex justify-center items-center">
+            class="bottom-nav border-2  border-blue-700 shadow-2xl  shadow-blue-600/50 bg-blue-900/90 w-[28rem] block lg:hidden absolute bottom-6 rounded-md">
+            <div class="inner w-full h-full p-4 flex justify-center">
                 <span
                     class="material-symbols-outlined bbaricon hover:text-yellow-400 duration-200 cursor-pointer text-[6rem] text-blue-500 drop-shadow-lg shadow-cyan-500/60">
                     emoji_objects

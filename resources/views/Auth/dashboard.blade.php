@@ -424,12 +424,12 @@
                     @yield('tool')
                 @else
                     <div
-                        class="mt-4 p-4 table-container w-full max-h-full shadow-xl bg-white dark:bg-slate-600 rounded-2xl border-t-blue-500 border-t-4">
-                        <div class="flex flex-col">
-                            <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-                                <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+                        class="mt-4 p-4 table-container w-full h-full max-h-full shadow-xl bg-white dark:bg-slate-600 rounded-2xl border-t-blue-500 border-t-4">
+                        <div class="flex flex-col w-full h-full">
+                            <div class="overflow-x-auto sm:-mx-6 lg:-mx-8 w-full h-full">
+                                <div class="py-2 inline-block min-w-full min-h-full sm:px-6 lg:px-8">
                                     <div class="overflow-hidden">
-                                        <table class="min-w-full">
+                                        <table class="min-w-full h-full">
 
                                             <thead class="bg-white border-b dark:bg-slate-600  dark:text-slate-200">
                                                 <tr>

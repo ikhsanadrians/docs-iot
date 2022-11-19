@@ -51,7 +51,7 @@ class IndexController extends Controller
 
     }}
     else {
-    $articleall = Article::all();
+$articleall = Article::latest()->paginate(9);
     }
 
     return view('home',compact('articleall'));
