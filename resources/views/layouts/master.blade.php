@@ -112,7 +112,7 @@
 
         </div>
         <footer
-            class="w-full mt-8 min-h-[24rem] pt-[4rem] pb-[2rem] max-h-[50rem] bg-gradient-to-r from-blue-900 to-sky-900">
+            class="w-full mt-14 min-h-[24rem] pt-[4rem] pb-[2rem] max-h-[50rem] bg-gradient-to-r from-blue-900 to-sky-900">
             <div
                 class="w-full h-full relative flex flex-col lg:flex-row md:flex-col gap-4 items-center justify-start lg:justify-between">
                 <div class="robot-img absolute -top-16 md:hidden hidden lg:block pointer-events-none select-none">
