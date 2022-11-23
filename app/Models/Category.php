@@ -13,16 +13,21 @@ class Category extends Model
 
     protected $fillable = [
         "name",
+        "slug",
         "icon"
     ];
 
     public function articles(){
-        return $this->belongsToMany(Article::class,'category_article')->withPivot('category_article');
+        return $this->belongsToMany(Article::class,'category_article');
     }
+
+
 
 
     public function category(){
         return $this->hasMany(Category::class);
        }
+
+
 
 }

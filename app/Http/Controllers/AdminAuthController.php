@@ -171,6 +171,7 @@ public function addcategory(Request $request){
        $icons->storeAs('iconcategory',$iconname);
        Category::create([
          "name" => $title,
+         "slug" => Str::slug($title,'-'),
          "icon" => "<img src='/storage/iconcategory/$iconname'>"
         ]);
         return redirect()->back();
@@ -178,6 +179,7 @@ public function addcategory(Request $request){
    } else {
      Category::create([
         "name" => $title,
+        "slug" => Str::slug($title,'-'),
         "icon" => $urlicons,
        ]);
 
@@ -206,6 +208,28 @@ public function addcategory(Request $request){
    }
 
 
+
+   public function adminUpdatePicture(Request $request,$slug){
+    $user = User::where("slug",$slug);
+    if($request->hasFile('imagepicture')){
+     $image = $request->imagepicture;
+     $getName = $image->getClientOriginalName();
+     $image->storeAs('userprofile',$getName);
+     $user->update([
+       "user_profile" => $getName
+     ]);
+   }
+   if($request->has('updatename')){
+    $user->update([
+        "name" => $request->updatename,
+
+    ]);
+   }
+   return redirect()->back();
+}
+
+
+
    public function imagedestroy($id){
     $imgtodelete = Image::findOrFail(decrypt($id));
     $imgpath = $imgtodelete->url;
@@ -223,4 +247,5 @@ public function addcategory(Request $request){
         Auth::logout();
         return redirect('/login');
     }
+
 }

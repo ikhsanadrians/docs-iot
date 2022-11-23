@@ -27,15 +27,15 @@ class IndexController extends Controller
                         foreach($articleall as $key => $article){
                             foreach($article->categories as $percategory){
                             if($article->article_type_id == 1){
-                                $articlealls.= '<ul>'.'<p class="text-left font-semibold" id="iconsearchcat">'.$percategory->icon.$percategory->name.'</p>'.
-                                '<li class="resultsearch justify-start relative bg-slate-100  dark:bg-slate-600 dark:text-slate-300 duration-200 font-semibold shadow-md hover:bg-blue-500 rounded-md hover:text-white mb-2 p-4 w-full flex items-center">'.'<a class="flex items-center" href='."/article/$article->slug".'>'.'<ion-icon name="document-text"></ion-icon>'.Str::limit($article->title,65).'<ion-icon name="return-down-back-outline" class="absolute right-2 text-white"></ion-icon>'.'</a>'.'</li>'.
+                                $articlealls.= '<ul>'.'<p class="text-left font-semibold flex gap-1 items-center" id="iconsearchcat">'.$percategory->icon.$percategory->name.'</p>'.
+                                '<li class="resultsearch justify-start relati`ve bg-slate-100  dark:bg-slate-600 dark:text-slate-300 duration-200 font-semibold shadow-md hover:bg-blue-500 rounded-md hover:text-white mb-2 p-4 w-full flex items-center">'.'<a class="flex items-center" href='."/article/$article->slug".'>'.'<ion-icon name="document-text"></ion-icon>'.Str::limit($article->title,65).'<ion-icon name="return-down-back-outline" class="absolute right-2 text-white"></ion-icon>'.'</a>'.'</li>'.
                                 '</ul>';
                             }
                           }
                         }} else {
                             foreach($articleall as $key => $article){
                                 foreach($article->categories as $percategory){
-                                    $articlealls.= '<ul>'.'<p class="text-left font-semibold" id="iconsearchcat">'.$percategory->icon.$percategory->name.'</p>'.
+                                    $articlealls.= '<ul>'.'<p class="text-left font-semibold flex gap-1 items-center" id="iconsearchcat">'.$percategory->icon.$percategory->name.'</p>'.
                                 '<li class="resultsearch justify-start bg-slate-100  dark:bg-slate-600 dark:text-slate-300 duration-200 font-semibold shadow-md hover:bg-blue-500 rounded-md hover:text-white mb-2 p-4 w-full flex items-center">'.'<a class="flex items-center" href='."/article/$article->slug".'>'.'<ion-icon name="document-text"></ion-icon>'.Str::limit($article->title,65).'</a>'.'</li>'.
                                 '</ul>';
                                 }
@@ -51,7 +51,7 @@ class IndexController extends Controller
 
     }}
     else {
-$articleall = Article::latest()->paginate(9);
+    $articleall = Article::latest()->paginate(9);
     }
 
     return view('home',compact('articleall'));
@@ -75,7 +75,7 @@ $articleall = Article::latest()->paginate(9);
                     foreach($articleall as $key => $article){
                         foreach($article->categories as $percategory){
                         if($article->article_type_id == 1){
-                            $articlealls.= '<ul>'.'<p class="text-left font-semibold" id="iconsearchcat">'.$percategory->icon.$percategory->name.'</p>'.
+                            $articlealls.= '<ul>'.'<p class="text-left font-semibold flex gap-1 items-center" id="iconsearchcat">'.$percategory->icon.$percategory->name.'</p>'.
                             '<li class="resultsearch justify-start relative bg-slate-100  dark:bg-slate-600 dark:text-slate-300 duration-200 font-semibold shadow-md hover:bg-blue-500 rounded-md hover:text-white mb-2 p-4 w-full flex items-center">'.'<a class="flex items-center" href='."/article/$article->slug".'>'.'<ion-icon name="document-text"></ion-icon>'.Str::limit($article->title,65).'<ion-icon name="return-down-back-outline" class="absolute right-2 text-white"></ion-icon>'.'</a>'.'</li>'.
                             '</ul>';
                         }
@@ -83,7 +83,7 @@ $articleall = Article::latest()->paginate(9);
                     }} else {
                         foreach($articleall as $key => $article){
                             foreach($article->categories as $percategory){
-                                $articlealls.= '<ul>'.'<p class="text-left font-semibold" id="iconsearchcat">'.$percategory->icon.$percategory->name.'</p>'.
+                                $articlealls.= '<ul>'.'<p class="text-left font-semibold flex gap-1 items-center" id="iconsearchcat">'.$percategory->icon.$percategory->name.'</p>'.
                             '<li class="resultsearch justify-start bg-slate-100  dark:bg-slate-600 dark:text-slate-300 duration-200 font-semibold shadow-md hover:bg-blue-500 rounded-md hover:text-white mb-2 p-4 w-full flex items-center">'.'<a class="flex items-center" href='."/article/$article->slug".'>'.'<ion-icon name="document-text"></ion-icon>'.Str::limit($article->title,65).'</a>'.'</li>'.
                             '</ul>';
                             }

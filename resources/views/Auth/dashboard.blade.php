@@ -417,7 +417,10 @@
         <main class="pl-0 lg:pl-8 w-full h-full pt-12">
             <div class="title flex justify-between">
                 <h1 class="text-slate-800 font-semibold text-2xl dark:text-slate-400">Dashboard</h1>
-                <h1 class="font-bold text-2xl">Welcome {{ Auth::user()->name }}</h1>
+                <h1 class="font-bold text-2xl dark:text-slate-300">Welcome <a
+                        href="{{ route('admindetails', Auth::user()->slug) }}"><span
+                            class="bg-slate-300 px-2 py-1 rounded-md dark:text-blue-900">{{ Auth::user()->name }}</span></a>
+                </h1>
             </div>
             <div class="tool-section w-full h-full">
                 @if (View::hasSection('tool'))
@@ -561,6 +564,8 @@
     <script src="{{ asset('js/toggledark.js') }}"></script>
     <script src="{{ asset('js/hamburger.js') }}"></script>
     <script src="{{ asset('js/navbar.js') }}"></script>
+    <script src="{{ asset('js/changepic.js') }}"></script>
+    <script src="{{ asset('js/changerole.js') }}"></script>
     <script src="{{ asset('clipboard.js-master/dist/clipboard.min.js') }}"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
@@ -575,6 +580,12 @@
     </script>
     <script src="{{ asset('js/changerole.js') }}"></script>
     <div class="mb-80"></div>
+    <div id="backdrop"
+        class="hidden fixed top-0 z-10 backdrop w-full h-full  bg-slate-700 dark:bg-slate-500 opacity-30">
+    </div>
+
+
+
 </body>
 
 </html>

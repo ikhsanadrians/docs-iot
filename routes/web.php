@@ -21,7 +21,7 @@ use App\Http\Controllers\UserAuthController;
 Route::get('/',[IndexController::class,'index']);
 Route::post('/',[IndexController::class,'index']);
 Route::get('loginadmin',[AdminAuthController::class,'index']); //login admin
-Route::get('/article/{slug}',[IndexController::class,'show']);
+Route::get('/article/{slug}',[IndexController::class,'show'])->name('show');
 Route::get('dashboard',[AdminAuthController::class,'dashboard']);
 Route::get('login',[UserAuthController::class,'index'])->name('userlogin'); //loginuser
 Route::post('login',[UserAuthController::class,'auth'])->name('userloginpost');//loginuser
@@ -38,6 +38,7 @@ Route::get('/dashboard/statistik',[AdminAuthController::class,'statistic'])->nam
 Route::get('/dashboard/admin',[AdminAuthController::class,'setting'])->name('adminsetting');
 Route::post('/dashboard/admin',[AdminAuthController::class,'createnewadmin'])->name('createadmin');
 Route::get('/dashboard/admin/{user:slug}/details',[AdminAuthController::class,'admindetails'])->name('admindetails');
+Route::post('/dashboard/admin/{user:slug}/details',[AdminAuthController::class,'adminUpdatePicture'])->name('adminupdatepic');
 Route::get('/dashboard/imageuploader',[AdminAuthController::class,'imageuploaderview'])->name('imageuploader');
 Route::post('/dashboard/imageuploader',[AdminAuthController::class,'imageuploader'])->name('imageuploaderpost');
 Route::delete('/dashboard/image/{id}/delete',[AdminAuthController::class,'imagedestroy'])->name('imagedestroy');
@@ -45,6 +46,7 @@ Route::get('/dashboard/addcategory',[AdminAuthController::class,'addcategoryinde
 Route::post('/dashboard/addcategory',[AdminAuthController::class,'addcategory'])->name('addcategorypost');
 Route::get('/dashboard/usersetting',[AdminAuthController::class,'usersettingindex'])->name('usersetting');
 Route::get('/dashboard/usersetting/{user:slug}/details',[AdminAuthController::class,'userdetails'])->name('userdetails');
-Route::post('/dashboard/usersetting/{user:slug}/details',[AdminAuthController::class,'userupdate'])->name('userupdate');
+Route::post('/dashboard/usersetting/{user:slug}/details',[AdminAuthController::class,'userupdatepic'])->name('userupdate');
 Route::get('/dashboard/iot',[IotController::class,'index'])->name('iotindex');
+Route::get('category/{slug}',[ArticleController::class,'category'])->name('categoryindex');
 Route::get('404',[RedirectHandlesController::class,'index']);

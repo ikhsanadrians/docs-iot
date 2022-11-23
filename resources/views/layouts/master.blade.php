@@ -101,9 +101,12 @@
         </header>
         <div class="main-content w-full h-full px-4 lg:pl-16 lg:pr-16">
             <main class="h-full w-full flex">
-                @include('partials.sidebar')
+                @if (View::hasSection('content') || View::hasSection('contents'))
+                    @include('partials.sidebar')
+                @endif
                 @yield('content')
                 @yield('contents')
+                @yield('contentss')
                 @include('partials.gotothetop')
                 @if (View::hasSection('content'))
                     @include('partials.morepost')

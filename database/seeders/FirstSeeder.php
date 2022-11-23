@@ -23,7 +23,8 @@ class FirstSeeder extends Seeder
        Category::create([
           "name" => "Java",
           "icon" => '<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" />',
-         ]);
+          "slug" => "java"
+        ]);
 
          ArticleType::create([
             "id" => 1,

@@ -1038,6 +1038,12 @@
                             Menyala
                         </div>
                     </div>
+                    <div class="suhu absolute bottom-2 text-white flex items-center mt-2">
+                        <ion-icon name="snow-outline">
+                        </ion-icon>
+                        <div id="suhuac">
+                        </div>
+                    </div>
 
                 </div>
 
@@ -1103,8 +1109,10 @@
 
 </body>
 <script src="{{ asset('js/jquery.min.js') }}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js" type="text/javascript"></script>
+<script src="{{ asset('js/paho-mqtt.min.js') }}"></script>
 <script src="{{ asset('js/iot.js') }}"></script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 <script>
     var paths = document.querySelectorAll('.st0');
 

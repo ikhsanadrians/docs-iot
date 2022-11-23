@@ -28,6 +28,7 @@ class Article extends Model
         return $this->belongsTo(User::class);
     }
 
+
     public function articleType(){
         return $this->belongsTo(ArticleType::class);
     }
@@ -35,8 +36,7 @@ class Article extends Model
     public function categories(){
         return $this->belongsToMany(Category::class,'category_article');
     }
-
-
+    
     public function getShortDescriptionAttribute()
     {
         return Str::limit(

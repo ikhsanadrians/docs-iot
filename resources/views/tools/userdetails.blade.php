@@ -10,7 +10,6 @@
         </div>
     </a>
     <div class="container mt-4 h-full w-full">
-
         <div class="container-inner w-full h-full mt-8 flex justify-center ">
             <div class="profile w-full h-full flex justify-center">
                 <div class="profile-inner flex gap-2 flex-col md:flex-row lg:flex-row ">

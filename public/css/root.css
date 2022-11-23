@@ -134,3 +134,7 @@ body {
 
     }
   }
+
+  #categoryimgs > img {
+    height: 40px;
+    }

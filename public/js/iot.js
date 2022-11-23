@@ -48,6 +48,8 @@ function onConnect2() {
     client2.subscribe("lt2/suhu2/sharp")
     client2.subscribe("cmnd/Main_4")
     client2.subscribe("lt2/stts/suhu2/sharp")
+    client2.subscribe("Cikunir/lt2/stts2/sharp")
+    client2.subscribe("lt2/suhu2")
 
 }
 
@@ -91,9 +93,15 @@ function onMessageArrived(message) {
             $('#status_lampu').text("Mati" );
         }
 
-}
-}
+    } else if(message.destinationName == "Cikunir/lt2/stts2/sharp"){
+       console.log(message.payloadString)
+       let data = JSON.parse(message.payloadString)
+       localStorage.setItem("suhuac",data);
+       $("#suhuac").text(data)
+       console.log("suhu masuk")
+    }
 
+}
 
 
 
@@ -103,6 +111,10 @@ let ckbox = document.querySelector('#chbox')
 let ckboxac = document.querySelector('#chboxac')
 let cksteker = document.querySelector("#stekerslider")
 
+
+if(localStorage.getItem("suhuac")){
+    $("#suhuac").text(localStorage.getItem("suhuac"))
+}
 
 
 
@@ -149,12 +161,11 @@ $("#pilihsteker").on("change", function() {
                 message = new Paho.MQTT.Message("1");
                 message.destinationName = "cmnd/Main_4/POWER2";
                 client2.send(message)
-            } else {
-                message1 = new Paho.MQTT.Message("1");
-                message2 = new Paho.MQTT.Message("1");
-                message1.destinationName = "cmnd/Main_4/POWER4";
+            } else if ($("#pilihsteker").val() == "all"){
+                message = new Paho.MQTT.Message("1");
+                message.destinationName = "cmnd/Main_4/POWER4";
                 client2.send(message1)
-                message2.destinationName = "cmnd/Main_4/POWER2";
+                message.destinationName = "cmnd/Main_4/POWER2";
                 client2.send(message2)
             }
         } else {
@@ -166,12 +177,11 @@ $("#pilihsteker").on("change", function() {
                 message = new Paho.MQTT.Message("0");
                 message.destinationName = "cmnd/Main_4/POWER2";
                 client2.send(message)
-            } else {
-                message1 = new Paho.MQTT.Message("0");
-                message2 = new Paho.MQTT.Message("0");
-                message1.destinationName = "cmnd/Main_4/POWER2";
-                message2.destinationName = "cmnd/Main_4/POWER4";
+            } else if ($("#pilihsteker").val() == "all"){
+                message = new Paho.MQTT.Message("0");
+                message.destinationName = "cmnd/Main_4/POWER4";
                 client2.send(message1)
+                message.destinationName = "cmnd/Main_4/POWER2";
                 client2.send(message2)
 
             }
@@ -230,3 +240,4 @@ ckboxac.addEventListener('change', () => {
         $('#acicon').addClass('text-blue-500')
     }
 })
+
