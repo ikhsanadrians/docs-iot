@@ -43,6 +43,7 @@ Route::get('/dashboard/imageuploader',[AdminAuthController::class,'imageuploader
 Route::post('/dashboard/imageuploader',[AdminAuthController::class,'imageuploader'])->name('imageuploaderpost');
 Route::delete('/dashboard/image/{id}/delete',[AdminAuthController::class,'imagedestroy'])->name('imagedestroy');
 Route::get('/dashboard/addcategory',[AdminAuthController::class,'addcategoryindex'])->name('addcategory');
+Route::get('/dashboard/category/{slug}/details',[AdminAuthController::class,'categorydetails'])->name('categorydetails');
 Route::post('/dashboard/addcategory',[AdminAuthController::class,'addcategory'])->name('addcategorypost');
 Route::get('/dashboard/usersetting',[AdminAuthController::class,'usersettingindex'])->name('usersetting');
 Route::get('/dashboard/usersetting/{user:slug}/details',[AdminAuthController::class,'userdetails'])->name('userdetails');

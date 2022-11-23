@@ -47,6 +47,11 @@ class FirstSeeder extends Seeder
             "name" => "Default_User"
         ]);
 
+        UserRole::create([
+            "id" => 3,
+            "name" => "Reader"
+        ]);
+
         User::create([
             "name" => "admin",
             "Slug" => Str::slug('admin'),

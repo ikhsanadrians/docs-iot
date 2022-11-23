@@ -242,10 +242,18 @@ public function addcategory(Request $request){
     return redirect()->back();
   }
 
+   public function categorydetails(Request $request , $slug){
+   return view('tools.categorydetails');
+   }
+
+
+
     public function signOut(){
         Session::flush();
         Auth::logout();
         return redirect('/login');
     }
+
+
 
 }
