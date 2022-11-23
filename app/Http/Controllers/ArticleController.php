@@ -124,12 +124,14 @@ class ArticleController extends Controller
     {
         $decrypted_id = decrypt($id);
         $title = $request->title;
+        $typeposts = $request->typepost;
         // $category = $request->category;
         $description = $request->editor;
 
          Article::findOrFail($decrypted_id)->update([
                 "title" => $title,
                 // "category_id" => $category,
+                "article_type_id" => $typeposts,
                 "slug" => str::slug($title,'-'),
                 "description" => $description,
 
