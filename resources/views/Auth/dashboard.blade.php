@@ -416,11 +416,19 @@
         </aside>
         <main class="pl-0 lg:pl-8 w-full h-full pt-12">
             <div class="title flex justify-between">
-                <h1 class="text-slate-800 font-semibold text-2xl dark:text-slate-400">Dashboard</h1>
-                <h1 class="font-bold text-2xl dark:text-slate-300">Welcome <a
-                        href="{{ route('admindetails', Auth::user()->slug) }}"><span
-                            class="bg-slate-300 px-2 py-1 rounded-md dark:text-blue-900">{{ Auth::user()->name }}</span></a>
-                </h1>
+                <h1 class="text-slate-800 font-normal text-2xl dark:text-slate-400">Dashboard</h1>
+                <div
+                    class="font-bold text-xl dark:text-slate-300 bg-gradient-to-r text-white from-cyan-500 to-blue-500 rounded-l-full rounded-r-full">
+                    <a href="{{ route('admindetails', Auth::user()->slug) }}" class="flex items-center">
+                        <div class="profile-picture w-8 h-8 overflow-hidden rounded-full">
+                            <img src="{{ asset('storage/userprofile/' . Auth::user()->user_profile) }}"
+                                alt="" class="w-full h-full object-cover">
+                        </div>
+                        <span class="px-2 py-[1px] rounded-md dark:text-blue-900">
+                            {{ Auth::user()->name }}
+                        </span>
+                    </a>
+                </div>
             </div>
             <div class="tool-section w-full h-full">
                 @if (View::hasSection('tool'))

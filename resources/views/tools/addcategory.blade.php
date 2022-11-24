@@ -3,7 +3,7 @@
     <div class="container w-full h-full mt-4">
         <div
             class="mt-4 p-4 table-container w-full max-h-full shadow-xl bg-white text-slate-600 dark:text-slate-300 dark:bg-slate-800 rounded-xl border-t-blue-500 border-t-4">
-            <div class="flex flex-col">
+            <div class="flex flex-col h-full w-full">
                 <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
                         <div class="overflow-hidden">
@@ -56,7 +56,7 @@
                                             </td>
                                             <td
                                                 class="text-sm text-center align-middle font-light px-6 py-4 whitespace-nowrap">
-                                                <a href="">
+                                                <a href="{{ route('categorydetails', $category->slugmahabarata) }}">
                                                     <span
                                                         class="material-symbols-outlined text-slate-700 dark:text-slate-200 cursor-pointer hover:text-blue-400 duration-300">
                                                         settings

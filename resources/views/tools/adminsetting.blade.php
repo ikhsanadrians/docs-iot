@@ -93,7 +93,7 @@
                 @csrf
                 <div class="inputgroup mt-4 flex flex-col gap-4">
 
-                    <div class="user flex items-center">
+                    <div class="user flex items-center relative">
                         <span class="material-symbols-outlined absolute z-10 pl-2 text-zinc-400 ">
                             account_circle
                         </span>
@@ -101,7 +101,7 @@
                             class="inputs pl-8 relative w-full h-12 rounded-lg focus:shadow-md focus:outline-none focus:border-2  focus:border-blue-600"
                             placeholder="Masukan User">
                     </div>
-                    <div class="upload-images-thumbnail">
+                    <div class="upload-images-thumbnail relative">
                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                             for="file_input">Upload
                             Foto Profil</label>
@@ -109,7 +109,7 @@
                             class="block w-full text-sm text-gray-900 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                             id="file_input" name="profilepic">
                     </div>
-                    <div class="email flex items-center">
+                    <div class="email flex items-center relative">
                         <span class="material-symbols-outlined absolute z-10 pl-2 text-zinc-400">
                             alternate_email
                         </span>
@@ -121,7 +121,7 @@
                             class="inputs pl-8 relative w-full h-12 dark:bg-slate-700 rounded-lg focus:shadow-md focus:outline-none focus:border-2  focus:border-blue-600"
                             placeholder="Masukan Email">
                     </div>
-                    <div class="password flex items-center">
+                    <div class="password flex items-center relative">
                         <span class="material-symbols-outlined absolute z-10 pl-2 text-zinc-400">
                             lock
                         </span>
@@ -129,7 +129,7 @@
                             class="inputs pl-8 relative w-full h-12 rounded-lg dark:bg-slate-700 focus:shadow-md focus:outline-none focus:border-2  focus:border-blue-600"
                             placeholder="Masukan Password" id="password">
                     </div>
-                    <div class="confirmpassword flex items-center">
+                    <div class="confirmpassword flex items-center relative">
                         <span class="material-symbols-outlined absolute z-10 pl-2 text-zinc-400">
                             lock
                         </span>

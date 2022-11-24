@@ -243,7 +243,8 @@ public function addcategory(Request $request){
   }
 
    public function categorydetails(Request $request , $slug){
-   return view('tools.categorydetails');
+   $categories = Category::with('articles')->where('slug',$slug)->get();
+   return view('tools.categorydetails',compact('categories'));
    }
 
 

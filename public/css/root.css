@@ -123,8 +123,13 @@ body {
     height: 20px;
   }
 
-  #iconsearchcat {
+  #iconsearchcats > img {
+    height: 35px;
+  }
+
+  #iconsearchcat , #iconsearchcats {
     display: flex;
+    color:#202746;
     gap:2;
   }
 
