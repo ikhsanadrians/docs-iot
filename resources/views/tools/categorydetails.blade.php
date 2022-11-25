@@ -16,7 +16,9 @@
                         @foreach ($category->articles as $article)
                             <h1 class="text-5xl text-center text-white "><span
                                     class="text-[10rem]">{{ $article->count() }}</span><br>Article Posted</h1>
+                            <p>{{ $article->user }}</p>
                         @endforeach
+
                     </div>
                     <div
                         class="user-using rounded-lg p-4 md:w-full w-full lg:w-1/2  h-full bg-gradient-to-r from-blue-500 to-sky-500">
