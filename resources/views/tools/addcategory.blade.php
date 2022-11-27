@@ -56,7 +56,7 @@
                                             </td>
                                             <td
                                                 class="text-sm text-center align-middle font-light px-6 py-4 whitespace-nowrap">
-                                                <a href="{{ route('categorydetails', $category->slugmahabarata) }}">
+                                                <a href="{{ route('categorydetails', $category->slug) }}">
                                                     <span
                                                         class="material-symbols-outlined text-slate-700 dark:text-slate-200 cursor-pointer hover:text-blue-400 duration-300">
                                                         settings

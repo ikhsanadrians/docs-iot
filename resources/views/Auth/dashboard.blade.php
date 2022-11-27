@@ -499,13 +499,20 @@
                                                             class="text-sm text-center align-middle font-light px-6 py-4 whitespace-nowrap">
                                                             {{ Str::limit($perarticle->description, 15) }}
                                                         </td>
-                                                        @foreach ($perarticle->categories->take(1) as $percategory)
+                                                        @if (!$perarticle->categories)
                                                             <td id="category-wrapper"
                                                                 class="text-sm  items-center flex gap-1 text-center align-middle font-light px-6 py-4 whitespace-nowrap">
-                                                                {!! $percategory->icon !!}
-                                                                {{ $percategory->name }}
+                                                                Uncategorizhed
                                                             </td>
-                                                        @endforeach
+                                                        @else
+                                                            @foreach ($perarticle->categories->take(1) as $percategory)
+                                                                <td id="category-wrapper"
+                                                                    class="text-sm  items-center flex gap-1 text-center align-middle font-light px-6 py-4 whitespace-nowrap">
+                                                                    {!! $percategory->icon !!}
+                                                                    {{ $percategory->name }}
+                                                                </td>
+                                                            @endforeach
+                                                        @endif
                                                         <td
                                                             class="text-sm text-center align-middle font-light px-6 py-4 whitespace-nowrap">
                                                             {{ $perarticle->created_at }}
