@@ -202,7 +202,7 @@ ckbox.addEventListener('change', () => {
         message.destinationName = "cmnd/lampu_solder/power";
         client1.send(message);
         console.log(message.payloadString)
-        console.log("Ke cek bro")
+        console.log("checked")
         $('#lampusoldericon').removeClass('text-blue-500')
         $('#lampusoldericon').addClass('text-yellow-600')
         $('#lampusoldericon').addClass('animate-pulse')
@@ -212,7 +212,7 @@ ckbox.addEventListener('change', () => {
         message = new Paho.MQTT.Message("0");
         message.destinationName = "cmnd/lampu_solder/power";
         client1.send(message);
-        console.log("ga cek kok")
+        console.log("not checked")
         $('#lampusoldericon').removeClass('text-yellow-600')
         $('#lampusoldericon').addClass('text-blue-500')
         $('#lampusoldericon').removeClass('animate-pulse')
