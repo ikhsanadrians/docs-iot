@@ -83,7 +83,7 @@ function onMessageArrived(message) {
             $('#lampusoldericon').removeClass('text-blue-500')
             $('#lampusoldericon').addClass('text-yellow-500')
             $('#lampusoldericon').addClass('animate-pulse')
-            $('#status_lampu').text("Menyala" );
+            $('#status_lampu').text("Menyala");
         } else {
             window.localStorage.setItem('lampu_solder', 'mati');
             ckbox.checked = false
@@ -97,13 +97,15 @@ function onMessageArrived(message) {
        console.log(message.payloadString)
        let data = JSON.parse(message.payloadString)
        localStorage.setItem("suhuac",data);
-       $("#suhuac").text(data)
+       if(data == "2"){
+           $("#suhuac").text("Ac Sedang Mati")
+       } else {
+           $("#suhuac").text(data)
+       }
        console.log("suhu masuk")
     }
 
 }
-
-
 
 
 
@@ -139,12 +141,14 @@ if (localStorage.getItem('ac') == "menyala") {
     $('#acicon').removeClass('text-blue-500')
     $('#acicon').addClass('text-yellow-600')
     $('#acicon').addClass('animate-spin')
+    $('#statusac').text("Menyala")
 
 } else {
     ckboxac.checked = false
     $('#acicon').removeClass('text-yellow-600')
     $('#acicon').addClass('text-blue-500')
     $('#acicon').removeClass('animate-spin')
+    $('#statusac').text("Mati")
 }
 
 let choseeSteker = $("#pilihsteker");
@@ -177,12 +181,12 @@ $("#pilihsteker").on("change", function() {
                 message = new Paho.MQTT.Message("0");
                 message.destinationName = "cmnd/Main_4/POWER2";
                 client2.send(message)
-            } else if ($("#pilihsteker").val() == "all"){
+            } else if ($("#pilihsteker").val() == "semua"){
                 message = new Paho.MQTT.Message("0");
                 message.destinationName = "cmnd/Main_4/POWER4";
-                client2.send(message1)
+                client2.send(message)
                 message.destinationName = "cmnd/Main_4/POWER2";
-                client2.send(message2)
+                client2.send(message)
 
             }
         }
@@ -230,6 +234,7 @@ ckboxac.addEventListener('change', () => {
         $('#acicon').addClass('animate-spin')
         $('#acicon').removeClass('text-blue-500')
         $('#acicon').addClass('text-yellow-600')
+        $('#statusac').text("Menyala")
     } else {
         message = new Paho.MQTT.Message("2");
         message.destinationName = "Cikunir/lt2/suhu2/sharp";
@@ -238,6 +243,7 @@ ckboxac.addEventListener('change', () => {
         $('#acicon').removeClass('animate-spin')
         $('#acicon').removeClass('text-yellow-600')
         $('#acicon').addClass('text-blue-500')
+        $('#statusac').text("Mati")
     }
 })
 

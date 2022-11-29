@@ -1035,7 +1035,7 @@
                         </figure>
                         <div
                             class="status flex justify-center mt-8 text-white bg-blue-500/60 shadow-2xl shadow-blue-600/50">
-                            Menyala
+                            <h1 id="statusac"></h1>
                         </div>
                     </div>
                     <div class="suhu absolute bottom-2 text-white flex items-center mt-2">
@@ -1061,7 +1061,7 @@
                         <div class="steker-select flex justify-center">
                             <select name="steker-number" id="pilihsteker"
                                 class="text-blue-500 bg-blue-900/80 border-blue-600 shadow-2xl shadow-blue-500">
-                                <option value="all">Semua Steker</option>
+                                <option value="semua">Semua Steker</option>
                                 <option value="power-2">Steker-2</option>
                                 <option value="power-4">Steker-4</option>
                             </select>

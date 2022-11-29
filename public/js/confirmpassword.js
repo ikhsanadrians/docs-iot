@@ -1,1 +1,22 @@
-(function(c,d){const h=b,e=c();while(!![]){try{const f=-parseInt(h(0x134))/0x1*(parseInt(h(0x12c))/0x2)+-parseInt(h(0x124))/0x3+-parseInt(h(0x136))/0x4+parseInt(h(0x12e))/0x5*(parseInt(h(0x133))/0x6)+-parseInt(h(0x126))/0x7*(-parseInt(h(0x135))/0x8)+parseInt(h(0x123))/0x9*(parseInt(h(0x12a))/0xa)+-parseInt(h(0x129))/0xb;if(f===d)break;else e['push'](e['shift']());}catch(g){e['push'](e['shift']());}}}(a,0x6f0f8),$(document)['ready'](function(){const i=b;$(i(0x12d))[i(0x132)](i(0x130),!![]),$(i(0x12f))['on'](i(0x125),function(){const j=i;let c=$(this)[j(0x12b)]();$(j(0x137))['on'](j(0x125),function(){const k=j;let d=$(this)[k(0x12b)]();c!=d?($(k(0x12d))[k(0x132)]('disabled',!![]),$(k(0x127))[k(0x131)](k(0x128))):($(k(0x12d))[k(0x122)](k(0x130)),$(k(0x127))[k(0x131)](''));});});}));function b(c,d){const e=a();return b=function(f,g){f=f-0x122;let h=e[f];return h;},b(c,d);}function a(){const l=['#confirmpassword','removeAttr','958239jsXydo','2356701tamVAe','keyup','19915GctwLV','#message','Password\x20Tidak\x20Cocok!','2116180QMUKSb','30uqUQXm','val','20NITMdA','#submits','5ckCDsb','#password','disabled','text','attr','1987302DcSmLr','2768qrmdGt','2552dCaNfh','390616kNlCJn'];a=function(){return l;};return a();}
+$(document).ready(function () {
+    $("#submits").attr("disabled",true);
+    $("#password").on('keyup',function(){
+    let valuepassword =  $(this).val()
+    $("#confirmpassword").on('keyup',function(){
+    let confirmvalue =  $(this).val()
+
+   if(valuepassword != confirmvalue){
+       $("#submits").attr("disabled",true);
+       $("#message").text("Password Tidak Cocok!")
+    } else {
+    $("#submits").removeAttr("disabled");
+    $("#message").text("")
+    }
+
+
+   });
+   });
+
+
+
+});
