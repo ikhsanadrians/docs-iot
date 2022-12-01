@@ -102,15 +102,15 @@ class IndexController extends Controller
 
 
   if($article){
-    if($article->article_type_id != 2){
-        return view('detail',compact('article'));
-    } else {
+        if($article->article_type_id != 2){
+            return view('detail',compact('article'));
+        } else {
         if(!Auth::user() || Auth::user()->user_roles_id == 2){
             return redirect('/');
         } else {
             return view('detail',compact('article'));
         }
-    }
+        }
     }
 
 

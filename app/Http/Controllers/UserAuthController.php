@@ -43,6 +43,8 @@ class UserAuthController extends Controller
 
      ]);
 
-    return redirect('/login')->with('users',$users);
+     auth()->login($users);
+
+    return redirect('/');
    }
 }
