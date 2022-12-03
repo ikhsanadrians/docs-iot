@@ -22,22 +22,31 @@ Route::get('/logout',[AdminAuthController::class,'signOut'])->name('signout');
 Route::delete('/article/{id}/delete',[ArticleController::class,'destroy'])->name('articledestroy');
 Route::get('/article/{id}/edit',[ArticleController::class,'edit']);
 Route::put('article/{id}/update',[ArticleController::class,'update'])->name('update');
-Route::get('dashboard/tambahartikel',[ArticleController::class,'index'])->name('addarticle');
-Route::post('/dashboard/tambahartikel',[ArticleController::class,'create'])->name('addarticlepost');
-Route::get('/dashboard/statistik',[AdminAuthController::class,'statistic'])->name('statisticindex');
-Route::get('/dashboard/admin',[AdminAuthController::class,'setting'])->name('adminsetting');
-Route::post('/dashboard/admin',[AdminAuthController::class,'createnewadmin'])->name('createadmin');
-Route::get('/dashboard/admin/{user:slug}/details',[AdminAuthController::class,'admindetails'])->name('admindetails');
-Route::post('/dashboard/admin/{user:slug}/details',[AdminAuthController::class,'adminUpdatePicture'])->name('adminupdatepic');
-Route::get('/dashboard/imageuploader',[AdminAuthController::class,'imageuploaderview'])->name('imageuploader');
-Route::post('/dashboard/imageuploader',[AdminAuthController::class,'imageuploader'])->name('imageuploaderpost');
-Route::delete('/dashboard/image/{id}/delete',[AdminAuthController::class,'imagedestroy'])->name('imagedestroy');
-Route::get('/dashboard/addcategory',[AdminAuthController::class,'addcategoryindex'])->name('addcategory');
-Route::get('/dashboard/category/{slug}/details',[AdminAuthController::class,'categorydetails'])->name('categorydetails');
-Route::post('/dashboard/addcategory',[AdminAuthController::class,'addcategory'])->name('addcategorypost');
-Route::get('/dashboard/usersetting',[AdminAuthController::class,'usersettingindex'])->name('usersetting');
-Route::get('/dashboard/usersetting/{user:slug}/details',[AdminAuthController::class,'userdetails'])->name('userdetails');
-Route::post('/dashboard/usersetting/{user:slug}/details',[AdminAuthController::class,'userupdatepic'])->name('userupdate');
-Route::get('/dashboard/iot',[IotController::class,'index'])->name('iotindex');
+
+Route::group(['prefix' => "dashboard"], function(){
+    Route::get('/tambahartikel',[ArticleController::class,'index'])->name('addarticle');
+    Route::post('/tambahartikel',[ArticleController::class,'create'])->name('addarticlepost');
+    Route::get('/statistik',[AdminAuthController::class,'statistic'])->name('statisticindex');
+    Route::get('/admin',[AdminAuthController::class,'setting'])->name('adminsetting');
+    Route::post('/admin',[AdminAuthController::class,'createnewadmin'])->name('createadmin');
+    Route::get('/admin/{user:slug}/details',[AdminAuthController::class,'admindetails'])->name('admindetails');
+    Route::post('/admin/{user:slug}/details',[AdminAuthController::class,'adminUpdatePicture'])->name('adminupdatepic');
+    Route::get('/imageuploader',[AdminAuthController::class,'imageuploaderview'])->name('imageuploader');
+    Route::post('/imageuploader',[AdminAuthController::class,'imageuploader'])->name('imageuploaderpost');
+    Route::delete('/image/{id}/delete',[AdminAuthController::class,'imagedestroy'])->name('imagedestroy');
+    Route::get('/addcategory',[AdminAuthController::class,'addcategoryindex'])->name('addcategory');
+    Route::get('/category/{slug}/details',[AdminAuthController::class,'categorydetails'])->name('categorydetails');
+    Route::delete('/category/{id}/delete',[AdminAuthController::class,'categorydestroy'])->name('categorydestroy');
+    Route::post('/addcategory',[AdminAuthController::class,'addcategory'])->name('addcategorypost');
+    Route::get('/usersetting',[AdminAuthController::class,'usersettingindex'])->name('usersetting');
+    Route::get('/usersetting/{user:slug}/details',[AdminAuthController::class,'userdetails'])->name('userdetails');
+    Route::post('/usersetting/{user:slug}/details',[AdminAuthController::class,'userupdatepic'])->name('userupdate');
+    Route::get('/iot',[IotController::class,'index'])->name('iotindex');
+});
+
+
+
+
 Route::get('category/{slug}',[ArticleController::class,'category'])->name('categoryindex');
+Route::get('allcategory',[ArticleController::class,'categoryall'])->name('categoryall');
 Route::get('404',[RedirectHandlesController::class,'index']);

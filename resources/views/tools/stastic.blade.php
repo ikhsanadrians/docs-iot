@@ -31,14 +31,10 @@
     <div class="mb-96"></div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        const labels = [
-            'January',
-            'February',
-            'March',
-            'April',
-            'May',
-            'June',
-        ];
+        var _ydata = JSON.parse('{!! json_encode($months) !!}')
+        var _xdata = JSON.parse('{!! json_encode($monthCount) !!}')
+        console.log(_ydata)
+        const labels = _ydata
 
         const data = {
             labels: labels,
@@ -46,7 +42,7 @@
                 label: 'Jumlah Artikel',
                 backgroundColor: 'rgb(79 70 229)',
                 borderColor: 'rgb(79 70 229)',
-                data: [0, 10, 5, 2, 20, 30, 45],
+                data: _xdata,
             }]
         };
 

@@ -130,7 +130,7 @@
 
 
 
-
+         <div class="mb-[40rem]"></div>
      </div>
 
      <div id="particles-js" class="absolute h-full w-full -z-20 hidden lg:block md:block"></div>

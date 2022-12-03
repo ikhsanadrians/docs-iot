@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Hash;
+use DB;
 use App\Models\Article;
 use App\Models\User;
 use App\Models\UserRole;
@@ -9,6 +10,7 @@ use App\Models\Image;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Category;
 use Session;
+use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -17,7 +19,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 class AdminAuthController extends Controller
 {
     public function index(){
-        return view('Auth.login');
+            return view('Auth.login');
     }
 
     public function auth(Request $request){
@@ -32,25 +34,39 @@ class AdminAuthController extends Controller
          if(Auth::attempt($credentials,$remember_me)) {
             return redirect()->intended('dashboard')->with('success','Berhasil Login');
          } else {
-            return redirect('/login');
+            return redirect('/login')->withErrors(['msg' => 'User Atau Password Salah']);
          }
     }
 
 
     public function dashboard(){
         $article = Article::all();
-        if(!Auth::check() || Auth::user()->user_roles_id != 1){
-            return redirect('loginadmin')->withErrors(['msg' => 'User Atau Password Salah']);
-        } else if (Auth::user()->user_roles_id == 1) {
-        return view('Auth.dashboard',compact('article'));
+        if(!Auth::user() || Auth::user()->user_roles_id != 1){
+            return redirect('404');
+        } else if ( Auth::user()->user_roles_id == 1){
+
+            return view('Auth.dashboard',compact('article'));
         }
+
+
     }
 
     public function statistic(){
+        $data = Article::select('id','created_at')->get()->groupBy(function($data){
+                   return Carbon::parse($data->created_at)->format('M');
+        });
+
+        $months = [];
+        $monthCount = [];
+        foreach($data as $month => $values){
+            $months[] = $month;
+            $monthCount[] = count($values);
+        }
+
         if(!Auth::user() || Auth::user()->user_roles_id != 1){
             return redirect('/404');
         } else {
-            return view('tools.stastic');
+            return view('tools.stastic',['data' => $data, 'months' => $months , 'monthCount' => $monthCount]);
         }
 
     }
@@ -229,7 +245,6 @@ public function addcategory(Request $request){
 }
 
 
-
    public function imagedestroy($id){
     $imgtodelete = Image::findOrFail(decrypt($id));
     $imgpath = $imgtodelete->url;
@@ -244,9 +259,16 @@ public function addcategory(Request $request){
 
    public function categorydetails(Request $request , $slug){
    $categories = Category::with('articles')->where('slug',$slug)->get();
+
    return view('tools.categorydetails',compact('categories'));
    }
 
+
+   public function categorydestroy($id){
+    $categoryToDelete = Category::findOrFail($id);
+    $categoryToDelete->delete();
+    return redirect()->back();
+   }
 
 
     public function signOut(){

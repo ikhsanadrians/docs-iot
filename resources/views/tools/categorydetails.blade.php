@@ -10,25 +10,34 @@
                             {!! $category->icon !!}
                             <h1 class="text-4xl font-bold dark:text-slate-300">{{ $category->name }}</h1>
                         </div>
-                        <div class="delete">
-                            <ion-icon name="trash" class="fill-red-600 h-8 w-8 hover:bg-slate-200 p-2 rounded-lg">
-                            </ion-icon>
-                        </div>
+                        <form action="{{ route('categorydestroy', $category->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="delete">
+                                <ion-icon name="trash" class="fill-red-600 h-8 w-8 hover:bg-slate-200 p-2 rounded-lg">
+                                </ion-icon>
+                            </button>
+                        </form>
 
 
                     </div>
                 </div>
                 <div class="statistic w-full h-[20rem] mt-4 flex flex-col md:flex-row lg:flex-row gap-2">
                     <div
-                        class="article-posted rounded-lg md:w-full w-full lg:w-1/2 p-4 h-full bg-gradient-to-r flex justify-center items-center from-sky-500 to-blue-500">
+                        class="article-posted bg-white border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 rounded-lg md:w-full w-full lg:w-1/2 p-4 h-full bg-gradient-to-r flex justify-center items-center">
                         @foreach ($category->articles as $article)
-                            <h1 class="text-5xl text-center text-white "><span
-                                    class="text-[10rem]">{{ $article->count() }}</span><br>Article Posted</h1>
+                            @if ($article->count())
+                                <h1 class="text-5xl text-center text-gray-700 "><span
+                                        class="text-[10rem]">{{ $article->count() }}</span><br>Article Posted</h1>
+                            @else
+                                <h1 class="text-5xl text-center text-white "><span class="text-[10rem]">0</span><br>Article
+                                    Posted</h1>
+                            @endif
 
                     </div>
                     <div
-                        class="user-using rounded-lg p-4 md:w-full w-full lg:w-1/2 flex items-center justify-center h-full bg-gradient-to-r from-blue-500 to-sky-500">
-                        <h1 class="text-5xl text-center text-white "><span
+                        class="user-using rounded-lg p-4 md:w-full w-full lg:w-1/2 flex items-center justify-center h-full bg-white border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                        <h1 class="text-5xl text-center text-gray-700 "><span
                                 class="text-[10rem]">{{ $article->user->count() }}</span><br>User Used</h1>
 
                     </div>

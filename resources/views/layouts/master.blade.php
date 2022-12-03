@@ -17,10 +17,10 @@
 
 </head>
 
-<body class="dark:bg-[#0F172A]">
+<body class="dark:bg-[#0F172A]" class="w-full h-full">
     <div id="app w-full h-full">
-        <header class="w-full h-full sticky z-10 top-0">
-            <div class="navbar  w-full h-16 bg-[#E8EBF2]/25 dark:bg-[#0F172A]/25">
+        <header class="w-full h-full z-10 sticky top-0">
+            <div class="navbar  w-full h-16 bg-[#E8EBF2]/25 dark:bg-[#0F172A]/25 top-0">
                 <div
                     class="navbarinner flex items-center justify-between w-full h-full pr-4 pl-4 md:pl-16 md:pr-16 lg:pl-24 lg:pr-24">
                     <div class="title-and-search lg:gap-6 gap-16 md:gap-6 flex  w-full h-full items-center">
@@ -61,11 +61,12 @@
                     </div>
 
                     <div class="menu flex gap-2 invisible md:visible lg:visible">
-                        <div
-                            class="category flex hover:bg-gradient-to-r hover:from-sky-600 hover:to-blue-600 duration-300 rounded-xl dark:text-slate-300 text-sky-900 hover:text-slate-100py-[6.5px] px-2 gap-[1.8px] items-center dark:hover-slate-300">
+                        <a href="{{ route('categoryall') }}"
+                            class="category flex hover:bg-gradient-to-r hover:from-sky-600 hover:to-blue-600 duration-300 rounded-xl dark:text-slate-300 text-sky-900 hover:text-slate-100 py-[6.5px] px-2 gap-[1.8px] items-center dark:hover-slate-300">
                             <ion-icon name="grid"></ion-icon>
-                            <h1 class="font-semibold"><a href="">Category</a></h1>
-                        </div>
+                            <h1 class="font-semibold">Category</h1>
+                        </a>
+
                         <div
                             class="topic flex hover:bg-gradient-to-r hover:from-sky-600 hover:to-blue-600 duration-300 rounded-xl dark:text-slate-300 text-sky-900 hover:text-slate-100 py-[6.5px] px-2 gap-[1.8px] items-center">
                             <ion-icon name="layers"></ion-icon>
@@ -94,11 +95,53 @@
                             </span>
                         </div>
                     </div>
+                    <div
+                        class="menuhamburger h-12 w-12 flex items-center  justify-center absolute p-2 right-5 hover:bg-zinc-200 lg:hidden rounded-full text-slate-800 hover:text-slate-700 cursor-pointer duration-300">
+                        <input id="hamburgercheckbox" type="checkbox" class="absolute h-8 w-8 opacity-0">
+                        <span id="hamburgericon" class="material-symbols-outlined text-3xl focus:text-slate-600">
+                            menu
+                        </span>
+                    </div>
                 </div>
             </div>
 
 
         </header>
+        <div class="mobile-dashboard-nav md:hidden lg:hidden fixed w-1/2 h-full bg-white shadow-lg z-20">
+            <a href="{{ route('categoryall') }}"
+                class="category flex hover:bg-gradient-to-r hover:from-sky-600 hover:to-blue-600 duration-300 rounded-xl dark:text-slate-300 text-sky-900 hover:text-slate-100 py-[6.5px] px-2 gap-[1.8px] items-center dark:hover-slate-300">
+                <ion-icon name="grid"></ion-icon>
+                <h1 class="font-semibold">Category</h1>
+            </a>
+
+            <div
+                class="topic flex hover:bg-gradient-to-r hover:from-sky-600 hover:to-blue-600 duration-300 rounded-xl dark:text-slate-300 text-sky-900 hover:text-slate-100 py-[6.5px] px-2 gap-[1.8px] items-center">
+                <ion-icon name="layers"></ion-icon>
+                <h1 class="font-semibold"><a href="">Topic</a></h1>
+            </div>
+            <div
+                class="article flex hover:bg-gradient-to-r hover:from-sky-600 fill-sky-900 hover:to-blue-600 duration-300 rounded-xl dark:text-slate-300 text-sky-900 hover:text-slate-100 py-[6.5px] px-2 gap-[1.8px] items-center dark:hover-slate-300">
+                <ion-icon name="document-text"></ion-icon>
+                <h1 class="font-semibold"><a href="">Article</a></h1>
+            </div>
+            <div
+                class="about flex hover:bg-gradient-to-r hover:from-sky-600 hover:to-blue-600 duration-300 rounded-xl dark:text-slate-300 dark:fill-slate-300 text-sky-900 fill-sky-900 hover:fill-slate-100 hover:text-slate-100 py-[6.5px] px-2 gap-[1.8px] items-center dark:hover-slate-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="ionicon h-6" viewBox="0 0 512 512">
+                    <title>Information Circle</title>
+                    <path
+                        d="M256 56C145.72 56 56 145.72 56 256s89.72 200 200 200 200-89.72 200-200S366.28 56 256 56zm0 82a26 26 0 11-26 26 26 26 0 0126-26zm48 226h-88a16 16 0 010-32h28v-88h-16a16 16 0 010-32h32a16 16 0 0116 16v104h28a16 16 0 010 32z" />
+                </svg>
+                <h1 class="font-semibold"><a href="">About</a></h1>
+            </div>
+            <div
+                class="set-light flex items-center relative rounded-lg hover:bg-zinc-200 focus:border-2 focus:border-zinc-400 duration-300">
+                <input type="checkbox" id="setthelight" class="absolute h-8 w-10 opacity-0">
+                <span id="setlight"
+                    class="toggle material-symbols-outlined text-indigo-500 cursor-pointer p-2 rounded-md hover:bg-zinc-200 focus:border-2 focus:border-zinc-400 duration-300">
+                    dark_mode
+                </span>
+            </div>
+        </div>
         <div class="main-content w-full h-full px-4 lg:pl-16 lg:pr-16">
             <main class="h-full w-full flex">
                 @if (View::hasSection('content') || View::hasSection('contents'))
@@ -114,16 +157,18 @@
             </main>
 
         </div>
+
         <footer
-            class="w-full mt-14 min-h-[24rem] pt-[4rem] pb-[2rem] max-h-[50rem] bg-gradient-to-r from-blue-900 to-sky-900">
+            class="w-full mt-14 min-h-[24rem]  pt-[4rem] pb-[2rem] max-h-[50rem] bg-gradient-to-r from-blue-900 to-sky-900">
             <div
                 class="w-full h-full relative flex flex-col lg:flex-row md:flex-col gap-4 items-center justify-start lg:justify-between">
                 <div class="robot-img absolute -top-16 md:hidden hidden lg:block pointer-events-none select-none">
-                    <img src="https://intek.co.id/wp-content/uploads/2021/09/intek-bot-2-copy-2-1-1.png" alt=""
-                        class="h-96">
+                    <img src="https://intek.co.id/wp-content/uploads/2021/09/intek-bot-2-copy-2-1-1.png"
+                        alt="" class="h-96">
                 </div>
                 <div class="titleandwebsname pl-2 md:pl-2 lg:pl-72">
-                    <div class="footer-title flex items-center my-0 lg:-my-24" style="filter: brightness(0) invert(1);">
+                    <div class="footer-title flex items-center my-0 lg:-my-24"
+                        style="filter: brightness(0) invert(1);">
 
                         <img src="{{ asset('images/docslogolates.png') }}" alt="" class="h-12 w-12">
                         <h1
@@ -142,7 +187,7 @@
                     </ul>
                     <ul class="flex flex-col gap-2">
                         @foreach ($categories as $category)
-                            <li>{{ $category->name }}</li>
+                            <li><a href="{{ route('categoryindex', $category->slug) }}">{{ $category->name }}</a></li>
                         @endforeach
 
                     </ul>
@@ -171,11 +216,15 @@
                 </div>
             </div>
         </footer>
+
     </div>
+
+
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/loading.js') }}"></script>
     <script src="{{ asset('js/navbar.js') }}"></script>
     <script src="{{ asset('js/toggledark.js') }}"></script>
+    <script src="{{ asset('js/hamburger.js') }}"></script>
     <script src="{{ asset('js/search.js') }}"></script>
     <script src="{{ asset('js/searchquery.js') }}"></script>
     <div class="loader dark:!bg-[#0F172A]">
@@ -231,9 +280,12 @@
     </div>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
     <div id="backdrop"
         class="hidden fixed top-0 z-10 backdrop w-full h-full  bg-slate-700 dark:bg-slate-500 opacity-30">
     </div>
+
 
 </body>
 
