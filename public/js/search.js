@@ -25,19 +25,48 @@ $(document).ready(function(){
         }
     }
 
-
-    $('#search-button').on('click',function(){
-        if($('.search-wrappers').hasClass('hidden')){
-            $('.search-wrappers').removeClass('hidden')
-            $('.search-wrappers').addClass('block')
-            $('body').addClass('overflow-y-hidden')
+    function ShowModalsSearchMz(){
+        if(document.querySelector('.search-wrappers').classList.contains('hidden')){
+            document.querySelector('.search-wrappers').classList.remove('hidden')
+            document.querySelector('.search-wrappers').classList.add('block')
+            document.querySelector('body').classList.add('overflow-y-hidden')
             addBackDrop()
         } else {
-            $('.search-wrappers').removeClass('block')
-            $('body').removeClass('overflow-y-hidden')
-            $('.search-wrappers').addClass('hidden')
+            document.querySelector('.search-wrappers').classList.remove('hidden')
+            document.querySelector('.search-wrappers').classList.add('block')
+            document.querySelector('body').classList.add('overflow-y-hidden')
             addBackDrop()
+        }
+    }
 
+
+    // $('#simple-search').on('click',function(){
+    //     if($('.search-wrappers').hasClass('hidden')){
+    //         $('.search-wrappers').removeClass('hidden')
+    //         $('.search-wrappers').addClass('block')
+    //         $('body').addClass('overflow-y-hidden')
+    //         addBackDrop()
+    //     } else {
+    //         $('.search-wrappers').removeClass('block')
+    //         $('body').removeClass('overflow-y-hidden')
+    //         $('.search-wrappers').addClass('hidden')
+    //         addBackDrop()
+
+    //     }
+    // })
+
+    let searchbtn = document.getElementById('search-button')
+    searchbtn.addEventListener('click',function(){
+        if(document.querySelector('.search-wrappers').classList.contains('hidden')){
+            document.querySelector('.search-wrappers').classList.remove('hidden')
+            document.querySelector('.search-wrappers').classList.add('block')
+            document.querySelector('body').classList.add('overflow-y-hidden')
+            addBackDrop()
+        } else {
+            document.querySelector('.search-wrappers').classList.remove('block')
+            document.querySelector('.search-wrappers').classList.add('hidden')
+            document.querySelector('body').classLisst.remove('overflow-y-hidden')
+            addBackDrop()
         }
     })
 
