@@ -23,24 +23,31 @@
                 <input type="text" value="{{ $editarticle->title }}" name="title"
                     class="w-full h-12 border-[1.2px] border-zinc-300 dark:bg-slate-800 dark:text-slate-300 rounded-lg pl-4 focus:shadow-md focus:outline-none focus:border-sky-600"
                     placeholder="Masukan Title Article">
-                <div class="relative mt-4">
-                    <select
-                        class="block appearance-none w-full bg-gray-100 border dark:bg-slate-800
-                        dark:text-slate-300 border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                        id="grid-state" name="category">
-                        <option>Select Category</option>
-                        @foreach ($category as $percategory)
-                            <option value="{{ $percategory->id }}"
-                                {{ $percategory->id == $editarticle->category_id ? 'selected' : '' }}>
-                                {{ $percategory->name }}
-                            </option>
-                        @endforeach
-                    </select>
-                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                        </svg>
+
+                <div class="selectandedit flex w-full h-full">
+                    <div id="edit-wrapper" class="category-everiess relative mt-4 w-full h-full">
+                        <select
+                            class="block appearance-none w-full mb-4 bg-gray-100 border dark:bg-slate-800
+                           dark:text-slate-300 edit-category border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                            id="edit-category" name="editcategory[]">
+                            <option>Select Category</option>
+                            @foreach ($category as $percategory)
+                                <option value="{{ $percategory->id }}"
+                                    @foreach ($editarticle->categories as $wherecategory)
+                                   {{ $percategory->id == $wherecategory->id ? 'selected' : '' }}>
+                                   {{ $percategory->name }}
+                               </option> @endforeach
+                                    @endforeach
+                        </select>
+
                     </div>
+                    <div id="addnewcategories" title="Add More Category"
+                        class="add-newcategory hidden h-full mb-8 rounded-lg bg-slate-200 flex items-center cursor-pointer mt-4 ml-1">
+                        <span class="material-symbols-outlined text-3xl flex items-center cursor-pointer text-gray-700">
+                            add
+                        </span>
+                    </div>
+
                 </div>
                 <div class="posttype-input-wrapper w-full h-full">
                     <div class="posttype-input w-full h-full flex items-center">
@@ -100,6 +107,31 @@
     <script src="https://cdn.ckeditor.com/4.20.0/full/ckeditor.js"></script>
     <script>
         CKEDITOR.replace('editor');
+    </script>
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script>
+        let jumlah = []
+        @foreach ($editarticle->categories as $wherecategory)
+            jumlah.push(@json($wherecategory->name));
+        @endforeach
+        console.log(jumlah)
+        if (jumlah.length > 1) {
+            for (let i = 0; i < jumlah.length; i++) {
+                let clones = $('#edit-category').clone(true);
+                $('#edit-category').after(clones)
+            }
+        } else {
+            $('.add-newcategory').removeClass("hidden");
+        }
+
+        $('#addnewcategories').on('click', () => {
+            let clone = $('.edit-category').clone(true);
+            $('.edit-category').after(clone)
+            let catevery = $('.category-everiess')
+            if (catevery.length > 2) {
+                $(".add-newcategory").addClass("hidden")
+            }
+        });
     </script>
     <link rel="stylesheet" href="{{ asset('css/root.css') }}">
 @endsection

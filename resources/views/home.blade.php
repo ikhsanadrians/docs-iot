@@ -9,9 +9,9 @@
                              @foreach ($articleall as $article)
                                  @if ($article->article_type_id != 2)
                                      <a href="{{ '/article/' . $article->slug }}">
-                                         <div class="articlecard w-full h-full bg-sky-200/40 dark:bg-slate-800 dark:border-[1.2px] dark:border-slate-600 shadow-lg hover:scale-105 hover:shadow-2xl duration-300 rounded-lg p-2 md:w-[90%] lg:w-[31%] relative mb-2 min-h-full overflow-hidden"
+                                         <div class="articlecard w-full h-full bg-sky-200/40 dark:bg-slate-800 dark:border-[1.2px] dark:border-slate-600 shadow-lg hover:scale-105 hover:shadow-2xl duration-300 rounded-lg p-2 md:w-[90%] lg:w-[31%] relative mb-2 overflow-hidden"
                                              id="article">
-                                             <div class="picture w-full h-1/2 rounded-2xl overflow-hidden ">
+                                             <div class="picture w-full h-[10rem] rounded-2xl overflow-hidden ">
                                                  <img src="{{ asset('storage/thumbnail/' . $article->images) }}"
                                                      loading="lazy" alt=""
                                                      class="brightness-100 object-cover w-full h-full">
@@ -30,7 +30,7 @@
                                                      <a href="{{ '/article/' . $article->slug }}">
                                                          <h1
                                                              class="font-bold text-lg text-[#031b4e] dark:text-slate-400 cursor-pointer hover:opacity-80">
-                                                             {{ $article->title }}
+                                                             {{ Str::limit($article->title, 20) }}
                                                          </h1>
                                                      </a>
 
@@ -55,9 +55,9 @@
                          @else
                              @foreach ($articleall as $article)
                                  <a href="{{ '/article/' . $article->slug }}">
-                                     <div class="articlecard w-full h-full bg-sky-200/40 dark:bg-slate-800 dark:border-[1.2px] dark:border-slate-600 shadow-lg hover:scale-105 hover:shadow-2xl duration-300 rounded-lg p-2 md:w-[90%] lg:w-[31%] relative mb-2 min-h-full overflow-hidden"
+                                     <div class="articlecard w-full h-full bg-sky-200/50 dark:bg-slate-800 dark:border-[1.2px] dark:border-slate-600 shadow-lg hover:scale-105 hover:shadow-2xl duration-300 rounded-lg p-2 md:w-[90%] lg:w-[31%] relative mb-2 overflow-hidden"
                                          id="article">
-                                         <div class="picture w-full h-1/2 rounded-2xl overflow-hidden ">
+                                         <div class="picture w-full h-[10rem] rounded-2xl overflow-hidden ">
                                              <img src="{{ asset('storage/thumbnail/' . $article->images) }}" loading="lazy"
                                                  alt="" class="brightness-100 object-cover w-full h-full">
                                          </div>
@@ -75,7 +75,7 @@
                                                  <a href="{{ '/article/' . $article->slug }}">
                                                      <h1
                                                          class="font-bold text-lg text-[#031b4e] dark:text-slate-400 cursor-pointer hover:opacity-80">
-                                                         {{ $article->title }}
+                                                         {{ Str::limit($article->title, 20) }}
                                                      </h1>
                                                  </a>
 

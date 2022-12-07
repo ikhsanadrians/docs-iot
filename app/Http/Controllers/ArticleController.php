@@ -40,6 +40,16 @@ class ArticleController extends Controller
     {
           $request->validate([
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:8024',
+            'editor' => 'required',
+            'title' => 'required',
+            'typepost' => 'required',
+
+          ],[
+            'image.required' => 'Gambar Tidak Boleh Kosong',
+            'editor.required' => 'Deskripsi Tidak Boleh Kosong',
+            'title.required' => 'Judul Tidak Boleh Kosong',
+            'typepost.required' => 'Visibility Artikel Tidak Boleh Kosong',
+
           ]);
 
           if($request->hasFile('image')){
@@ -106,10 +116,10 @@ class ArticleController extends Controller
     {
       $articletype = ArticleType::all();
       $category = Category::all();
-      $editarticle = Article::findOrFail(decrypt($id));
+      $editarticle = Article::with('categories')->findOrFail(decrypt($id));
+    //   dd($editarticle);
 
-
-        return view('tools.editarticle',compact('editarticle','category' , 'articletype'));
+      return view('tools.editarticle',compact('editarticle','category' , 'articletype'));
 
     }
 
