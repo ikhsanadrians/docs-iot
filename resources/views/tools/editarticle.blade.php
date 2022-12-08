@@ -124,14 +124,14 @@
             $('.add-newcategory').removeClass("hidden");
         }
 
-        $('#addnewcategories').on('click', () => {
-            let clone = $('.edit-category').clone(true);
-            $('.edit-category').after(clone)
-            let catevery = $('.category-everiess')
-            if (catevery.length > 2) {
-                $(".add-newcategory").addClass("hidden")
-            }
-        });
+        // $('#addnewcategories').on('click', () => {
+        //     let clone = $('.edit-category').clone(true);
+        //     $('.edit-category').after(clone)
+        //     let catevery = $('.category-everiess')
+        //     if (catevery.length > 2) {
+        //         $(".add-newcategory").addClass("hidden")
+        //     }
+        // });
     </script>
     <link rel="stylesheet" href="{{ asset('css/root.css') }}">
 @endsection
