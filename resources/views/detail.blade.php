@@ -83,23 +83,104 @@
 
         }
 
-        .article-desc>ol>li span {
-            /* color: #031B4E; */
+        .article-desc>table {
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            table-layout: fixed;
         }
 
-        /* .article-desc > strong,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    h1,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    h2,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       h3,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    h4,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    h5,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    span {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        color: #031B4E;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    } */
+        .article-desc>table caption {
+            font-size: 1.5em;
+            margin: .5em 0 .75em;
+        }
 
-        .article-desc img {
-            width: 100%;
-            object-fit: cover;
+        .article-desc>table tr {
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            padding: .35em;
+        }
+
+        .article-desc>table th,
+        table td {
+            padding: .625em;
+            text-align: center;
+        }
+
+        .article-desc>table th {
+            font-size: .85em;
+            letter-spacing: .1em;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        @media screen and (max-width: 600px) {
+            .article-desc>table {
+                border: 0;
+            }
+
+            .article-desc>table caption {
+                font-size: 1.3em;
+            }
+
+            .article-desc>table thead {
+                border: none;
+                clip: rect(0 0 0 0);
+                height: 1px;
+                margin: -1px;
+                overflow: hidden;
+                padding: 0;
+                position: absolute;
+                width: 1px;
+            }
+
+            .article-desc>table tr {
+                border-bottom: 3px solid #ddd;
+                display: block;
+                margin-bottom: .625em;
+            }
+
+            .article-desc>table td {
+                border-bottom: 1px solid #ddd;
+                display: block;
+                font-size: .8em;
+                text-align: right;
+            }
+
+
+            .article-desc>td::before {
+                float: left;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+
+            .article-desc>table td:last-child {
+                border-bottom: 0;
+
+            }
+
+
+            .article-desc>ol>li span {
+                /* color: #031B4E; */
+            }
+
+            /* .article-desc > strong,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                h1,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                h2,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   h3,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                h4,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                h5,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                span {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    color: #031B4E;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                } */
+
+            .article-desc img {
+                width: 100%;
+                object-fit: cover;
+            }
+
         }
     </style>
 

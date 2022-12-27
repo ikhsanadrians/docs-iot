@@ -4,7 +4,7 @@
         <div class="container w-full h-full">
             <div class="inner flex flex-col w-full h-full">
                 <div class="category-details w-full">
-                    <h1 class="dark:text-white">Category Details</h1>
+                    <h1 class="dark:text-white text-xl bg-gray-100 max-w-fit">Category Details</h1>
                     <div class="titlecategory mt-2 flex items-center gap-2 justify-between">
                         <div class="titles flex items-center gap-2" id="iconsearchcats">
                             {!! $category->icon !!}
@@ -26,13 +26,9 @@
                     <div
                         class="article-posted bg-white border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 rounded-lg md:w-full w-full lg:w-1/2 p-4 h-full bg-gradient-to-r flex justify-center items-center">
                         @foreach ($category->articles as $article)
-                            @if ($article->count())
-                                <h1 class="text-5xl text-center text-gray-700 "><span
-                                        class="text-[10rem]">{{ $article->count() }}</span><br>Article Posted</h1>
-                            @else
-                                <h1 class="text-5xl text-center text-white "><span class="text-[10rem]">0</span><br>Article
-                                    Posted</h1>
-                            @endif
+                            <h1 class="text-5xl text-center text-gray-700 "><span
+                                    class="text-[10rem]">{{ $article->count() }}</span><br>Article Posted</h1>
+                        @endforeach
 
                     </div>
                     <div
@@ -47,5 +43,4 @@
 
     </div>
     </div>
-    @endforeach
 @endsection
